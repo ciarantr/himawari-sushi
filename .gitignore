@@ -1,0 +1,31 @@
+# Logs
+logs
+*.log
+lerna-debug.log*
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+# Python
+db.sqlite3
+venv
+__pycache__
+env.py
+# Node
+pnpm-debug.log*
+node_modules
+
+# config
+.prettierrc.yml
+.eslintrc.cjs
