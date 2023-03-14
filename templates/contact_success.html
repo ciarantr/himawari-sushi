@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<main class="container mx-auto mt-32 space-y-8">
+  <div
+    class="mx-auto space-y-6 rounded-md bg-white p-8 text-center text-center shadow md:max-w-screen-md"
+  >
+    <div>
+      <h1 class="text-xl">
+        Thank you for getting in touch,
+      </h1>
+      <h2 class="text-lg">We will get back to you as soon as possible</h2>
+    </div>
+
+    <div class="grid place-items-center">
+      {% for message in messages %}
+        <div class="max-w-[30ch] break-words text-left space-y-1 [&_span]:font-semibold
+         [&_span]:text-black [&_div:last-child>span]:block ">
+          {{ message|safe }}</div>
+      {% endfor %}
+    </div>
+
+  </div>
+</main>
+{% endblock %}
