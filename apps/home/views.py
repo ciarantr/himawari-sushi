@@ -138,3 +138,35 @@ class Menu(View):
 
         return render(request, template, context)
 
+
+class Reservations(View):
+    # A class based view for the reservation page
+    def get(self, request):
+        # list of questions and answers reservation page
+        questions = [
+            {
+                'question': 'How do I make a reservation?',
+                'answer': 'You can make a reservation by calling'
+                          ' us at 555-555-5555 or by making a ',
+                'link': 'booking_create',
+
+            },
+            {
+                'question': 'How do I cancel a reservation?',
+                'answer': 'You can cancel a reservation by calling us at'
+                          '555-555-5555 or by making '
+                          'a change on your profile page in the booking option.',
+
+            },
+            {
+                'question': 'What if I have a food allergy?',
+                'answer': 'Please let us know about your food allergy when you '
+                          'make your reservation. We will do our best to '
+                          'accommodate your needs.',
+            }
+
+        ]
+        context = {'questions': questions}
+        template = 'reservations.html'
+
+        return render(request, template, context)
