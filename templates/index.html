@@ -1,0 +1,227 @@
+{% extends "base.html" %} {% block content %}{% load static %}
+
+<!-- main banner -->
+<section
+  role="banner"
+  id="home-banner"
+  class="container relative mt-32 grid items-center md:grid-cols-2"
+>
+  <div class="space-y-3">
+    <h1 class="text-5xl capitalize">
+      Enjoy the best sushi<br />
+      in town
+    </h1>
+    <p>
+      After a good dinner one can forgive anybody,<br />
+      even one's own relations.
+    </p>
+    <a
+      class="btn flex max-w-max items-center gap-x-2"
+      href="{% url 'booking_create' %}"
+      >Book now
+      <img
+        class="h-6 w-6"
+        aria-hidden="true"
+        src="{% static 'icons/arrow-right.svg' %}"
+        alt="book now arrow right icon"
+        width="24"
+        height="24"
+      />
+    </a>
+  </div>
+  <div class="hidden rounded-lg p-2 shadow md:block">
+    <img
+      class="rounded-lg object-cover"
+      src="{% static 'hero-md.webp' %}"
+      alt="fours sushi rolls on a transparent plate"
+      width="670"
+      height="440"
+    />
+  </div>
+</section>
+
+<main>
+  <!-- About us  -->
+  <section class="container mt-96 gap-x-12 md:grid md:grid-cols-2">
+    <div class="hidden md:block">
+      <img class='rounded-2xl object-cover' src='{% static
+      'home-about-sm.webp'%}' width='640' height='410' alt='photo of foods
+      served at restaurant, sushi platter on one side with soy sauce wita a mix
+      of side dishes'>
+    </div>
+
+    <div class="space-y-4">
+      <h2 class="mb-4 text-4xl text-tertiary">About us</h2>
+      <h3>
+        Sushi made with excellence.<br />
+        Fresh, authentic, sushi
+      </h3>
+
+      <div class="md:hidden">
+        <img class='rounded-2xl' src='{% static 'home-about-sm.webp' %}' alt=''>
+      </div>
+
+      <p>
+        Authentic Japanese cuisine, made with the best ingredients and the best
+        chefs. We have been serving our customers for over 20 years, and we are
+        proud to be the best sushi restaurant in town. We are located in the
+        heart of the city, and we are open every day from 12pm to 6pm.
+      </p>
+      <a
+        class="flex items-center gap-x-2 rounded-full border-2 border-tertiary p-2 text-tertiary md:border-transparent md:transition-colors md:hover:border-tertiary"
+        href="{% url 'about' %}"
+      >
+        <svg
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            d="m17 12l-5 5v-3H8v-4h4V7l5 5m4 4.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18c-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18c.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9M12 4.15L5 8.09v7.82l7 3.94l7-3.94V8.09l-7-3.94Z"
+          ></path>
+        </svg>
+        Explore more
+      </a>
+    </div>
+  </section>
+
+  <!-- Popular dishes -->
+  <section class="container mt-64 space-y-8">
+    <h2 class="text-center text-4xl">Popular dishes</h2>
+
+    <div
+      class="grid grid-cols-[repeat(auto-fit,_minmax(220px,_1fr))] gap-8 [&>div]:rounded-md [&>div]:bg-black [&>div]:p-4 [&>div]:shadow-xl [&_p]:text-gray-400 [&_div]:space-y-4 [&_img]:mx-auto"
+    >
+      <div>
+        <img
+          src="{% static 'chicken-katsu.webp' %}"
+          alt="chicken katsu curry in white bowl"
+          width="250"
+          height="250"
+          loading="lazy"
+        />
+
+        <h2 class="font-medium capitalize text-white">chicken katsu curry</h2>
+        <p>
+          Succulent chicken in a crispy Japanese panko crumb with mild curry
+          sauce, pickles & steamed rice.
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="{% static 'cucumber-maci.webp' %}"
+          alt="cut cucumber in a bowl"
+          width="250"
+          height="250"
+          loading="lazy"
+        />
+        <h2 class="font-medium capitalize text-white">cucumber maci</h2>
+        <p>Crunchy cucumber & toasted sesame seed wrapped in a nori roll</p>
+      </div>
+
+      <div>
+        <img
+          src="{% static 'salmon-nigari.webp' %}"
+          alt="salmon nigiri in white bowl"
+          width="250"
+          height="250"
+          loading="lazy"
+        />
+        <h2 class="font-medium capitalize text-white">salmon nigari</h2>
+        <p>
+          Salmon nigiri sushi with a slice of fresh salmon on top of a bed of
+          rice.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newly added dish  -->
+  <section
+    id="top-dish-banner"
+    class="container relative mt-64 space-y-4 md:grid md:grid-cols-2 md:gap-x-12 md:space-y-0 lg:gap-x-24"
+  >
+    <div class="space-y-2">
+      <h2 class="text-2xl text-tertiary">Newly Added</h2>
+      <h3 class="text-3xl">Sushi Shamuari</h3>
+      <p>
+        Tempura shrimp crabmeat and scallop, mango, avocado, green onion, smoked
+        salmon, masago mayo sesame seed and our own sweet chili sauce. This roll
+        has it all.
+      </p>
+    </div>
+
+    <div class="shadow-xlw rounded-xl border-2 border-black bg-black p-2">
+      <img class='rounded-xl aspect-[16/11] object-cover' src='{% static
+      'newly-added-lg.webp' %}' width='640' height='440' loading='lazy' alt='6
+      small sushi platters served on wooden tray'>
+    </div>
+  </section>
+
+  <!-- subscribe / newsletter -->
+  <section class="container mt-64 md:max-w-screen-lg">
+    <div
+      class="relative space-y-8 rounded-3xl bg-black p-8 shadow-2xl md:grid md:grid-cols-[1fr,2fr] md:gap-x-24"
+    >
+      <div class="absolute -top-8 right-0 w-1/3 md:relative md:top-0 md:w-full">
+        <img
+          class="rounded-xl"
+          src="{% static 'news-letter.webp' %}"
+          alt="rice bowl with edamame in white bowl"
+          width="250"
+          height="250"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="space-y-6">
+        <h2 class="text-4xl text-tertiary">Newsletter</h2>
+        <h3 class="text-white">
+          Subscribe to our newsletter and get 10% off your first order.
+        </h3>
+        <form method="post">
+          <div class="relative mb-12 rounded-2xl bg-white py-2 px-4 md:flex">
+            {% csrf_token %}
+            <label
+              for="email"
+              class="sr-only"
+              >Email</label
+            >
+            <input
+              id="email"
+              class="w-full p-2"
+              type="email"
+              placeholder="Enter your email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              title="Please enter a valid email address, e.g. john@gmail.com"
+              required
+            />
+            <button
+              class="btn absolute inset-x-0 -bottom-16 flex w-full items-center justify-center gap-x-2 font-thin md:relative md:inset-x-0 md:bottom-0"
+            >
+              Subscribe
+              <svg
+                class="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M473 39.05a24 24 0 0 0-25.5-5.46L47.47 185h-.08a24 24 0 0 0 1 45.16l.41.13l137.3 58.63a16 16 0 0 0 15.54-3.59L422 80a7.07 7.07 0 0 1 10 10L226.66 310.26a16 16 0 0 0-3.59 15.54l58.65 137.38c.06.2.12.38.19.57c3.2 9.27 11.3 15.81 21.09 16.25h1a24.63 24.63 0 0 0 23-15.46L478.39 64.62A24 24 0 0 0 473 39.05Z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% endblock %}
