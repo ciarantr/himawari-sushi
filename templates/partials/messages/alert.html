@@ -1,0 +1,36 @@
+{% if messages %}
+<div
+  role="alert"
+  class="fixed inset-x-0 top-20 z-10 mt-2 sm:container"
+>
+  <div
+    class="mx-auto md:mr-0 md:ml-auto flex w-max items-center gap-x-7 rounded bg-white p-3 text-sm shadow-xl"
+  >
+    <ul class="grow text-center">
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+
+    <button
+      class="ml-auto grid place-items-center rounded-full bg-white text-tertiary transition-colors hover:bg-tertiary hover:text-white"
+      aria-controls="alert dialog"
+      onclick="this.parentElement.classList.add('hidden')"
+    >
+      <svg
+        class="h-8 w-8 p-1"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="currentColor"
+          d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41z"
+        ></path>
+      </svg>
+    </button>
+  </div>
+</div>
+{% endif %}
