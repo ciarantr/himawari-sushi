@@ -1,0 +1,28 @@
+{% load django_vite %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="ie=edge"
+    />
+    {% vite_hmr_client %} {% vite_asset 'js/main.ts' %}
+    {% block dialog_js %} {%endblock %} {% vite_asset 'css/main.css' %}
+    <title>{% block title %}Himawari Sushi {% endblock %}</title>
+  </head>
+  <body>
+    <!-- Header -->
+    {% include 'partials/header.html' %}
+    <!-- Content -->
+    {% block content %}{% endblock %}
+    <!-- Footer -->
+    {% include 'partials/footer.html' %}
+    <!-- Dialog for logout -->
+    {% include 'partials/messages/logout_dialog.html' %}
+  </body>
+</html>
