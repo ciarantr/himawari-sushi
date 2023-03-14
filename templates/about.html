@@ -1,0 +1,115 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<!-- About us -->
+<div class="container mt-16">
+  <div class="space-y-12">
+    <h1 class="text-center text-4xl">
+      Authentic Japanese
+      <span class="border-b border-tertiary text-tertiary">cuisine</span>
+    </h1>
+    <div
+      class="grid-row-2 grid grid-cols-2 gap-8 [&_img]:rounded-2xl [&_img]:shadow-2xl"
+    >
+      <img
+        class="row-start-1 row-end-3 aspect-square h-full md:h-auto w-full object-cover"
+        src="{% static 'team-member-1.jpg' %}"
+        alt="head chef at himanashi sushi restaurant preparing sushi"
+        width='210'
+        height='270'
+        loading='eager'
+      />
+      <img
+        class="aspect-video object-cover h-auto w-full"
+        src="{% static 'about-us-banner-2.jpg' %}"
+        alt="orange sushi neon light"
+        width='120'
+        height='210'
+        loading='eager'
+      />
+      <img
+        class="aspect-video object-cover h-auto w-full"
+        src="{% static 'about-us-banner-3.jpg' %}"
+        alt="himanashi sushi restaurant at night"
+        width='120'
+        height='210'
+        loading='eager'
+      />
+    </div>
+  </div>
+
+  <main class="mt-32 h-full space-y-32 md:space-y-64">
+    <!-- Story -->
+    <div class="space-y-6 rounded-2xl py-8 px-4 text-center shadow-xl md:max-w-screen-lg mx-auto">
+      <h2 class="text-3xl">Our Story</h2>
+      <p class="mx-auto max-w-prose">
+        Experience the best of authentic Japanese cuisine at our fancy Japanese
+        restaurant. Our menu features a wide range of traditional dishes,
+        expertly prepared by our skilled chefs, using only the freshest
+        ingredients.
+      </p>
+    </div>
+
+    <!-- Team -->
+
+    <div class="space-y-12 md:grid md:gap-x-12 lg:grid-cols-2">
+      <div class="h-fit space-y-6 rounded-2xl p-8 shadow-xl">
+        <h2 class="text-center text-3xl">Our Team</h2>
+        <!-- Our team of chefs history -->
+        <p class="text-lg text-black">
+          Our team of chefs has been working together for over 10 years. We have
+          a passion for Japanese cuisine, and we are dedicated to providing our
+          customers with the best possible experience. we're always happy to
+          answer any questions you may have.
+        </p>
+      </div>
+
+      <div
+        class="[&_img]:1/2 space-y-8 text-center md:grid md:grid-cols-[repeat(auto-fit,_minmax(150px,_1fr))] md:gap-x-12 md:gap-y-16 md:space-y-0 [&_img]:mx-auto [&_img]:aspect-[1/1] [&_img]:w-10/12 [&_img]:rounded-full [&_img]:object-cover [&_img]:shadow-xl md:[&_img]:aspect-[1/4] md:[&_img]:h-full md:[&_img]:max-h-[750px]"
+      >
+        <figure>
+          <img
+            src="{% static 'team-member-1.jpg' %}"
+            width="400"
+            height="400"
+            alt="head chef and owner at himanashi Kazuya sushi restaurant preparing sushi"
+            loading='lazy'
+          />
+          <figcaption>
+            <span class="font-bold">Kazuya Matsu</span>
+            <span class="block text-gray-500">Head Chef / Owner</span>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="{% static 'team-member-2.jpg' %}"
+            width="400"
+            height="400"
+            alt="sous chef matt simone at himanashi sushi restaurant preparing food"
+            loading='lazy'
+          />
+          <figcaption>
+            <span class="font-bold">Matt Simone</span>
+            <span class="block text-gray-500">Sous Chef</span>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img
+            src="{% static 'team-member-3.jpg' %}"
+            width="400"
+            height="400"
+            alt="head chef kate williams at himanashi sushi restaurant preparing food"
+            loading='lazy'
+          />
+          <figcaption>
+            <span class="font-bold">Kate Williams</span>
+            <span class="block text-gray-500">Head Chef</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
