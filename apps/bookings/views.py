@@ -7,6 +7,7 @@ from django.views import View
 
 from apps.customer.models import Customer
 from .forms import BookingForm
+from .models import Booking
 
 
 # Create your views here.
@@ -57,3 +58,38 @@ class BookingCreate(View):
         else:
             messages.error(request, form.errors)
             return redirect(reverse('booking_create'))
+
+
+class BookingEdit(View):
+    # TODO: ADD BOOKING EDIT EMAIL
+    # A class based view for the booking edit page
+    def get(self, request, pk):
+
+        booking = Booking.objects.get(pk=pk)
+        form = BookingForm(instance=booking)
+        context = {'form': form,
+                   'form_title': 'Edit booking',
+                   'form_class': 'base-form',
+                   'form_id': 'booking-form',
+                   'submit_text': 'Update',
+                   }
+        template = 'bookings/booking.html'
+
+        return render(request, template, context)
+
+    def post(self, request, pk):
+        # TODO: ADD BOOKING EDIT EMAIL
+        booking = Booking.objects.get(pk=pk)
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid() and form.has_changed():
+            form.save()
+            messages.success(request,
+                             'Your booking has been successfully updated')
+            return redirect('profile-bookings')
+
+        else:
+            if not form.has_changed():
+                messages.error(request, 'No changes made')
+            else:
+                messages.error(request, form.errors)
+            return redirect(reverse('booking_edit', args=[pk]))
