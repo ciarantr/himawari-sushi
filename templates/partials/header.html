@@ -1,0 +1,158 @@
+{% load static %}
+<header class="sm:container ">
+  <nav
+    aria-label="primary-navigation"
+    class="flex items-center bg-tertiary px-4 py-2 sm:mt-4 sm:grid-cols-[auto,1fr,auto] sm:rounded-lg"
+  >
+    <!-- mobile menu sm flyout -->
+    <div
+      class="fixed top-[64px] right-0 z-50 h-full w-0 space-y-4 bg-black text-white transition-[width] ease-in-out sm:hidden"
+    >
+      <div class="mt-4 space-y-8 overflow-y-hidden text-center">
+        <ul class="space-y-2 text-lg">
+          <li><a href="{% url 'menu' %}">Menu</a></li>
+          <li><a href="{% url 'booking_create' %}">Book</a></li>
+        </ul>
+      </div>
+
+      <!--  (view profile / sign-out) login / register  -->
+      <div class="absolute bottom-[64px] w-full border-t py-4 px-2">
+        <div
+          class="grid grid-cols-2 gap-x-4 text-center [&_a]:block [&_a]:rounded-full [&_a]:border [&_a]:py-2 [&_a]:px-4 [&_a]:text-sm"
+        >
+          {% if user.is_authenticated %}
+          <a href="{% url 'profile' %}">Profile</a>
+          <button
+            aria-controls="logout dialog modal"
+            class="button-logout rounded-full border"
+          >
+            Sign out
+          </button>
+
+          {% else %}
+          <a href="{% url 'login' %}">Login</a>
+          <a href="{% url 'register' %}">Sign up</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- menu larger screens -->
+    <ul
+      class="hidden gap-x-6 text-white sm:flex [&_a]:block [&_a]:border-b [&_a]:border-transparent [&_a]:transition-colors [&_a:hover]:border-white"
+    >
+      <li><a href="{% url 'menu' %}">Menu</a></li>
+      <li><a href="{% url 'booking_create' %}">Book</a></li>
+    </ul>
+
+    <div class="mx-auto text-center text-xl text-black">
+      <a href="{% url 'home' %}">
+        Himawari<br />
+        <span class="flex justify-center text-sm"
+          >§ushi
+          <svg
+            class="block h-4 w-4"
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 2048 2048"
+          >
+            <path
+              fill="currentColor"
+              d="M1920 709q0 26-19 45t-45 19H768v379h832q26 0 45 19t19 45q0 115-29 221t-84 199t-130 168t-168 130t-199 84t-222 30q-115 0-221-29t-199-84t-168-130t-130-168t-84-199t-30-222q0-26 19-45t45-19h576V773H512v187q0 26-19 45t-45 19q-26 0-45-19t-19-45V773H192q-26 0-45-19t-19-45q0-26 19-45t45-19h192V489l-40 8q-25 5-52 10t-51 9t-38 4q-26 0-45-19t-19-45q0-23 15-41t38-22l1659-292q4-1 11-1q26 0 45 19t19 45q0 23-15 41t-38 22L768 422v223h1088q26 0 45 19t19 45zM832 1920q136 0 258-49t216-135t155-203t72-253H131q12 136 72 253t154 203t217 135t258 49zM512 645h128V444l-128 23v178z"
+            ></path>
+          </svg>
+        </span>
+      </a>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button
+      id="nav-button"
+      aria-controls="primary-navigation"
+      aria-expanded="false"
+      class="sm:hidden"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    {% if user.is_authenticated %}
+    <div class="relative hidden sm:block">
+      <div class="flex items-center gap-x-1 text-black">
+        <span
+          class='truncate w-[10ch]'
+          id="account-menu"
+          aria-controls="profile-menu"
+          aria-label="view profile menu"
+          aria-expanded="false"
+          >Hi {{ user.username }}</span
+        >
+        <svg
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          class="ml-auto block h-6 w-6"
+        >
+          <path
+            fill="currentColor"
+            d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6l-6-6l1.41-1.41z"
+          ></path>
+        </svg>
+      </div>
+
+      <!-- Account submenu / sign out (hidden on mobile) -->
+      <div
+        id="account-submenu"
+        class="absolute top-0 right-0 z-10 hidden w-48 min-w-max"
+      >
+        <div
+          class="mt-8 space-y-4 rounded bg-white bg-white p-2 text-black shadow-2xl"
+        >
+          <a
+            class="flex items-center gap-x-2 rounded-md p-2 hover:bg-gray-100"
+            href="{% url 'profile' %}"
+          >
+            <img
+              aria-hidden="true"
+              class="h-6 w-6"
+              src="{% static 'icons/account-circle.svg' %}"
+              alt="profile icon"
+            />
+
+            <span>Profile</span>
+          </a>
+          <button
+            aria-controls="logout dialog modal"
+            class="button-logout flex w-full items-center gap-x-2 rounded-md p-2 hover:bg-gray-100"
+          >
+            <img
+              aria-hidden="true"
+              class="h-6 w-6"
+              src="{% static 'icons/logout.svg' %}"
+              alt="logout icon"
+            />
+            <span>Sign out</span>
+          </button>
+        </div>
+      </div>
+
+      {% else %}
+      <!-- Show login register options for non-users -->
+      <div
+        class="hidden text-black sm:flex sm:gap-x-2 [&_a]:border-b [&_a]:border-transparent [&_a]:transition-colors [&_a:hover]:border-black"
+      >
+        <a href="{% url 'login' %}">Login</a>
+        <span class="aria-hidden:"> / </span>
+        <a href="{% url 'register' %}">Sign up</a>
+      </div>
+    </div>
+    {% endif %}
+  </nav>
+
+  <!-- Messages -->
+<div class="sm:container mx-auto w-full bg-red-400 hidden">
+  {% include 'partials/messages/alert.html' %}
+</div>
+</header>
