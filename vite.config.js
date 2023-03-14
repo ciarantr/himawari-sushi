@@ -3,20 +3,19 @@ import { resolve } from 'path'
 
 export default defineConfig({
   root: resolve('./static/src'),
-  base: '/static/src/',
-  sever: {
-    port: 3000,
-    open: false,
-  },
+  base: '/static/',
+
   build: {
     manifest: true,
-    outDir: 'dist',
+    outDir: resolve('./static/dist'),
     assetsDir: '',
     rollupOptions: {
       input: {
         main: resolve('./static/src/js/main.ts'),
-        style: resolve('./static/src/css/main.css')
+        editBookingDialog: resolve('./static/src/js/editBookingDialog.ts'),
+        bookingInputUpdate: resolve('./static/src/js/confirmationDialog.ts'),
+        style: resolve('./static/src/css/main.css'),
       },
-    }
+    },
   },
 })
