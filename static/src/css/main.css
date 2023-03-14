@@ -204,3 +204,34 @@
 form ul.errorlist li {
   @apply text-red-500;
 }
+
+/*----------------------- 4. Pages --------------------------*/
+
+/* Home page */
+
+/* Newly added banner*/
+/* faded table background effect */
+#home-banner::before,
+#top-dish-banner::before {
+  @apply absolute
+  z-0
+  h-full
+  w-1/2
+  bg-gradient-to-bl
+  from-tertiary/20
+  to-tertiary/20
+  shadow-2xl
+  blur content-[''];
+}
+
+#home-banner::before {
+  @apply right-1.5
+  top-[100px]
+  rotate-[145deg];
+}
+
+#top-dish-banner::before {
+  @apply left-1.5
+  top-[45px]
+  rotate-[45deg];
+}
