@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*-----------------------
+  Table of contents
+  1. Base styles
+  2. Components
+  3. Pages
+  4. Elements
+--------------------------*/
+
+/*----------------------- Base styles --------------------------*/
+/* 1. Base styles */
+@layer base {
+  :root {
+    --color-primary: 36 38% 97%;
+    --color-tertiary: 33 74% 57%;
+    --color-black-base: 344 11% 19%;
+    --color-gray-base: 0 1% 40%;
+  }
+
+  body {
+    @apply flex
+    min-h-screen
+    flex-col
+    overflow-x-hidden
+    bg-primary
+    text-gray-base;
+  }
+
+  main,
+  :first-of-type section {
+    @apply flex-1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-black;
+  }
+}
