@@ -92,4 +92,49 @@ class Home(View):
     # A class based view for the home page
     def get(self, request):
         return render(request, 'index.html')
-    
+
+
+class Menu(View):
+    # A class based view for the menu page
+    def get(self, request):
+        # list of available menu items
+        raw_roll = [
+            ('Tuna Roll', 5.95),
+            ('Salmon- Roll', "5.95"),
+            ('Alaska Roll Salmon', "5.95"),
+            ('Yellowtall- Scallion', "5.95"),
+            ('Tuna Avocado', "7.95"),
+            ('Tuna Cucumber', "7.95"),
+            ('Yellowtall Jalapeño', "4.35"),
+            ('Salmon Avocado', "7.95"),
+            ('Salmon Cucumber', "7.95"),
+            ('Spicy Tuna', "7.95"),
+            ('Spicy Salmons', "8.00"),
+            ('Spicy Yellowtail', '8.95')
+        ]
+
+        cooked_roll = [
+            ("Eel Avocado", "7.00"),
+            ("Eel Cucumber", "7.00"),
+            ("Philadelphia", "7.00"),
+            ("Spicy Snow Crab", "7.00"),
+            ("Sweet Potato Tempura", "6.00"),
+            ("Crabmeat Cheese", "6.50"),
+            ("Avocado", "5.00"),
+            ("Cucumber", "5.00"),
+            ("Peanut Avocado", "6.00"),
+            ("California", "7.00"),
+            ("Cucumber Avocado", "5.00"),
+            ("Shrimp Tempura", "7.00")
+        ]
+
+        menu = {
+            'raw_roll': raw_roll,
+            'cooked_roll': cooked_roll,
+        }
+
+        context = {'menu': menu}
+        template = 'menu.html'
+
+        return render(request, template, context)
+
