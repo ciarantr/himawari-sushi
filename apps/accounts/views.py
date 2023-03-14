@@ -3,6 +3,7 @@ from django.views import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
+from .forms import SignupForm
 
 
 # Create your views here.
@@ -38,3 +39,29 @@ class LogoutUser(View):
         messages.success(request, 'You have successfully logged out')
         return redirect('home')
 
+
+
+
+class CreateUser(View):
+    # A view that renders the register page and creates a new user
+    def get(self, request):
+        form = SignupForm()
+        context = {'form': form}
+        return render(request, 'accounts/register.html', context)
+
+    def post(self, request):
+        form = SignupForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            messages.success(request, 'Account created successfully ')
+
+            return redirect('home')
+        else:
+            context = {'form': form}
+
+            return render(request, 'accounts/register.html', context)
