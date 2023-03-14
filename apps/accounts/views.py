@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 
 
 # Create your views here.
 class LoginUser(View):
-
+    # A view that renders the login page and logs a user in
     def get(self, request):
         form = AuthenticationForm()
         context = {'form': form}
@@ -29,4 +29,12 @@ class LoginUser(View):
             )
             context = {'form': form}
             return render(request, 'accounts/login.html', context)
+
+
+class LogoutUser(View):
+    # A view that logs a user out and redirects to the home page
+    def get(self, request):
+        logout(request)
+        messages.success(request, 'You have successfully logged out')
+        return redirect('home')
 
