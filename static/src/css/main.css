@@ -61,3 +61,43 @@
     @apply grid h-max w-3/4 max-w-sm gap-y-4 rounded-xl  py-8 text-center shadow-2xl;
   }
 }
+
+/*----------------------- 3. Elements --------------------------*/
+
+/* Mobile Navigation button */
+#nav-button span {
+  @apply mb-1
+  block
+  h-0.5
+  w-6
+  transform-gpu
+  rounded
+  bg-black
+  transition-all
+  duration-150
+  ease-in-out
+  last:mb-0;
+}
+
+/* Mobile Navigation button open */
+#nav-button[aria-expanded='true'] {
+  & span:nth-child(1) {
+    @apply origin-left
+    translate-x-0.5
+    -translate-y-[4px]
+    rotate-45
+    scale-x-125;
+  }
+
+  & span:nth-child(2) {
+    @apply invisible;
+  }
+
+  & span:nth-child(3) {
+    @apply origin-right
+    -translate-y-[16px]
+    -rotate-45
+    scale-x-[1.25];
+  }
+}
+
