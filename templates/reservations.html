@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<!-- Reservations FAQ -->
+<section class="sm:container mt-12 space-y-12 lg:max-w-screen-lg ">
+  <div>
+    <h1 class="text-center text-3xl">Reservations & FAQ</h1>
+  </div>
+
+  <main>
+    <div class="space-y-6 rounded-2xl py-3 px-4 text-black shadow">
+      {% for question in questions %}
+      <div>
+        <p class="font-medium">{{ question.question }}</p>
+        <p>
+          {{ question.answer }}
+          {% if question.link %}
+            <a
+              class="text-tertiary"
+              href="{% url 'booking_create' %}"
+              >reservation online.</a
+            >
+          {% endif %}
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
+
+  <div
+    class="flex flex-wrap items-center justify-between gap-y-4 rounded-2xl p-6 text-black shadow"
+  >
+    <div>
+      <p class="font-medium">Still have questions?</p>
+      <p>
+        Can't find the answer you're looking for? Please get in touch, and we
+        will be happy to answer any questions you may have.
+      </p>
+    </div>
+
+    <div class="ml-auto">
+      <a
+        class="rounded-md bg-tertiary/80 py-2 px-3 hover:shadow"
+        href="{% url 'contact' %}"
+        >Get in touch</a
+      >
+    </div>
+  </div>
+</section>
+
+{% endblock %}
