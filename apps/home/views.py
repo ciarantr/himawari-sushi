@@ -5,6 +5,13 @@ from django.contrib.auth.models import User
 from .forms import ContactForm
 
 
+# Create your views here.
+class About(View):
+    # A class based view for the about page
+    def get(self, request):
+        return render(request, 'about.html')
+
+
 class Contact(View):
     # A class based view for the contact page
     def get(self, request):
