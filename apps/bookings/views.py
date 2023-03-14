@@ -1,7 +1,7 @@
 # FIXME: WHEN SUPERUSER IS CREATED FROM FROM CLI, IT DOES NOT CREATE A CUSTOMER
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.shortcuts import redirect, render, reverse
+from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.utils.safestring import mark_safe
 from django.views import View
 
@@ -93,3 +93,14 @@ class BookingEdit(View):
             else:
                 messages.error(request, form.errors)
             return redirect(reverse('booking_edit', args=[pk]))
+
+
+class BookingDelete(View):
+    # A class based view for the booking delete page
+    def get(self, request, pk):
+        # TODO: ADD BOOKING DELETE EMAIL
+
+        booking = get_object_or_404(Booking, pk=pk)
+        booking.delete()
+        messages.success(request, 'Your booking has been successfully deleted')
+        return redirect('profile-bookings')
