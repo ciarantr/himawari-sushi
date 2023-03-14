@@ -101,3 +101,106 @@
   }
 }
 
+
+/* Forms */
+
+/*
+  Note: classes are prefixed to form elements by Django context processor
+*/
+
+/* signup form */
+.signup-form {
+  @apply space-y-7 sm:mx-auto sm:w-10/12;
+
+  input,
+  textarea {
+    @apply w-full
+    rounded-lg
+    border
+    border-gray-500
+    px-3
+    py-5
+    focus:border-tertiary
+    focus:outline-none
+    focus:ring-2
+    focus:ring-tertiary;
+
+    &[type='submit'] {
+      @apply max-w-lg
+      border-none
+      bg-tertiary
+      text-black;
+    }
+  }
+
+  label {
+    @apply text-gray-300;
+  }
+
+  /* Django form help text */
+  .helptext {
+    @apply hidden;
+  }
+}
+
+/* base form */
+.base-form {
+  @apply space-y-12
+  rounded-lg
+  rounded-lg
+  bg-white
+  p-8
+  shadow-xl;
+
+  label:not([for='id_phone_number']):not([for='id_message'])::after {
+    content: ' *';
+    @apply text-red-500;
+  }
+
+  input:not([type='submit']) {
+    @apply mx-auto
+    w-full
+    border-b
+    border-gray-300
+    bg-inherit
+    py-2
+    focus:border-b-tertiary
+    focus:outline-none;
+  }
+
+  input[type='submit'],
+  a {
+    @apply mx-auto
+    block
+    w-full
+    max-w-lg
+    rounded-lg
+    py-2
+    text-white;
+  }
+
+  input[type='submit'] {
+    @apply border-none
+    bg-tertiary;
+  }
+
+  textarea {
+    @apply mx-auto
+    block
+    w-full
+    rounded-lg
+    border
+    border-gray-500
+    bg-white
+    px-3
+    py-5
+    focus:border-tertiary
+    focus:outline-none
+    focus:ring-2
+    focus:ring-tertiary;
+  }
+}
+
+form ul.errorlist li {
+  @apply text-red-500;
+}
