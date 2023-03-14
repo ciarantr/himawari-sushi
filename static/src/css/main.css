@@ -235,3 +235,15 @@ form ul.errorlist li {
   top-[45px]
   rotate-[45deg];
 }
+
+/* Menu page */
+.menu-special {
+  perspective: 800px;
+
+  & > div {
+    @screen md {
+      transform: rotate3d(0.5, -0.8, 0, 15deg) rotate(-1deg);
+    }
+  }
+}
+
