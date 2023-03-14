@@ -69,6 +69,16 @@ class Contact(View):
             return render(request, 'contact.html', context)
 
 
+class ContactSuccess(View):
+    # A class based view for the contact success page
+    def get(self, request):
+        # check if the contact form was submitted using the session
+        # if it was, render the success page
+        if request.session.get('contact_form_submitted'):
+            del request.session['contact_form_submitted']
+            return render(request, 'contact_success.html')
+        else:
+            return redirect(reverse('contact'))
 
 
 class Home(View):
