@@ -30,5 +30,12 @@ class CustomerDashboard(View):
         return booking_request('profile/index.html', request)
 
 
+class CustomerBookings(View):
+    # A view to display the customer's booking details
+
+    def get(self, request):
+        return booking_request('profile/bookings.html', request)
+
+
         return render(request, template, context)
 
