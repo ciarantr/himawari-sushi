@@ -1,5 +1,5 @@
 {% load static %}
-<header class="sm:container ">
+<header class="sm:container">
   <nav
     aria-label="primary-navigation"
     class="flex items-center bg-tertiary px-4 py-2 sm:mt-4 sm:grid-cols-[auto,1fr,auto] sm:rounded-lg"
@@ -80,7 +80,7 @@
     <div class="relative hidden sm:block">
       <div class="flex items-center gap-x-1 text-black">
         <span
-          class='truncate w-[10ch]'
+          class="w-[10ch] truncate"
           id="account-menu"
           aria-controls="profile-menu"
           aria-label="view profile menu"
@@ -151,8 +151,6 @@
     {% endif %}
   </nav>
 
-  <!-- Messages -->
-<div class="sm:container mx-auto w-full bg-red-400 hidden">
+  <!-- Django flash Messages -->
   {% include 'partials/messages/alert.html' %}
-</div>
 </header>
