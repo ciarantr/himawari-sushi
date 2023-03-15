@@ -13,6 +13,7 @@ const dialogCancelBtn = dialogLogout.querySelector(
   'button'
 ) as HTMLButtonElement
 const djangoFlashmessage = document.querySelector('[role="alert"]') as HTMLDivElement;
+const accountAria = accountMenu.getAttribute('aria-expanded')
 
 
 navButton.addEventListener('click', showMobileMenu)
@@ -70,9 +71,7 @@ if (window.innerWidth > 768 && accountMenu) {
 
 // Display the account submenu and assign aria attributes on large screens
 function showAccountSubMenu() {
-  const accountAria = accountMenu.getAttribute('aria-expanded')
-
-  if (!accountAria) {
+  if (!!accountAria) {
     accountMenu.setAttribute('aria-expanded', 'true')
     accountSubmenu.classList.remove('hidden')
   }
@@ -82,7 +81,7 @@ function showAccountSubMenu() {
 if (djangoFlashmessage) {
   setTimeout(() => {
     djangoFlashmessage.classList.add('hidden')
-  }, 5000)
+  }, 3500)
 }
 
 // show the dialog box when the logout button is clicked
