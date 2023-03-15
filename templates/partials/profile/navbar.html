@@ -1,0 +1,49 @@
+{% load static %}
+
+<aside
+  class="space-y-4 rounded-md bg-white px-8 py-4 shadow-lg lg:min-h-[600px] [&_h2]:text-lg sm:max-h-[600px] "
+>
+  <div class="flex items-center gap-x-2 border-b border-gray-200 pb-2">
+    <img
+      class="h-6 w-6 rounded-full"
+      src="{% static 'icons/account-circle.svg' %}"
+      alt="profile"
+    />
+    <h2>My Account</h2>
+  </div>
+
+  <nav aria-controls="profile navigation">
+    <ul
+      class="flex gap-x-4 lg:block [&_li]:rounded-md [&_li]:p-2 [&>li:hover]:bg-gray-100 [&_li]:flex [&_li]:gap-x-2 [&_li]:items-center [&_li]:min-w-max overflow-x-auto"
+    >
+      <li class="flex gap-x-2 items-center">
+        <img
+          src="{% static 'icons/home.svg' %}"
+          width="20"
+          height="20"
+          alt="home icon"
+        />
+
+        <a href="{% url 'profile' %}">Home</a>
+      </li>
+      <li class="flex gap-x-2">
+        <img
+          src="{% static 'icons/bookings.svg' %}"
+          width="20"
+          height="20"
+          alt="bookings icon"
+        />
+        <a href="{% url 'profile-bookings' %}">Bookings</a>
+      </li>
+      <li class="flex gap-x-2">
+        <img
+          src="{% static 'icons/settings.svg' %}"
+          width="20"
+          height="20"
+          alt="settings icon"
+        />
+        <a href="{% url 'profile-details' %}">Account information</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
