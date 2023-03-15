@@ -55,9 +55,14 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'django_vite',
-    'apps.restaurant',
+    'apps.home',
+    'apps.accounts',
+    'apps.bookings',
+    'apps.customer',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +73,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'apps.customer.middleware.LoginMiddleware',
+    'apps.bookings.middleware.BookingMiddleware',
 ]
 
 ROOT_URLCONF = 'sushi.urls'
@@ -94,12 +101,19 @@ WSGI_APPLICATION = 'sushi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if development:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    import dj_database_url
+
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -132,16 +146,21 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
-STATIC_URL = '/static/src/'
-
-
+# Vite settings
 DJANGO_VITE_DEV_MODE = DEBUG
 DJANGO_VITE_ASSETS_PATH = BASE_DIR / 'static' / 'dist'
-STATICFILES_DIRS = [DJANGO_VITE_ASSETS_PATH, BASE_DIR / 'static' / 'src']
 
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [DJANGO_VITE_ASSETS_PATH,
+                    os.path.join(BASE_DIR, 'static', 'src', 'img')]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+# Cloudinary
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Media files
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
