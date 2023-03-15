@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.contrib import messages
 from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
 from django.views import View
+
 from apps.bookings.models import Booking
+from .forms import CustomerUpdateForm
 
 
 # Create your views here.
@@ -37,5 +40,49 @@ class CustomerBookings(View):
         return booking_request('profile/bookings.html', request)
 
 
+class CustomerProfile(View):
+    # A class based view for the customer details page
+    def get(self, request):
+
+        customer = User.objects.get(username=request.user)
+        form = CustomerUpdateForm(instance=customer)
+        context = {'form': form,
+                   'form_title': 'Your Details',
+                   'form_class': 'base-form',
+                   'form_id': 'customer-form',
+                   'submit_text': 'Update',
+                   }
+        template = 'profile/account.html'
+
         return render(request, template, context)
 
+    def post(self, request):
+
+        customer = User.objects.get(username=request.user)
+        form = CustomerUpdateForm(request.POST, instance=customer)
+        # check if user sent email address in upper case
+        # if so, change to lower case
+
+        if form.is_valid() and form.has_changed():
+            # change the user's email address to lower case then save
+            form.save(commit=False)
+            form.instance.email = form.instance.email.lower()
+            form.save()
+
+            messages.success(request, 'Your details have been updated.')
+            return redirect('profile-details')
+
+        elif not form.has_changed():
+            messages.error(request, 'No changes were made.')
+            return redirect('profile-details')
+
+        else:
+            messages.error(request, 'Please correct the errors below.')
+            form = CustomerUpdateForm(data=request.POST, instance=customer)
+            context = {'form': form,
+                       'form_title': 'Your Details',
+                       'form_class': 'base-form',
+                       'form_id': 'customer-form',
+                       'submit_text': 'Update',
+                       }
+            return render(request, 'profile/account.html', context)
