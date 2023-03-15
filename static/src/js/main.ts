@@ -13,7 +13,7 @@ const dialogCancelBtn = dialogLogout.querySelector(
   'button'
 ) as HTMLButtonElement
 const djangoFlashmessage = document.querySelector('[role="alert"]') as HTMLDivElement;
-const accountAria = accountMenu.getAttribute('aria-expanded')
+const accountAria = accountMenu?.getAttribute('aria-expanded')
 
 
 navButton.addEventListener('click', showMobileMenu)
