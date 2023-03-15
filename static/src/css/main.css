@@ -6,8 +6,8 @@
   Table of contents
   1. Base styles
   2. Components
-  3. Pages
-  4. Elements
+  3. Elements
+  4. Pages
 --------------------------*/
 
 /*----------------------- Base styles --------------------------*/
@@ -136,11 +136,6 @@
   label {
     @apply text-gray-300;
   }
-
-  /* Django form help text */
-  .helptext {
-    @apply hidden;
-  }
 }
 
 /* base form */
@@ -203,6 +198,11 @@
 
 form ul.errorlist li {
   @apply text-red-500;
+}
+
+/* Django form help text */
+form .helptext {
+  @apply hidden;
 }
 
 /*----------------------- 4. Pages --------------------------*/
