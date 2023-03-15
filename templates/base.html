@@ -12,7 +12,10 @@
       content="ie=edge"
     />
     {% vite_hmr_client %} {% vite_asset 'js/main.ts' %}
-    {% block dialog_js %} {%endblock %} {% vite_asset 'css/main.css' %}
+    {% if user.is_authenticated %}
+      {% block dialog_js %} {%endblock %}
+    {% endif %}
+    {% vite_asset 'css/main.css' %}
     <title>{% block title %}Himawari Sushi {% endblock %}</title>
   </head>
   <body>
