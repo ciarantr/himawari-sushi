@@ -1,7 +1,9 @@
-from django.views import View
-from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.shortcuts import redirect, render, reverse
+from django.utils.safestring import mark_safe
+from django.views import View
+
 from .forms import ContactForm
 
 
@@ -61,11 +63,11 @@ class Contact(View):
                 [f'<div><span>{key}: </span>{value}</div>'
                  for key, value in contact_details.items()])
 
-            messages.success(request, contact_details)
-            request.session['contact_form_submitted'] = True
+            # send contact details to contact success page
+            request.session['contact_details'] = contact_details
 
-            return redirect('contact_success')
-
+            messages.success(request, 'Success! Your message has been sent.')
+            return redirect(reverse('contact_success'))
         else:
             context = {'form': form,
                        'form_title': 'Get in touch',
@@ -79,11 +81,14 @@ class Contact(View):
 class ContactSuccess(View):
     # A class based view for the contact success page
     def get(self, request):
-        # check if the contact form was submitted using the session
-        # if it was, render the success page
-        if request.session.get('contact_form_submitted'):
-            del request.session['contact_form_submitted']
-            return render(request, 'contact_success.html')
+        # check if the contact details are in the session
+        # if they are, display them on the success page
+        if request.session.get('contact_details'):
+            contact_details = request.session['contact_details']
+            # remove the contact details from the session
+            del request.session['contact_details']
+            context = {'contact_details': mark_safe(contact_details)}
+            return render(request, 'contact_success.html', context)
         else:
             return redirect(reverse('contact'))
 
