@@ -1,0 +1,52 @@
+{% extends "./base.html" %} {% load static %} {% block content %}
+<section class="space-y-8">
+  <h1 class="text-center text-xl">
+    Welcome back
+    <span class="mx-auto block w-[20ch] truncate text-center">
+      {{ user.username }}</span
+    >
+  </h1>
+
+  <div class="space-y-4 md:max-w-screen-md">
+    {% if bookings %}
+    <h2 class="text-blue-500">
+      You currently have {{ bookings|length }} booking{{ bookings|pluralize }}
+    </h2>
+    <!-- Booking details overview -->
+    {% for booking in bookings %}
+    <div class="space-y-2 rounded-md p-6 shadow">
+      <h3 class="text-lg">Overview</h3>
+      <dl class="space-y-2 [&_dt]:inline-block [&_dd]:inline-block">
+        <div>
+          <dt>Date</dt>
+          <dd>{{ booking.date }}</dd>
+        </div>
+        <div>
+          <dt>Time</dt>
+          <dd>{{ booking.time }} p.m</dd>
+        </div>
+        <div>
+          <dt>Confirmed</dt>
+          <dd>{{ booking.confirmed|yesno:"Yes,No" }}</dd>
+        </div>
+      </dl>
+
+      <a
+        class="btn btn-primary mx-auto block rounded-md text-center md:max-w-sm"
+        href="{% url 'profile-bookings' %}"
+        >View booking
+      </a>
+    </div>
+    {% endfor %} {% else %}
+    <div class="flex flex-wrap items-center justify-center gap-x-2">
+      <h2 class="text-center text-lg">You currently have no bookings.</h2>
+      <a
+        href="{% url 'booking_create' %}"
+        class="text-blue-500 after:content-['_↗'] hover:text-blue-700"
+        >Make a booking
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
