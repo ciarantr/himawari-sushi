@@ -1,10 +1,13 @@
 {% extends "base.html" %} {% load static %}
 {% load django_vite %}{%vite_hmr_client %}
-{% block dialog_js %}
+
+<!-- Only loads if user is logged in -->
+{%  block dialog_js %}
   {% vite_asset 'js/confirmationDialog.ts' %}
   {% vite_asset 'js/bookingInputUpdate.ts' %}
 {%endblock %}
-{% block content %} {% include "partials/messages/alert.html" %}
+
+{% block content %}
 
 <main class="container mt-12 space-y-12">
   <!-- Show booking form if user is logged in -->
