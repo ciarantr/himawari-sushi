@@ -1,0 +1,22 @@
+{
+  "css/main.css": {
+    "file": "main-b9f51d04.css",
+    "src": "css/main.css",
+    "isEntry": true
+  },
+  "js/editBookingDialog.ts": {
+    "file": "editBookingDialog-6a7d653d.js",
+    "src": "js/editBookingDialog.ts",
+    "isEntry": true
+  },
+  "js/main.ts": {
+    "file": "main-a61b36df.js",
+    "src": "js/main.ts",
+    "isEntry": true
+  },
+  "js/confirmationDialog.ts": {
+    "file": "bookingInputUpdate-375d99a4.js",
+    "src": "js/confirmationDialog.ts",
+    "isEntry": true
+  }
+}
