@@ -149,6 +149,11 @@ USE_TZ = True
 # Vite settings
 DJANGO_VITE_DEV_MODE = DEBUG
 DJANGO_VITE_ASSETS_PATH = BASE_DIR / 'static' / 'dist'
+DJANGO_VITE_MANIFEST_PATH = BASE_DIR / 'static' / 'dist' / 'manifest.json'
+
+if not development:
+    DJANGO_VITE_STATIC_URL_PREFIX = \
+        'https://res.cloudinary.com/c-io/raw/upload/v1/static'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [DJANGO_VITE_ASSETS_PATH,
