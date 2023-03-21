@@ -1,3 +1,4 @@
+import '../css/main.css'
 const navButton = document.querySelector('#nav-button') as HTMLButtonElement
 const navMenu = document.querySelector('nav')?.firstElementChild as HTMLElement
 const body = document.querySelector('body') as HTMLElement

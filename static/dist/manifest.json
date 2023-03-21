@@ -1,7 +1,11 @@
 {
-  "css/main.css": {
-    "file": "main-b9f51d04.css",
-    "src": "css/main.css",
+  "js/main.css": {
+    "file": "main-515026a8.css",
+    "src": "js/main.css"
+  },
+  "js/confirmationDialog.ts": {
+    "file": "bookingInputUpdate-375d99a4.js",
+    "src": "js/confirmationDialog.ts",
     "isEntry": true
   },
   "js/editBookingDialog.ts": {
@@ -10,13 +14,11 @@
     "isEntry": true
   },
   "js/main.ts": {
-    "file": "main-a61b36df.js",
+    "file": "main-9a0173fb.js",
     "src": "js/main.ts",
-    "isEntry": true
-  },
-  "js/confirmationDialog.ts": {
-    "file": "bookingInputUpdate-375d99a4.js",
-    "src": "js/confirmationDialog.ts",
-    "isEntry": true
+    "isEntry": true,
+    "css": [
+      "main-515026a8.css"
+    ]
   }
 }
