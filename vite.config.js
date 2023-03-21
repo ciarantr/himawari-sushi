@@ -13,7 +13,8 @@ export default defineConfig({
       input: {
         main: resolve('./static/src/js/main.ts'),
         editBookingDialog: resolve('./static/src/js/editBookingDialog.ts'),
-        bookingInputUpdate: resolve('./static/src/js/confirmationDialog.ts'),
+        bookingInputUpdate: resolve('./static/src/js/bookingInputUpdate.ts'),
+        confirmationDialog: resolve('./static/src/js/confirmationDialog.ts'),
       },
     },
   },
