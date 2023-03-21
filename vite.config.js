@@ -14,7 +14,6 @@ export default defineConfig({
         main: resolve('./static/src/js/main.ts'),
         editBookingDialog: resolve('./static/src/js/editBookingDialog.ts'),
         bookingInputUpdate: resolve('./static/src/js/confirmationDialog.ts'),
-        style: resolve('./static/src/css/main.css'),
       },
     },
   },
