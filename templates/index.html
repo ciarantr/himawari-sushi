@@ -4,61 +4,73 @@
 <section
   role="banner"
   id="home-banner"
-  class="container relative mt-32 grid items-center md:grid-cols-2"
+  class="container relative mt-32 grid md:grid-cols-2 md:gap-x-4"
 >
-  <div class="space-y-3">
-    <h1 class="text-5xl capitalize">
-      Enjoy the best sushi<br />
-      in town
-    </h1>
-    <p>
-      After a good dinner one can forgive anybody,<br />
-      even one's own relations.
-    </p>
-    <a
-      class="btn flex max-w-max items-center gap-x-2"
-      href="{% url 'booking_create' %}"
-      >Book now
-      <img
-        class="h-6 w-6"
-        aria-hidden="true"
-        src="{% static 'icons/arrow-right.svg' %}"
-        alt="book now arrow right icon"
-        width="24"
-        height="24"
-      />
-    </a>
+  <div class="grid place-items-center space-y-7 rounded-2xl p-8 shadow-xl">
+    <div class="space-y-7">
+      <h1 class="text-5xl capitalize">
+        Enjoy the best sushi<br />
+        in town
+      </h1>
+      <p class="text-xl">
+        After a good dinner one can forgive anybody,<br />
+        even one's own relations.
+      </p>
+      <a
+        class="btn flex max-w-max items-center gap-x-2 border-2 border-transparent bg-white text-black-base shadow-2xl transition-colors md:hover:border-tertiary"
+        href="{% url 'booking_create' %}"
+        >Book now
+        <img
+          aria-hidden="true"
+          src="{% static 'icons/arrow-right.svg' %}"
+          alt="book now arrow right icon"
+          width="24"
+          height="24"
+        />
+      </a>
+    </div>
   </div>
-  <div class="hidden rounded-lg p-2 shadow md:block">
+  <div class="hidden drop-shadow-xl md:block">
     <img
-      class="rounded-lg object-cover"
-      src="{% static 'hero-md.webp' %}"
+      class="isolate h-full rounded-2xl object-cover md:aspect-square lg:aspect-auto"
+      src="{% static 'hero-sm.webp' %}"
       alt="fours sushi rolls on a transparent plate"
-      width="670"
-      height="440"
+      width="640"
+      height="418"
     />
   </div>
 </section>
 
 <main>
   <!-- About us  -->
-  <section class="container mt-96 gap-x-12 md:grid md:grid-cols-2">
+  <section class="container mt-96 md:grid md:grid-cols-2 md:gap-x-12">
     <div class="hidden md:block">
-      <img class='rounded-2xl object-cover' src='{% static
-      'home-about-sm.webp'%}' width='640' height='410' alt='photo of foods
-      served at restaurant, sushi platter on one side with soy sauce wita a mix
-      of side dishes'>
+      <img
+        class="rounded-2xl object-cover"
+        src="{% static 'home-about-sm.webp'%}"
+        width="640"
+        height="410"
+        alt="photo of foods served at restaurant,
+        sushi platter on one side with soy sauce wita a mix of side dishes"
+      />
     </div>
 
-    <div class="space-y-4">
-      <h2 class="mb-4 text-4xl text-tertiary">About us</h2>
+    <div class="space-y-6 rounded-xl py-4 px-6 shadow-lg">
+      <h2 class="mb-4 text-4xl">About us</h2>
       <h3>
         Sushi made with excellence.<br />
         Fresh, authentic, sushi
       </h3>
 
       <div class="md:hidden">
-        <img class='rounded-2xl' src='{% static 'home-about-sm.webp' %}' alt=''>
+        <img
+          class="h-auto rounded-2xl object-cover"
+          width="640"
+          height="410"
+          src="{% static 'home-about-sm.webp' %}"
+          alt="photo of foods served at restaurant,sushi platter on one
+             side with soy sauce wita a mix of side dishes"
+        />
       </div>
 
       <p>
@@ -68,10 +80,13 @@
         heart of the city, and we are open every day from 12pm to 6pm.
       </p>
       <a
-        class="flex items-center gap-x-2 rounded-full border-2 border-tertiary p-2 text-tertiary md:border-transparent md:transition-colors md:hover:border-tertiary"
+        class="flex items-center gap-x-2 rounded-full border-2 border-tertiary py-2 px-4 text-lg text-black-base shadow md:border-transparent md:transition-colors md:hover:border-tertiary"
         href="{% url 'about' %}"
       >
+        Explore more
+
         <svg
+          class="ml-auto"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           width="32"
@@ -83,7 +98,6 @@
             d="m17 12l-5 5v-3H8v-4h4V7l5 5m4 4.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18c-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18c.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9M12 4.15L5 8.09v7.82l7 3.94l7-3.94V8.09l-7-3.94Z"
           ></path>
         </svg>
-        Explore more
       </a>
     </div>
   </section>
@@ -93,7 +107,7 @@
     <h2 class="text-center text-4xl">Popular dishes</h2>
 
     <div
-      class="grid grid-cols-[repeat(auto-fit,_minmax(220px,_1fr))] gap-8 [&>div]:rounded-md [&>div]:bg-black [&>div]:p-4 [&>div]:shadow-xl [&_p]:text-gray-400 [&_div]:space-y-4 [&_img]:mx-auto"
+      class="grid grid-cols-[repeat(auto-fit,_minmax(220px,_1fr))] gap-8 [&_div]:space-y-4 [&>div]:rounded-lg [&>div]:bg-black [&>div]:p-4 [&>div]:shadow-lg [&>div]:shadow-gray-500 [&_p]:text-white [&_img]:mx-auto"
     >
       <div>
         <img
@@ -103,8 +117,9 @@
           height="250"
           loading="lazy"
         />
-
-        <h2 class="font-medium capitalize text-white">chicken katsu curry</h2>
+        <h2 class="font-medium capitalize text-tertiary">
+          chicken katsu curry
+        </h2>
         <p>
           Succulent chicken in a crispy Japanese panko crumb with mild curry
           sauce, pickles & steamed rice.
@@ -113,13 +128,13 @@
 
       <div>
         <img
-          src="{% static 'cucumber-maci.webp' %}"
-          alt="cut cucumber in a bowl"
+          src="{% static 'cucumber-maki.webp' %}"
+          alt="cut cucumber and toasted sesame in nori roll"
           width="250"
           height="250"
           loading="lazy"
         />
-        <h2 class="font-medium capitalize text-white">cucumber maci</h2>
+        <h2 class="font-medium capitalize text-tertiary">cucumber maki</h2>
         <p>Crunchy cucumber & toasted sesame seed wrapped in a nori roll</p>
       </div>
 
@@ -131,7 +146,7 @@
           height="250"
           loading="lazy"
         />
-        <h2 class="font-medium capitalize text-white">salmon nigari</h2>
+        <h2 class="font-medium capitalize text-tertiary">salmon nigiri</h2>
         <p>
           Salmon nigiri sushi with a slice of fresh salmon on top of a bed of
           rice.
@@ -145,9 +160,9 @@
     id="top-dish-banner"
     class="container relative mt-64 space-y-4 md:grid md:grid-cols-2 md:gap-x-12 md:space-y-0 lg:gap-x-24"
   >
-    <div class="space-y-2">
-      <h2 class="text-2xl text-tertiary">Newly Added</h2>
-      <h3 class="text-3xl">Sushi Shamuari</h3>
+    <div class="space-y-4">
+      <h2 class="border-b-2 text-3xl">Newly Added</h2>
+      <h3 class="text-2xl">Sushi Shamuari</h3>
       <p>
         Tempura shrimp crabmeat and scallop, mango, avocado, green onion, smoked
         salmon, masago mayo sesame seed and our own sweet chili sauce. This roll
@@ -156,9 +171,14 @@
     </div>
 
     <div class="shadow-xlw rounded-xl border-2 border-black bg-black p-2">
-      <img class='rounded-xl aspect-[16/11] object-cover' src='{% static
-      'newly-added-lg.webp' %}' width='640' height='440' loading='lazy' alt='6
-      small sushi platters served on wooden tray'>
+      <img
+        class="isolate rounded-xl object-cover"
+        src="{% static 'sushi-platter.webp' %}"
+        width="640"
+        height="440"
+        loading="lazy"
+        alt="6 small sushi platters served on wooden tray"
+      />
     </div>
   </section>
 
@@ -170,7 +190,7 @@
       <div class="absolute -top-8 right-0 w-1/3 md:relative md:top-0 md:w-full">
         <img
           class="rounded-xl"
-          src="{% static 'news-letter.webp' %}"
+          src="{% static 'chicken-yakisoba.webp' %}"
           alt="rice bowl with edamame in white bowl"
           width="250"
           height="250"
@@ -201,11 +221,12 @@
               required
             />
             <button
-              class="btn absolute inset-x-0 -bottom-16 flex w-full items-center justify-center gap-x-2 font-thin md:relative md:inset-x-0 md:bottom-0"
+              class="btn absolute inset-x-0 -bottom-16 flex w-full items-center justify-center gap-x-2 font-medium text-gray-800 md:relative md:inset-x-0 md:bottom-0"
             >
               Subscribe
               <svg
-                class="h-6 w-6"
+                aria-hidden="true"
+                class="h-6 w-6 text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
                 height="32"
