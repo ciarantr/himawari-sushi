@@ -2,11 +2,11 @@
 <header class="sm:container">
   <nav
     aria-label="primary-navigation"
-    class="flex items-center bg-tertiary px-4 py-2 sm:mt-4 sm:grid-cols-[auto,1fr,auto] sm:rounded-lg"
+    class="flex items-center bg-gradient-to-tr from-black to-black/60 px-4 py-2 text-white sm:mt-4 sm:grid-cols-[auto,1fr,auto] sm:rounded-lg"
   >
     <!-- mobile menu sm flyout -->
     <div
-      class="fixed top-[64px] right-0 z-50 h-full w-0 space-y-4 bg-black text-white transition-[width] ease-in-out sm:hidden"
+      class="fixed top-[64px] right-0 z-50 h-full w-0 space-y-4 bg-black transition-[width] ease-in-out sm:hidden"
     >
       <div class="mt-4 space-y-8 overflow-y-hidden text-center">
         <ul class="space-y-2 text-lg">
@@ -39,13 +39,13 @@
 
     <!-- menu larger screens -->
     <ul
-      class="hidden gap-x-6 text-white sm:flex [&_a]:block [&_a]:border-b [&_a]:border-transparent [&_a]:transition-colors [&_a:hover]:border-white"
+      class="hidden gap-x-6 sm:flex [&_a]:block [&_a]:border-b [&_a]:border-transparent [&_a]:transition-colors [&_a:hover]:border-tertiary "
     >
       <li><a href="{% url 'menu' %}">Menu</a></li>
       <li><a href="{% url 'booking_create' %}">Book</a></li>
     </ul>
 
-    <div class="mx-auto text-center text-xl text-black">
+    <div class="mx-auto text-center text-xl">
       <a href="{% url 'home' %}">
         Himawari<br />
         <span class="flex justify-center text-sm"
@@ -72,13 +72,14 @@
       aria-controls="primary-navigation"
       aria-expanded="false"
       class="sm:hidden"
+      aria-label="open primary navigation"
     >
       <span></span><span></span><span></span>
     </button>
 
     {% if user.is_authenticated %}
     <div class="relative hidden sm:block">
-      <div class="flex items-center gap-x-1 text-black">
+      <div class="flex items-center gap-x-1">
         <span
           class="w-[10ch] truncate"
           id="account-menu"
@@ -107,9 +108,7 @@
         id="account-submenu"
         class="absolute top-0 right-0 z-10 hidden w-48 min-w-max"
       >
-        <div
-          class="mt-8 space-y-4 rounded bg-white bg-white p-2 text-black shadow-2xl"
-        >
+        <div class="mt-8 space-y-4 rounded bg-white bg-white p-2 shadow-2xl">
           <a
             class="flex items-center gap-x-2 rounded-md p-2 hover:bg-gray-100"
             href="{% url 'profile' %}"
@@ -124,14 +123,15 @@
             <span>Profile</span>
           </a>
           <button
+            aria-label="sign out"
             aria-controls="logout dialog modal"
             class="button-logout flex w-full items-center gap-x-2 rounded-md p-2 hover:bg-gray-100"
           >
             <img
-              aria-hidden="true"
               class="h-6 w-6"
               src="{% static 'icons/logout.svg' %}"
               alt="logout icon"
+              aria-hidden="true"
             />
             <span>Sign out</span>
           </button>
@@ -141,7 +141,7 @@
       {% else %}
       <!-- Show login register options for non-users -->
       <div
-        class="hidden text-black sm:flex sm:gap-x-2 [&_a]:border-b [&_a]:border-transparent [&_a]:transition-colors [&_a:hover]:border-black"
+        class="hidden sm:flex sm:gap-x-2 [&_a]:border-b [&_a]:border-transparent [&_a]:transition-colors [&_a:hover]:border-tertiary"
       >
         <a href="{% url 'login' %}">Login</a>
         <span class="aria-hidden:"> / </span>
