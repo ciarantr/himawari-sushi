@@ -160,7 +160,7 @@ class Reservations(View):
                 'question': 'How do I cancel a reservation?',
                 'answer': 'You can cancel a reservation by calling us at'
                           '555-555-5555 or by making '
-                          'a change on your profile page in the booking option.',
+                          'a change on your profile page in the booking option.'
 
             },
             {

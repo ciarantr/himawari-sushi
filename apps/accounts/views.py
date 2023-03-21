@@ -40,8 +40,6 @@ class LogoutUser(View):
         return redirect('home')
 
 
-
-
 class CreateUser(View):
     # A view that renders the register page and creates a new user
     def get(self, request):
@@ -65,3 +63,4 @@ class CreateUser(View):
             context = {'form': form}
 
             return render(request, 'accounts/register.html', context)
+

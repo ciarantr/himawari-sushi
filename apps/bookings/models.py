@@ -49,7 +49,7 @@ class Booking(models.Model):
 
         return f"Name {customer_name} | Email {customer_email}"
 
-    def get_booking_information(self)-> list:
+    def get_booking_information(self) -> list:
         # return booking information for the customer
         bookings = Booking.objects.filter(customer=self.customer)
         booking_information = []
