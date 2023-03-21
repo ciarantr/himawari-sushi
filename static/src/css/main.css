@@ -15,22 +15,20 @@
 @layer base {
   :root {
     --color-primary: 36 38% 97%;
-    --color-tertiary: 33 74% 57%;
+    --color-tertiary: 33 100% 57%;
     --color-black-base: 344 11% 19%;
     --color-gray-base: 0 1% 40%;
   }
-
+  html, body {
+    @apply h-full ;
+  }
   body {
     @apply flex
-    min-h-screen
     flex-col
-    overflow-x-hidden
-    bg-primary
     text-gray-base;
   }
 
-  main,
-  :first-of-type section {
+  body > :nth-child(2)  {
     @apply flex-1;
   }
 
@@ -40,7 +38,7 @@
   h4,
   h5,
   h6 {
-    @apply text-black;
+    @apply text-black-base;
   }
 }
 
@@ -129,7 +127,7 @@
       @apply max-w-lg
       border-none
       bg-tertiary
-      text-black;
+      text-black-base;
     }
   }
 
