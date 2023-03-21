@@ -1,7 +1,12 @@
 {
   "js/main.css": {
-    "file": "main-179475c2.css",
+    "file": "main-f46df9cb.css",
     "src": "js/main.css"
+  },
+  "js/editBookingDialog.ts": {
+    "file": "editBookingDialog-6a7d653d.js",
+    "src": "js/editBookingDialog.ts",
+    "isEntry": true
   },
   "js/confirmationDialog.ts": {
     "file": "confirmationDialog-375d99a4.js",
@@ -13,17 +18,12 @@
     "src": "js/bookingInputUpdate.ts",
     "isEntry": true
   },
-  "js/editBookingDialog.ts": {
-    "file": "editBookingDialog-6a7d653d.js",
-    "src": "js/editBookingDialog.ts",
-    "isEntry": true
-  },
   "js/main.ts": {
-    "file": "main-8927924d.js",
+    "file": "main-c24f4e5f.js",
     "src": "js/main.ts",
     "isEntry": true,
     "css": [
-      "main-179475c2.css"
+      "main-f46df9cb.css"
     ]
   }
 }

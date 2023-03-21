@@ -19,8 +19,9 @@
     --color-black-base: 344 11% 19%;
     --color-gray-base: 0 1% 40%;
   }
-  html, body {
-    @apply h-full ;
+  html,
+  body {
+    @apply h-full;
   }
   body {
     @apply flex
@@ -28,7 +29,7 @@
     text-gray-base;
   }
 
-  body > :nth-child(2)  {
+  body > :nth-child(2) {
     @apply flex-1;
   }
 
@@ -56,7 +57,16 @@
   }
   /* dialogs / modals */
   dialog[open] {
-    @apply grid h-max w-3/4 max-w-sm gap-y-4 rounded-xl  py-8 text-center shadow-2xl;
+    @apply grid
+    h-auto
+    max-h-max
+    w-3/4
+    max-w-sm
+    gap-y-4
+    rounded-xl
+    py-8
+    text-center
+    shadow-2xl;
   }
 }
 
@@ -98,7 +108,6 @@
     scale-x-[1.25];
   }
 }
-
 
 /* Forms */
 
@@ -244,4 +253,3 @@ form .helptext {
     }
   }
 }
-
