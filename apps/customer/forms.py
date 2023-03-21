@@ -15,25 +15,25 @@ class CustomerUpdateForm(forms.ModelForm):
         widgets = {
             'username': forms.TextInput(
                 attrs={'pattern': username_pattern['pattern'],
-                       'title': username_pattern['title']
+                       'title': username_pattern['message']
                        },
             ),
 
             'first_name': forms.TextInput(
                 attrs={'pattern': name_part_pattern['pattern'],
-                       'title': name_part_pattern['title']
+                       'title': name_part_pattern['message']
                        },
             ),
 
             'last_name': forms.TextInput(
                 attrs={'pattern': name_part_pattern['pattern'],
-                       'title': name_part_pattern['title']
+                       'title': name_part_pattern['message']
                        },
             ),
 
             'email': forms.EmailInput(
                 attrs={'pattern': email_pattern['pattern'],
-                       'title': email_pattern['title']
+                       'title': email_pattern['message']
                        },
             ),
 
@@ -54,7 +54,7 @@ class CustomerUpdateForm(forms.ModelForm):
                 'phone_number'].initial = self.instance.customer.phone_number
             self.fields['phone_number'].widget = forms.TextInput(
                 attrs={'pattern': phone_number_pattern['pattern'],
-                       'title': phone_number_pattern['title']
+                       'title': phone_number_pattern['message']
                        },
             )
 

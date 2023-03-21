@@ -10,7 +10,7 @@ class ContactForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'pattern': name_full_pattern['pattern'],
-                'title': name_full_pattern['title']
+                'title': name_full_pattern['message']
             }
         )
     )
@@ -22,7 +22,7 @@ class ContactForm(forms.Form):
         widget=forms.EmailInput(
             attrs={
                 'pattern': email_pattern['pattern'],
-                'title': email_pattern['title']
+                'title': email_pattern['message']
             }
         )
     )
@@ -34,7 +34,7 @@ class ContactForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'pattern': phone_number_pattern['pattern'],
-                'title': phone_number_pattern['title']
+                'title': phone_number_pattern['message']
             }
         )
     )
@@ -45,9 +45,9 @@ class ContactForm(forms.Form):
         validators=[validate_message],
         widget=forms.Textarea(
             attrs={
-                'maxlength': message_pattern['pattern']['maxlength'],
-                'minlength': message_pattern['pattern']['minlength'],
-                'title': message_pattern['title']
+                'maxlength': message_pattern['max_length'],
+                'minlength': message_pattern['min_length'],
+                'title': message_pattern['message']
             }
         )
     )
