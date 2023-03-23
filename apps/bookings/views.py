@@ -12,6 +12,22 @@ from .models import Booking
 
 # Create your views here.
 
+def booking_duplicate_error(request) -> render:
+    messages.error(request,
+                   'You have already booked for this date, '
+                   'please choose another date.')
+    form = BookingForm(data=request.POST)
+    template = 'bookings/booking.html'
+    context = {'form': form,
+               'form_title': 'Edit booking',
+               'form_class': 'base-form',
+               'form_id': 'booking-form',
+               'submit_text': 'Update',
+               }
+
+    return render(request, template, context)
+
+
 class BookingCreate(View):
     # A class based view for creating & viewing a booking
     def get(self, request):
@@ -40,20 +56,28 @@ class BookingCreate(View):
 
         if form.is_valid():
             customer = user.customer
-            booking = form.save(commit=False)
-            booking.customer = customer
-            booking.save()
-            username = customer.customer.username
-            username = username[:10]
+            booking_date = form.data['booking_date']
 
-            message = f"Thank you for booking with us, {username}! \n" \
-                      f" We will be in touch shortly to confirm your booking."
+            # Prevent duplicate bookings on same day
+            if Booking.objects.filter(
+                    customer=customer, booking_date=booking_date).exists():
+                return booking_duplicate_error(request)
+            else:
+                booking = form.save(commit=False)
+                booking.customer = customer
+                booking.save()
+                username = customer.customer.username
+                username = username[:10]
 
-            # add lines break to message
-            message = message.replace('\n', '<br>')
+                message = \
+                    f"Thank you for booking with us, {username}! \n" \
+                    f" We will be in touch shortly to confirm your booking."
 
-            messages.success(request, mark_safe(message))
-            return redirect('profile-bookings')
+                # add lines break to message
+                message = message.replace('\n', '<br>')
+
+                messages.success(request, mark_safe(message))
+                return redirect('profile-bookings')
 
         else:
             messages.error(request, form.errors)
@@ -81,11 +105,30 @@ class BookingEdit(View):
         # TODO: ADD BOOKING EDIT EMAIL
         booking = Booking.objects.get(pk=pk)
         form = BookingForm(request.POST, instance=booking)
+        current_booking_date = booking.booking_date
+
         if form.is_valid() and form.has_changed():
-            form.save()
-            messages.success(request,
-                             'Your booking has been successfully updated')
-            return redirect('profile-bookings')
+            # check if date has changed from original booking
+
+            if form.data['booking_date'] != str(current_booking_date):
+                # Prevent duplicate bookings for same day
+                if Booking.objects.filter(
+                        customer=booking.customer,
+                        booking_date=form.data['booking_date']).exists():
+
+                    return booking_duplicate_error(request)
+                else:
+                    form.save()
+                    messages.success(request,
+                                     'Your booking has been '
+                                     'successfully updated')
+                    return redirect('profile-bookings')
+
+            else:
+                form.save()
+                messages.success(request,
+                                 'Your booking has been successfully updated')
+                return redirect('profile-bookings')
 
         else:
             if not form.has_changed():
