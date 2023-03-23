@@ -80,7 +80,7 @@
   w-6
   transform-gpu
   rounded
-  bg-black
+  bg-tertiary
   transition-all
   duration-150
   ease-in-out
@@ -218,6 +218,15 @@ form .helptext {
 
 /* Newly added banner*/
 /* faded table background effect */
+#home-banner ,#top-dish-banner {
+  @apply overflow-x-clip;
+
+  @screen lg {
+    @apply
+    overflow-x-visible ;
+  }
+}
+
 #home-banner::before,
 #top-dish-banner::before {
   @apply absolute
@@ -232,13 +241,13 @@ form .helptext {
 }
 
 #home-banner::before {
-  @apply right-1.5
+  @apply right-36
   top-[100px]
   rotate-[145deg];
 }
 
 #top-dish-banner::before {
-  @apply left-1.5
+  @apply left-14
   top-[45px]
   rotate-[45deg];
 }
