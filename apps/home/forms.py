@@ -51,3 +51,18 @@ class ContactForm(forms.Form):
             }
         )
     )
+
+
+class SubscribeForm(forms.Form):
+    email = forms.EmailField(
+        label='Email',
+        max_length=100,
+        validators=[validate_email],
+        widget=forms.EmailInput(
+            attrs={
+                'placeholder': 'subscribe@email.com',
+                'pattern': email_pattern['pattern'],
+                'title': email_pattern['message']
+            }
+        )
+    )
