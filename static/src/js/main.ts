@@ -25,7 +25,7 @@ function resetNavMenuState() {
   navMenu.classList.remove('fixed')
   navMenu.classList.add('hidden')
   navMenu.style.width = '0'
-  body.classList.remove('overflow-y-hidden')
+  body.classList.remove('overflow-hidden')
 }
 
 // Display the mobile menu and change the aria attributes
@@ -39,7 +39,7 @@ async function showMobileMenu() {
 
     await new Promise((resolve) => setTimeout(resolve, 200))
     navMenu.style.width = '80%'
-    body.classList.add('overflow-y-hidden')
+    body.classList.add('overflow-hidden')
   } else {
     resetNavMenuState()
   }
