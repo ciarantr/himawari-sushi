@@ -1,4 +1,4 @@
-{% load django_vite %}
+{% load django_vite %} {% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,12 +11,11 @@
       http-equiv="X-UA-Compatible"
       content="ie=edge"
     />
-    {% vite_hmr_client %}
-    {% vite_asset 'js/main.ts' %}
+    {% vite_hmr_client %} {% vite_asset 'js/login.ts' %}
     <title>{% block title %}Himawari Sushi {% endblock %}</title>
   </head>
-  <body>
-    <main class="grid h-screen w-full place-items-center bg-neutral-700">
+  <body class="bg-neutral-700">
+    <main class="grid h-max sm:h-full w-full place-items-center p-8">
       {% block content %} {% endblock %}
     </main>
   </body>
