@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render, reverse
 from django.utils.safestring import mark_safe
 from django.views import View
 
-from .forms import ContactForm
+from .forms import ContactForm, SubscribeForm
 
 
 # Create your views here.
@@ -96,7 +96,36 @@ class ContactSuccess(View):
 class Home(View):
     # A class based view for the home page
     def get(self, request):
-        return render(request, 'index.html')
+        form = SubscribeForm()
+        context = {'form': form}
+
+        return render(request, 'index.html', context)
+
+    def post(self, request):
+        form = SubscribeForm(request.POST)
+        if form.is_valid():
+            # format the contact details for the success page
+            email_details = {
+                'Email': form.cleaned_data['email'],
+            }
+
+            email_details = ''.join(
+                [f'<div><span>{key}: </span>{value}</div>'
+                 for key, value in email_details.items()])
+
+            # send email details to subscribe success page
+            request.session['email_details'] = email_details
+
+            messages.success(
+                request, f'Success! We will send you your discount soon.'
+            )
+            return redirect(reverse('subscribe_success'))
+        else:
+            context = {'form': form}
+            messages.error(
+                request, 'Error! Looks like there\'s a problem with your email.'
+            )
+            return render(request, 'index.html', context)
 
 
 class Menu(View):
@@ -175,3 +204,18 @@ class Reservations(View):
         template = 'reservations.html'
 
         return render(request, template, context)
+
+
+class SubscribeSuccess(View):
+    # A class based view for the subscribe success page
+    def get(self, request):
+        # check if the email details are in the session
+        # if they are, display them on the success page
+        if request.session.get('email_details'):
+            email_details = request.session['email_details']
+            # remove the email details from the session
+            del request.session['email_details']
+            context = {'email_details': mark_safe(email_details)}
+            return render(request, 'subscribe_success.html', context)
+        else:
+            return redirect(reverse('home'))

@@ -9,4 +9,6 @@ urlpatterns = [
          name='contact_success'),
     path('menu/', views.Menu.as_view(), name='menu'),
     path('reservations/', views.Reservations.as_view(), name='reservations'),
+    path('subscribe-success/', views.SubscribeSuccess.as_view(),
+         name='subscribe_success'),
 ]
