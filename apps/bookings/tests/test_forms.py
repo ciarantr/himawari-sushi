@@ -20,3 +20,15 @@ class TestBookingForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEquals(len(form.errors), 3)
 
+    def test_fail_booking_form_future_date_out_range(self):
+        form = BookingForm(data={
+            'booking_date': '2026-01-01',
+            'booking_time': '13:00',
+            'placements': '2',
+        })
+        self.assertFalse(form.is_valid())
+        self.assertEquals(len(form.errors), 1)
+        self.assertEquals(
+            form.errors['booking_date'][0],
+            'We can only accept bookings up to the end of the year'
+        )
