@@ -52,3 +52,41 @@ class TestViews(TestCase):
         self.assertEquals(Booking.objects.get().placements, 2)
         self.assertEquals(Booking.objects.get().message, 'Test booking message')
         self.assertEquals(Booking.objects.get().customer, self.customer)
+
+    def test_can_edit_booking(self):
+        # Create a booking
+        response = self.client.post(self.booking_create_url, {
+            'booking_date': today_date,
+            'booking_time': '13:00',
+            'placements': '2',
+            'message': 'Test booking message',
+
+        })
+        # Get the booking by customer and date
+        booking_pk = Booking.objects.get(
+            customer=self.customer,
+            booking_date=today_date
+        ).pk
+        # Get the date for tomorrow
+        tomorrow_date = date.today() + timedelta(days=1)
+        # Edit the booking and add the pk to the url
+        response = self.client.post(
+            self.booking_edit_url.replace('1', str(booking_pk)), {
+                'booking_date': tomorrow_date,
+                'booking_time': '14:00',
+                'placements': '5',
+                'message': 'Test booking message changed',
+            }
+        )
+
+        # Check if booking was edited with the new values
+        self.assertRedirects(response, self.profile_url)
+        self.assertEquals(
+            Booking.objects.get().booking_date,
+            tomorrow_date)
+        self.assertEquals(Booking.objects.get().booking_time.strftime('%H:%M'),
+                          '14:00')
+        self.assertEquals(Booking.objects.get().placements, 5)
+        self.assertEquals(Booking.objects.get().message,
+                          'Test booking message changed')
+        self.assertEquals(Booking.objects.get().customer, self.customer)
