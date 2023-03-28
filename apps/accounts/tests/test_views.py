@@ -22,5 +22,9 @@ class TestViews(TestCase):
             password=self.password,
         )
 
+    def test_GET_login(self):
+        response = self.client.get(self.login_url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'accounts/login.html')
 
 
