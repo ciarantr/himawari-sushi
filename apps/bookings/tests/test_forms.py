@@ -15,3 +15,8 @@ class TestBookingForm(TestCase):
         })
         self.assertTrue(form.is_valid())
 
+    def test_fail_booking_form_no_data(self):
+        form = BookingForm(data={})
+        self.assertFalse(form.is_valid())
+        self.assertEquals(len(form.errors), 3)
+
