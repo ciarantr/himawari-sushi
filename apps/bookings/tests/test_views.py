@@ -90,3 +90,24 @@ class TestViews(TestCase):
         self.assertEquals(Booking.objects.get().message,
                           'Test booking message changed')
         self.assertEquals(Booking.objects.get().customer, self.customer)
+
+    def test_can_delete_booking(self):
+        # Create a booking
+        response = self.client.post(self.booking_create_url, {
+            'booking_date': today_date,
+            'booking_time': '13:00',
+            'placements': '2',
+        })
+        # Get the booking by customer and date
+        booking_pk = Booking.objects.get(
+            customer=self.customer,
+            booking_date=today_date
+        ).pk
+        # Delete the booking and add the pk to the url
+        response = self.client.get(
+            self.booking_delete_url.replace('1', str(booking_pk))
+        )
+
+        # Check if booking was deleted
+        self.assertRedirects(response, self.profile_url)
+        self.assertEquals(Booking.objects.count(), 0)
