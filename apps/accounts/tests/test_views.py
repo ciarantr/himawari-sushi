@@ -51,3 +51,10 @@ class TestViews(TestCase):
         self.assertEquals(response.status_code, 302)
         self.assertEquals(response.url, '/')
         self.assertTrue(auth.get_user(self.client).is_authenticated)
+
+    def test_POST_logout(self):
+        self.client.login(username=self.username, password=self.password)
+        response = self.client.get(self.logout_url)
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(response.url, '/')
+        self.assertFalse(auth.get_user(self.client).is_authenticated)
