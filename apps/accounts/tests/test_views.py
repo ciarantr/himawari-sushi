@@ -41,3 +41,13 @@ class TestViews(TestCase):
         self.assertEquals(response.url, '/')
         self.assertTrue(auth.get_user(self.client).is_authenticated)
 
+    def test_POST_register(self):
+        response = self.client.post(self.register_url, {
+            'username': 'testuser2',
+            'email': self.email,
+            'password1': self.password,
+            'password2': self.password2
+        })
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(response.url, '/')
+        self.assertTrue(auth.get_user(self.client).is_authenticated)
