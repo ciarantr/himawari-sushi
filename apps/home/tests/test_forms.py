@@ -13,3 +13,8 @@ class TestForms(TestCase):
         })
         self.assertTrue(form.is_valid())
 
+    def test_fail_contact_form_all_fields_required(self):
+        form = ContactForm(data={})
+        self.assertFalse(form.is_valid())
+        self.assertEquals(len(form.errors), 4)
+
