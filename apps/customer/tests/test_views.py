@@ -22,3 +22,8 @@ class TestViews(TestCase):
         response = self.client.get(reverse('profile'))
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'profile/index.html')
+
+    def test_GET_customer_profile_bookings_page(self):
+        response = self.client.get(reverse('profile-bookings'))
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profile/bookings.html')
