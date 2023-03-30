@@ -59,6 +59,7 @@ class CustomerUpdateForm(forms.ModelForm):
             )
 
         # extent form validators
+        self.fields['username'].validators.append(validate_username)
         self.fields['first_name'].validators.append(validate_part_name)
         self.fields['last_name'].validators.append(validate_part_name)
         self.fields['email'].validators.append(validate_email)
