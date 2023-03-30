@@ -23,3 +23,8 @@ class TestViews(TestCase):
         url = self.client.get('/menu/')
         self.assertEqual(url.status_code, 200)
         self.assertTemplateUsed(url, 'menu.html')
+
+    def test_Get_reservations_page(self):
+        url = self.client.get('/reservations/')
+        self.assertEqual(url.status_code, 200)
+        self.assertTemplateUsed(url, 'reservations.html')
