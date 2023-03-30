@@ -64,13 +64,13 @@ def validate_part_name(name: str) -> str or None:
     name_regex(name)
 
 
-def validate_part_name(name: str) -> str or None:
-    # Check if name is between 3 and 50 characters
+def validate_username(name: str) -> str or None:
+    #
     name_regex = RegexValidator(
-        regex=r'^[a-zA-Z]{3,50}$',
+        regex=r'^[\w@.+-]{3,100}$',
         message=_(
             'Name must be at least 3 characters and '
-            'can contain only letters'
+            'can contain numbers, letters and the @.+-_ special characters'
         ))
 
     name_regex(name)
