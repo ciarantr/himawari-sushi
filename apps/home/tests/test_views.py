@@ -28,3 +28,9 @@ class TestViews(TestCase):
         url = self.client.get('/reservations/')
         self.assertEqual(url.status_code, 200)
         self.assertTemplateUsed(url, 'reservations.html')
+
+    def test_GET_contact_success_page_redirect(self):
+        # middleware prevents direct access without form submission
+        url = self.client.get('/contact/success/')
+        self.assertEqual(url.status_code, 302)
+
