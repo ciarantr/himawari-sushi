@@ -24,3 +24,7 @@ class TestForms(TestCase):
         })
         self.assertTrue(form.is_valid())
 
+    def test_fail_subscribe_form_all_fields_required(self):
+        form = SubscribeForm(data={})
+        self.assertFalse(form.is_valid())
+        self.assertEquals(len(form.errors), 1)
