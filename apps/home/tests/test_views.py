@@ -34,3 +34,8 @@ class TestViews(TestCase):
         url = self.client.get('/contact/success/')
         self.assertEqual(url.status_code, 302)
 
+    def test_GET_subscribe_page(self):
+        # middleware prevents direct access without form submission
+        url = self.client.get('/subscribe-success/')
+        self.assertEqual(url.status_code, 302)
+
