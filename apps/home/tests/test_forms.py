@@ -18,3 +18,9 @@ class TestForms(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEquals(len(form.errors), 4)
 
+    def test_pass_subscribe_form(self):
+        form = SubscribeForm(data={
+            'email': 'test@gmail.com'
+        })
+        self.assertTrue(form.is_valid())
+
