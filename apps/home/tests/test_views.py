@@ -50,3 +50,17 @@ class TestViews(TestCase):
             str(messages[0]), 'Success! We will send you your discount soon.'
         )
 
+    def test_contact_form_success(self):
+        response = self.client.post('/contact/', data={
+            'full_name': 'testname',
+            'email': 'tesr@gmail.com',
+            'phone_number': '1234567890',
+            'message': 'test message success long'
+        })
+        self.assertRedirects(response, '/contact/success/')
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(
+            str(messages[0]), 'Success! Your message has been sent.'
+        )
+
