@@ -39,3 +39,14 @@ class TestViews(TestCase):
         url = self.client.get('/subscribe-success/')
         self.assertEqual(url.status_code, 302)
 
+    def test_subscribe_form_success(self):
+        response = self.client.post('/', data={
+            'email': 'test@gmail.com'
+        })
+        self.assertRedirects(response, '/subscribe-success/')
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(
+            str(messages[0]), 'Success! We will send you your discount soon.'
+        )
+
