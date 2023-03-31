@@ -1,4 +1,6 @@
-{% extends 'profile/base.html' %} {% block content %} {% load static %}
+{% extends 'profile/base.html' %}
+{% block title %} Booking Details {% endblock %}
+{% block content %} {% load static %}
   {% load django_vite %}{% vite_hmr_client %}
   {% block dialog_js %}
     {% vite_asset 'js/editBookingDialog.ts' %}

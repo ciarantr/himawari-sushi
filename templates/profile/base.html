@@ -11,9 +11,10 @@
       http-equiv="X-UA-Compatible"
       content="ie=edge"
     />
+    {% include 'partials/meta_content.html' %}
+    <title>Himawari Sushi - {% block title %}{% endblock %}</title>
     {% vite_hmr_client %} {% block dialog_js %} {% endblock %}
     {% vite_asset "js/main.ts" %}
-    <title>{% block title %}Himawari Sushi {% endblock %}</title>
   </head>
   <body>
     <!-- Header -->

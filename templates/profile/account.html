@@ -1,4 +1,6 @@
 {% extends 'profile/index.html' %}
+{% block title %}Profile Details{% endblock %}
+
   {% load django_vite %}{% vite_hmr_client %}
     {% block dialog_js %}
     {% vite_asset 'js/confirmationDialog.ts' %}
