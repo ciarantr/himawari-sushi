@@ -11,11 +11,17 @@
       http-equiv="X-UA-Compatible"
       content="ie=edge"
     />
+  {% include 'partials/meta_content.html' %}
+
+  <title>{% block title %}{% endblock %}</title>
+    <meta
+      name="description"
+      content="{% block description %}{% endblock %}"
+    />
     {% vite_hmr_client %} {% vite_asset 'js/login.ts' %}
-    <title>{% block title %}Himawari Sushi {% endblock %}</title>
   </head>
-  <body class="bg-neutral-700">
-    <main class="grid h-max sm:h-full w-full place-items-center p-8">
+  <body class="bg-black sm:bg-neutral-700">
+    <main class="grid w-full place-items-center sm:h-screen sm:p-4">
       {% block content %} {% endblock %}
     </main>
   </body>
