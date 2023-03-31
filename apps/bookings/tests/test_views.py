@@ -44,14 +44,18 @@ class TestViews(TestCase):
         })
         # Check if booking was created and redirect to profile page
         self.assertRedirects(response, self.profile_url)
-        self.assertEquals(Booking.objects.count(), 1)
-        self.assertEquals(
-            Booking.objects.get().booking_date, today_date)
-        self.assertEquals(Booking.objects.get().booking_time.strftime('%H:%M'),
-                          '13:00')
-        self.assertEquals(Booking.objects.get().placements, 2)
-        self.assertEquals(Booking.objects.get().message, 'Test booking message')
-        self.assertEquals(Booking.objects.get().customer, self.customer)
+        self.assertEquals(response.status_code, 302)
+
+        # Get the booking by customer and date
+        booking = Booking.objects.get(booking_date=today_date,
+                                      customer=self.customer)
+
+        # Check if booking has correct values
+        self.assertEquals(booking.booking_date, today_date)
+        self.assertEquals(booking.booking_time.strftime('%H:%M'), '13:00')
+        self.assertEquals(booking.placements, 2)
+        self.assertEquals(booking.message, 'Test booking message')
+        self.assertEquals(booking.customer, self.customer)
 
     def test_can_edit_booking(self):
         # Create a booking
@@ -60,7 +64,6 @@ class TestViews(TestCase):
             'booking_time': '13:00',
             'placements': '2',
             'message': 'Test booking message',
-
         })
         # Get the booking by customer and date
         booking_pk = Booking.objects.get(
@@ -78,18 +81,14 @@ class TestViews(TestCase):
                 'message': 'Test booking message changed',
             }
         )
-
         # Check if booking was edited with the new values
         self.assertRedirects(response, self.profile_url)
-        self.assertEquals(
-            Booking.objects.get().booking_date,
-            tomorrow_date)
-        self.assertEquals(Booking.objects.get().booking_time.strftime('%H:%M'),
-                          '14:00')
-        self.assertEquals(Booking.objects.get().placements, 5)
-        self.assertEquals(Booking.objects.get().message,
-                          'Test booking message changed')
-        self.assertEquals(Booking.objects.get().customer, self.customer)
+        booking = Booking.objects.get(pk=booking_pk)
+        self.assertEquals(booking.booking_date, tomorrow_date)
+        self.assertEquals(booking.booking_time.strftime('%H:%M'), '14:00')
+        self.assertEquals(booking.placements, 5)
+        self.assertEquals(booking.message, 'Test booking message changed')
+        self.assertEquals(booking.customer, self.customer)
 
     def test_can_delete_booking(self):
         # Create a booking
@@ -107,7 +106,6 @@ class TestViews(TestCase):
         response = self.client.get(
             self.booking_delete_url.replace('1', str(booking_pk))
         )
-
-        # Check if booking was deleted
         self.assertRedirects(response, self.profile_url)
+        # Check if booking was deleted
         self.assertEquals(Booking.objects.count(), 0)
