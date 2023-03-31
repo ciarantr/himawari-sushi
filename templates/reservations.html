@@ -1,4 +1,9 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %} {% load static %}
+
+{% block title %}Reservations & FAQ{% endblock %}
+{% block description %}Reservations & FAQ:For information on how to make a booking or for any other questions, please get in touch.{% endblock %}
+
+{% block content %}
 <!-- Reservations FAQ -->
 <section class="sm:container mt-12 space-y-12 lg:max-w-screen-lg ">
   <div>
@@ -14,7 +19,7 @@
           {{ question.answer }}
           {% if question.link %}
             <a
-              class="text-tertiary"
+              class="underline"
               href="{% url 'booking_create' %}"
               >reservation online.</a
             >
