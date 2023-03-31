@@ -11,11 +11,20 @@
       http-equiv="X-UA-Compatible"
       content="ie=edge"
     />
+    <!-- base meta information -->
+    {% include 'partials/meta_content.html' %}
+    <meta
+      name="description"
+      content="{% block description %}Himawari Sushi is a Japanese restaurant located in the heart of Dublin.We offer a wide variety of authentic Japanese dishes, including sushi, sashimi, tempura, and more.{% endblock %}"
+    />
+    <title>
+      Himawari Sushi - {% block title %}Authentic Japanese Food {% endblock %}
+    </title>
+
     {% vite_hmr_client %} {% vite_asset 'js/main.ts' %}
     {% if user.is_authenticated %}
-      {% block dialog_js %} {%endblock %}
+      {% block dialog_js %}{%endblock %}
     {% endif %}
-    <title>{% block title %}Himawari Sushi {% endblock %}</title>
   </head>
   <body>
     <!-- Header -->
