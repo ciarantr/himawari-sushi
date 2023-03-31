@@ -1,6 +1,13 @@
 {% extends "base.html" %} {% load static %}
 {% load django_vite %}{%vite_hmr_client %}
 
+{% block title %}Book Online{% endblock %}
+{% block description %}Book a table at our Himawari Sushi restaurant. Enjoy delicious authentic Japanese food with your friends and family. Book a table online today.{% endblock %}
+
+{% block dialog_css %}
+  {% vite_asset 'css/confirmationDialog.css' %}
+{% endblock %}
+
 <!-- Only loads if user is logged in -->
 {%  block dialog_js %}
   {% vite_asset 'js/confirmationDialog.ts' %}
