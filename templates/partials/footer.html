@@ -18,7 +18,7 @@
         <div>
           <h2 class="text-lg font-medium">Main Menu</h2>
           <ul
-            class="[&_a]:border-b [&_a]:border-transparent [&_a]:transition-colors [&_a:hover]:border-black"
+            class="[&_a]:block [&_a]:border-b [&_a]:border-transparent [&_a]:transition-colors md:[&_a]:inline-block [&_a:hover]:border-black [&_li]:py-1 md:[&_li]:py-0.5"
           >
             <li><a href="{% url 'about' %}">About</a></li>
             <li><a href="{% url 'menu' %}">Menu</a></li>
@@ -28,7 +28,7 @@
         <div>
           <h2 class="text-lg font-medium">Information</h2>
           <ul
-            class="[&_a]:border-b [&_a]:border-transparent [&_a]:transition-colors [&_a:hover]:border-black"
+            class="[&_a]:block [&_a]:border-b [&_a]:border-transparent [&_a]:transition-colors md:[&_a]:inline-block [&_a:hover]:border-black [&_li]:py-1 md:[&_li]:py-0.5"
           >
             <li><a href="{% url 'contact' %}">Contact us</a></li>
             <li><a href="{% url 'reservations' %}">Reservations</a></li>
