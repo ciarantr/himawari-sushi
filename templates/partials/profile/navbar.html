@@ -8,11 +8,12 @@
       class="h-6 w-6 rounded-full"
       src="{% static 'icons/account-circle.svg' %}"
       alt="profile"
+      aria-hidden="true"
     />
     <h2>My Account</h2>
   </div>
 
-  <nav aria-controls="profile navigation">
+  <nav aria-label="profile navigation">
     <ul
       class="flex gap-x-4 lg:block [&_li]:rounded-md [&_li]:p-2 [&>li:hover]:bg-gray-100 [&_li]:flex [&_li]:gap-x-2 [&_li]:items-center [&_li]:min-w-max overflow-x-auto"
     >
@@ -22,9 +23,10 @@
           width="20"
           height="20"
           alt="home icon"
+          aria-hidden="true"
         />
 
-        <a href="{% url 'profile' %}">Home</a>
+        <a aria-label="navigate to profile dashboard" href="{% url 'profile' %}">Home</a>
       </li>
       <li class="flex gap-x-2">
         <img
@@ -32,8 +34,9 @@
           width="20"
           height="20"
           alt="bookings icon"
+          aria-hidden="true"
         />
-        <a href="{% url 'profile-bookings' %}">Bookings</a>
+        <a aria-label="navigate to profile bookings" href="{% url 'profile-bookings' %}">Bookings</a>
       </li>
       <li class="flex gap-x-2">
         <img
@@ -41,8 +44,9 @@
           width="20"
           height="20"
           alt="settings icon"
+          aria-hidden="true"
         />
-        <a href="{% url 'profile-details' %}">Account information</a>
+        <a aria-label="navigate to profile account information" href="{% url 'profile-details' %}">Account information</a>
       </li>
     </ul>
   </nav>
