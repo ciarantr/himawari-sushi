@@ -53,7 +53,7 @@
     py-2
     px-4
     font-semibold
-    text-white;
+    text-black-base;
   }
   /* dialogs / modals */
   dialog[open] {
@@ -178,7 +178,7 @@
     max-w-lg
     rounded-lg
     py-2
-    text-white;
+    text-black-base;
   }
 
   input[type='submit'] {

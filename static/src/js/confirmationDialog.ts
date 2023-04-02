@@ -79,7 +79,7 @@ function CreateDialogBox() {
         <p class='text-lg'>Please confirm details are correct</p>
         <div id='dialog-information' class='mt-8 space-y-2 grid text-left justify-center '></div>
         <div class='grid grid-cols-2 gap-x-2 mt-8'>
-          <button class='btn bg-red-500 rounded-md' type='button'>Cancel</button>
+          <button class='btn bg-red-500 !text-[#05113f] rounded-md' type='button'>Cancel</button>
           <button class='btn rounded-md' type='submit'>Confirm</button>
         </div>
     `

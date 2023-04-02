@@ -11,12 +11,12 @@
 
   <div class="space-y-4 md:max-w-screen-md">
     {% if bookings %}
-    <h2 class="text-blue-500">
+    <h2 class="text-blue-600">
       You currently have {{ bookings|length }} booking{{ bookings|pluralize }}
     </h2>
     <!-- Booking details overview -->
     {% for booking in bookings %}
-    <div class="space-y-2 rounded-md p-6 shadow">
+    <div class="space-y-6 rounded-md p-6 shadow">
       <h3 class="text-lg">Overview</h3>
       <dl class="space-y-2 [&_dt]:inline-block [&_dd]:inline-block">
         <div>
@@ -44,7 +44,7 @@
       <h2 class="text-center text-lg">You currently have no bookings.</h2>
       <a
         href="{% url 'booking_create' %}"
-        class="text-blue-500 after:content-['_↗'] hover:text-blue-700"
+        class="text-blue-600 after:content-['_↗'] transition-all border-b border-transparent hover:border-b hover:border-blue-600"
         >Make a booking
       </a>
     </div>
