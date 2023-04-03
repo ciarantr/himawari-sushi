@@ -1,36 +1,36 @@
 {% load django_vite %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
-    />
-    <meta
-      http-equiv="X-UA-Compatible"
-      content="ie=edge"
-    />
-    {% include 'partials/meta_content.html' %}
-    <title>Himawari Sushi - {% block title %}{% endblock %}</title>
-    {% vite_hmr_client %} {% block dialog_js %} {% endblock %}
-    {% vite_asset "js/main.ts" %}
-  </head>
-  <body>
-    <!-- Header -->
-    {% include 'partials/header.html' %}
-    <!-- Content -->
-    <div
-      class="container mt-12 space-y-12 lg:grid lg:grid-cols-[auto_1fr] lg:gap-x-8 lg:space-y-0"
-    >
-      {% include 'partials/profile/navbar.html' %}
-      <main class="rounded-md bg-white p-4 shadow lg:max-w-screen-md">
-        {% block content %} {% endblock %}
-      </main>
-    </div>
-    <!-- Footer -->
-    {% include 'partials/footer.html' %}
-    <!-- Dialog box logout -->
-    {% include 'partials/messages/logout_dialog.html' %}
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+  >
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="ie=edge"
+  >
+  {% include 'partials/meta_content.html' %}
+  <title>Himawari Sushi - {% block title %}{% endblock %}</title>
+  {% vite_hmr_client %} {% block dialog_js %} {% endblock %}
+  {% vite_asset "js/main.ts" %}
+</head>
+<body>
+<!-- Header -->
+{% include 'partials/header.html' %}
+<!-- Content -->
+<div
+  class="container mt-12 space-y-12 lg:grid lg:grid-cols-[auto_1fr] lg:gap-x-8 lg:space-y-0"
+>
+  {% include 'partials/profile/navbar.html' %}
+  <main class="rounded-md bg-white p-4 shadow lg:max-w-screen-md">
+    {% block content %} {% endblock %}
+  </main>
+</div>
+<!-- Footer -->
+{% include 'partials/footer.html' %}
+<!-- Dialog box logout -->
+{% include 'partials/messages/logout_dialog.html' %}
+</body>
 </html>

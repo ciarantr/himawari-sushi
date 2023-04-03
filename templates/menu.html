@@ -1,74 +1,77 @@
 {% extends "base.html" %} {% load static %}
 {% block title %}Our Menu{% endblock %}
-{% block description %}Menu of Himawari Sushi.We offer a wide range of sushi, sashimi, and other Japanese dishes.{% endblock %}
+{% block description %}
+  Menu of Himawari Sushi.We offer a wide range of sushi, sashimi, and other Japanese dishes.
+{% endblock %}
 
 {% block content %}
-<div class="container">
-  <section
-    role="banner"
-    class="mx-auto mt-24 space-y-4 md:grid md:grid-cols-2 md:gap-x-12 md:space-y-0 lg:max-w-screen-xl"
-  >
-    <!-- Banner -->
-    <div
-      class="grid self-end rounded-xl bg-gradient-to-tr from-black to-black/80 p-4 shadow md:h-5/6"
-    >
-      <h1 class="place-self-center text-center text-4xl text-white">
-        Himawari Sushi <br />
-        Special
-      </h1>
-      <p class="place-self-center text-center text-white">
-        Sushi mix salad € 12.00
-      </p>
-    </div>
-
-    <div class="menu-special">
-      <div
-        class="rounded-xl bg-gradient-to-br from-black/80 to-black/50 p-7 shadow"
-      >
-        <img
-          class="block w-full rounded-md shadow-xl"
-          src="{% static 'menu-recipe-2.webp' %}"
-          alt="Sushi mix served on plate with sushi"
-          width="520"
-          height="350"
-          loading="eager"
-        />
-      </div>
-    </div>
-  </section>
-
-  <main class="mx-auto mt-32 lg:max-w-screen-xl">
-    <!-- Menu -->
+  <div class="container">
     <section
-      class="space-y-8 rounded-xl border bg-gradient-to-tr from-black to-black/80 p-8 text-white shadow-2xl [&_h3]:!text-white [&_h4]:!text-tertiary"
+      role="banner"
+      class="mx-auto mt-24 space-y-4 md:grid md:grid-cols-2 md:gap-x-12 md:space-y-0 lg:max-w-screen-xl"
     >
-      <h2 class="text-center text-2xl text-white">Menu</h2>
+      <!-- Banner -->
       <div
-        class="justify-between space-y-12 rounded-md bg-gradient-to-br from-black via-black/90 p-8 shadow-2xl md:flex"
+        class="grid self-end rounded-xl bg-gradient-to-tr from-black to-black/80 p-4 shadow md:h-5/6"
       >
-        <div class="space-y-8">
-          <h3 class="text-2xl">Traditional Sushi Roll</h3>
+        <h1 class="place-self-center text-center text-4xl text-white">
+          Himawari Sushi <br>
+          Special
+        </h1>
+        <p class="place-self-center text-center text-white">
+          Sushi mix salad € 12.00
+        </p>
+      </div>
+
+      <div class="menu-special">
+        <div
+          class="rounded-xl bg-gradient-to-br from-black/80 to-black/50 p-7 shadow"
+        >
+          <img
+            class="block w-full rounded-md shadow-xl"
+            src="{% static 'menu-recipe-2.webp' %}"
+            alt="Sushi mix served on plate with sushi"
+            width="520"
+            height="350"
+            loading="eager"
+          >
+        </div>
+      </div>
+    </section>
+
+    <main class="mx-auto mt-32 lg:max-w-screen-xl">
+      <!-- Menu -->
+      <section
+        class="space-y-8 rounded-xl border bg-gradient-to-tr from-black to-black/80 p-8 text-white shadow-2xl
+        [&_h3]:!text-white [&_h4]:!text-tertiary"
+      >
+        <h2 class="text-center text-2xl text-white">Menu</h2>
+        <div
+          class="justify-between space-y-12 rounded-md bg-gradient-to-br from-black via-black/90 p-8 shadow-2xl md:flex"
+        >
+          <div class="space-y-8">
+            <h3 class="text-2xl">Traditional Sushi Roll</h3>
+
+            <div class="space-y-2">
+              <h4>Raw Roll/ Hand Roll</h4>
+              <ul class="list-inside list-disc space-y-2 marker:text-tertiary">
+                {% for list in menu.raw_roll %}
+                  <li>{{ list.0 }} € {{ list.1 }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
 
           <div class="space-y-2">
-            <h4>Raw Roll/ Hand Roll</h4>
+            <h4>Cooked Roll/ Hand Roll</h4>
             <ul class="list-inside list-disc space-y-2 marker:text-tertiary">
-              {% for list in menu.raw_roll %}
-              <li>{{ list.0 }} € {{ list.1 }}</li>
+              {% for list in menu.cooked_roll %}
+                <li>{{ list.0 }} € {{ list.1 }}</li>
               {% endfor %}
             </ul>
           </div>
         </div>
-
-        <div class="space-y-2">
-          <h4>Cooked Roll/ Hand Roll</h4>
-          <ul class="list-inside list-disc space-y-2 marker:text-tertiary">
-            {% for list in menu.cooked_roll %}
-            <li>{{ list.0 }} € {{ list.1 }}</li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-    </section>
-  </main>
-</div>
+      </section>
+    </main>
+  </div>
 {% endblock %}

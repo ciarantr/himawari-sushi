@@ -1,14 +1,13 @@
 <div class="space-y-4 px-4 sm:container md:max-w-screen-md lg:px-0">
   <h1 class="text-center text-2xl">{{ form_title }}</h1>
-  <form
-    method="post"
-    id="{{ form_id }}"
-    class="{{ form_class }}"
+  <form method="post"
+        class="{{ form_class }}"
+    {% if form_id %}
+        id="{{ form_id }}"
+    {% endif %}
   >
     {% csrf_token %} {{ form.as_div }}
-    <input
-      type="submit"
-      value="{{ submit_text }}"
-    />
+    <input type="submit"
+           value="{{ submit_text }}">
   </form>
 </div>

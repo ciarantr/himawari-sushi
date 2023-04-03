@@ -1,6 +1,5 @@
 {% load static %}
 <footer
-  role="contentinfo"
   class="border-gray mt-24 space-y-8 border-t py-6 px-4"
 >
   <section class="space-y-12 md:flex md:justify-evenly md:gap-x-4 md:space-y-0">
@@ -59,7 +58,7 @@
     </div>
   </section>
   <!-- Social media links and copyright -->
-  <section
+  <div
     class="items-center space-y-4 md:flex md:justify-evenly md:space-y-0"
   >
     <!-- social icons / links -->
@@ -143,7 +142,7 @@
 
       <div class="grid place-items-center">
         <img src='{% static 'icons/visa.svg' %}' loading='lazy' alt='visa logo'
-        width=50 height='21'>
+             width=50 height='21'>
       </div>
 
       <div>
@@ -151,5 +150,5 @@
         logo' width='27' height='32'>
       </div>
     </div>
-  </section>
+  </div>
 </footer>

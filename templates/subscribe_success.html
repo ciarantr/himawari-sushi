@@ -1,33 +1,33 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 
-<main class="container mx-auto mt-12 space-y-8">
-  <div class="mx-auto md:max-w-screen-lg">
-    <img
-      src="{% static 'restaurant-sm.webp' %}"
-      class="h-auto w-full rounded-xl lg:h-[450px] lg:object-cover"
-      srcset="{% static 'restaurant-sm.webp' %} 640w,
+  <main class="container mx-auto mt-12 space-y-8">
+    <div class="mx-auto md:max-w-screen-lg">
+      <img
+        src="{% static 'restaurant-sm.webp' %}"
+        class="h-auto w-full rounded-xl lg:h-[450px] lg:object-cover"
+        srcset="{% static 'restaurant-sm.webp' %} 640w,
               {% static 'restaurant-md.webp' %} 1280w,
               {% static 'restaurant-lg.webp' %} 1920w"
-      width="640"
-      height="454"
-      alt="Restaurant owner adding sushi to a hot plate"
-    />
-  </div>
-
-  <div
-    class="mx-auto space-y-6 rounded-md bg-white p-8 text-center text-center shadow md:max-w-screen-md"
-  >
-    <div>
-      <h1 class="text-xl">Thank you for subscribing with to Himwari Sushi</h1>
+        width="640"
+        height="454"
+        alt="Restaurant owner adding sushi to a hot plate"
+      >
     </div>
 
-    <div class="grid place-items-center">
-      <div
-        class="max-w-[30ch] space-y-1 break-words text-left [&_span]:font-semibold [&_span]:text-black-base"
-      >
-        {{ email_details }}
+    <div
+      class="mx-auto space-y-6 rounded-md bg-white p-8 text-center text-center shadow md:max-w-screen-md"
+    >
+      <div>
+        <h1 class="text-xl">Thank you for subscribing with to Himwari Sushi</h1>
+      </div>
+
+      <div class="grid place-items-center">
+        <div
+          class="max-w-[30ch] space-y-1 break-words text-left [&_span]:font-semibold [&_span]:text-black-base"
+        >
+          {{ email_details }}
+        </div>
       </div>
     </div>
-  </div>
-</main>
+  </main>
 {% endblock %}

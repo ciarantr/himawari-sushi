@@ -6,72 +6,73 @@
     {% vite_asset 'js/editBookingDialog.ts' %}
   {% endblock %}
 
-<section class="space-y-8">
-  <div class="space-y-8">
-    <h1 class="text-center text-xl">Your Bookings</h1>
-    <a
-      href="{% url 'booking_create' %}"
-      class="border-b border-transparent text-blue-600 transition-all after:content-['_↗'] hover:border-b hover:border-blue-600"
-    >
-      Create a booking
-    </a>
-  </div>
-
-  {% if bookings %}
-  <!-- booking card  booking information -->
-  <div class="md:max-w-screen-md">
-    {% for booking in bookings %}
-    <div class="mb-4 space-y-4 rounded-lg bg-white p-4 shadow-md">
-      <h2 class="overflow-x-auto font-semibold">
-        Booking reference: <br />
-        {{ booking.id }}
-      </h2>
-      <!-- create a data list & data description with booking details -->
-      <dl class="grid gap-4 lg:grid-cols-2 [&_dt]:font-semibold">
-        <div>
-          <dt>Booking confirmed</dt>
-          <dd>{{ booking.confirmed|yesno:"Yes,No" }}</dd>
-        </div>
-        <div>
-          <dt>Date</dt>
-          <dd>{{ booking.date }}</dd>
-        </div>
-        <div>
-          <dt>Time</dt>
-          <dd>{{ booking.time }}</dd>
-        </div>
-        <div>
-          <dt>Number of people</dt>
-          <dd>{{ booking.placements }}</dd>
-        </div>
-        <div>
-          <dt>Special requests</dt>
-          <dd>{{ booking.message }}</dd>
-        </div>
-      </dl>
-      <!-- create a button to cancel the booking -->
-      <div class="flex flex-wrap justify-end gap-y-2 gap-x-4 text-center">
-        <a
-          href="{% url 'booking_edit' booking.id %}"
-          class="w-full rounded border border-blue-600 py-2 px-4 text-blue-600 transition-colors hover:bg-blue-600 hover:text-white md:w-auto"
-        >
-          Edit booking
-        </a>
-        <button
-          data-booking-id="{{ booking.id }}"
-          class="booking-cancel w-full rounded border border-red-700 py-2 px-4 text-red-700 transition-colors hover:bg-red-700 hover:text-white md:w-auto"
-        >
-          Cancel booking
-        </button>
-      </div>
+  <section class="space-y-8">
+    <div class="space-y-8">
+      <h1 class="text-center text-xl">Your Bookings</h1>
+      <a
+        href="{% url 'booking_create' %}"
+        class="border-b border-transparent text-blue-600 transition-all after:content-['_↗']
+        hover:border-b hover:border-blue-600"
+      >
+        Create a booking
+      </a>
     </div>
-    {% endfor %}
-  </div>
-</section>
 
-{% else %}
-<div>
-  <p class="inline-block text-gray-500">You have no bookings yet.</p>
-</div>
+    {% if bookings %}
+      <!-- booking card  booking information -->
+      <div class="md:max-w-screen-md">
+        {% for booking in bookings %}
+          <div class="mb-4 space-y-4 rounded-lg bg-white p-4 shadow-md">
+            <h2 class="overflow-x-auto font-semibold">
+              Booking reference: <br>
+              {{ booking.id }}
+            </h2>
+            <!-- create a data list & data description with booking details -->
+            <dl class="grid gap-4 lg:grid-cols-2 [&_dt]:font-semibold">
+              <div>
+                <dt>Booking confirmed</dt>
+                <dd>{{ booking.confirmed|yesno:"Yes,No" }}</dd>
+              </div>
+              <div>
+                <dt>Date</dt>
+                <dd>{{ booking.date }}</dd>
+              </div>
+              <div>
+                <dt>Time</dt>
+                <dd>{{ booking.time }}</dd>
+              </div>
+              <div>
+                <dt>Number of people</dt>
+                <dd>{{ booking.placements }}</dd>
+              </div>
+              <div>
+                <dt>Special requests</dt>
+                <dd>{{ booking.message }}</dd>
+              </div>
+            </dl>
+            <!-- create a button to cancel the booking -->
+            <div class="flex flex-wrap justify-end gap-y-2 gap-x-4 text-center">
+              <a
+                href="{% url 'booking_edit' booking.id %}"
+                class="w-full rounded border border-blue-600 py-2 px-4 text-blue-600 transition-colors hover:bg-blue-600 hover:text-white md:w-auto"
+              >
+                Edit booking
+              </a>
+              <button
+                data-booking-id="{{ booking.id }}"
+                class="booking-cancel w-full rounded border border-red-700 py-2 px-4 text-red-700 transition-colors hover:bg-red-700 hover:text-white md:w-auto"
+              >
+                Cancel booking
+              </button>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      </section>
 
-{% endif %} {% endblock %}
+    {% else %}
+      <div>
+        <p class="inline-block text-gray-500">You have no bookings yet.</p>
+      </div>
+
+    {% endif %} {% endblock %}

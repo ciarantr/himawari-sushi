@@ -1,28 +1,21 @@
-{% load django_vite %} {% load static %}
-<!DOCTYPE html>
+{% load django_vite %} {% load static %}<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
-    />
-    <meta
-      http-equiv="X-UA-Compatible"
-      content="ie=edge"
-    />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible"
+        content="ie=edge">
   {% include 'partials/meta_content.html' %}
 
   <title>{% block title %}{% endblock %}</title>
-    <meta
-      name="description"
-      content="{% block description %}{% endblock %}"
-    />
-    {% vite_hmr_client %} {% vite_asset 'js/login.ts' %}
-  </head>
-  <body class="bg-black sm:bg-neutral-700">
-    <main class="grid w-full place-items-center sm:h-screen sm:p-4">
-      {% block content %} {% endblock %}
-    </main>
-  </body>
+  <meta name="description"
+        content="{% block description %}{% endblock %}">
+  {% vite_hmr_client %} {% vite_asset 'js/login.ts' %}
+</head>
+<body class="bg-black sm:bg-neutral-700">
+<main class="grid w-full place-items-center sm:h-screen sm:p-4">
+  {% block content %} {% endblock %}
+</main>
+</body>
 </html>

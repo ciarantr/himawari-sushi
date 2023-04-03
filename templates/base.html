@@ -1,39 +1,34 @@
-{% load django_vite %}
-<!DOCTYPE html>
+{% load django_vite %}<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
-    />
-    <meta
-      http-equiv="X-UA-Compatible"
-      content="ie=edge"
-    />
-    <!-- base meta information -->
-    {% include 'partials/meta_content.html' %}
-    <meta
-      name="description"
-      content="{% block description %}Himawari Sushi is a Japanese restaurant located in the heart of Dublin.We offer a wide variety of authentic Japanese dishes, including sushi, sashimi, tempura, and more.{% endblock %}"
-    />
-    <title>
-      Himawari Sushi - {% block title %}Authentic Japanese Food {% endblock %}
-    </title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- base meta information -->
+  {% include 'partials/meta_content.html' %}
+  <meta name="description"
+        content="{% block description %}Himawari Sushi is a Japanese restaurant
+        located in the heart of Dublin.We offer a wide variety of authentic
+        Japanese dishes, including sushi, sashimi, tempura, and more.{% endblock %}"
+  >
+  <title>
+    Himawari Sushi - {% block title %}Authentic Japanese Food {% endblock %}
+  </title>
 
-    {% vite_hmr_client %} {% vite_asset 'js/main.ts' %}
-    {% if user.is_authenticated %}
-      {% block dialog_js %}{%endblock %}
-    {% endif %}
-  </head>
-  <body>
-    <!-- Header -->
-    {% include 'partials/header.html' %}
-    <!-- Content -->
-    {% block content %}{% endblock %}
-    <!-- Footer -->
-    {% include 'partials/footer.html' %}
-    <!-- Dialog for logout -->
-    {% include 'partials/messages/logout_dialog.html' %}
-  </body>
+  {% vite_hmr_client %} {% vite_asset 'js/main.ts' %}
+  {% if user.is_authenticated %}
+    {% block dialog_js %}{% endblock %}
+  {% endif %}
+</head>
+<body>
+<!-- Header -->
+{% include 'partials/header.html' %}
+<!-- Content -->
+{% block content %}{% endblock %}
+<!-- Footer -->
+{% include 'partials/footer.html' %}
+<!-- Dialog for logout -->
+{% include 'partials/messages/logout_dialog.html' %}
+</body>
 </html>

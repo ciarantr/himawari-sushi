@@ -2,7 +2,8 @@
 <header class="sm:container">
   <nav
     aria-label="primary-navigation"
-    class="flex items-center bg-gradient-to-tr from-black to-black/60 px-4 py-2 text-white sm:mt-4 sm:grid-cols-[auto,1fr,auto] sm:rounded-lg"
+    class="flex items-center bg-gradient-to-tr from-black to-black/60 px-4 py-2 text-white sm:mt-4
+    sm:grid-cols-[auto,1fr,auto] sm:rounded-lg"
   >
     <!-- mobile menu sm flyout -->
     <div
@@ -18,20 +19,20 @@
       <!--  (view profile / sign-out) login / register  -->
       <div class="absolute bottom-[64px] w-full border-t py-4 px-2">
         <div
-          class="grid grid-cols-2 gap-x-4 text-center [&_a]:block [&_a]:rounded-full [&_a]:border [&_a]:py-2 [&_a]:px-4 [&_a]:text-sm"
+          class="grid grid-cols-2 gap-x-4 text-center [&_a]:block [&_a]:rounded-full [&_a]:border
+          [&_a]:py-2 [&_a]:px-4 [&_a]:text-sm"
         >
           {% if user.is_authenticated %}
-          <a href="{% url 'profile' %}">Profile</a>
-          <button
-            aria-controls="logout dialog modal"
-            class="button-logout rounded-full border"
-          >
-            Sign out
-          </button>
+            <a href="{% url 'profile' %}">Profile</a>
+            <button
+              class="button-logout rounded-full border"
+            >
+              Sign out
+            </button>
 
           {% else %}
-          <a href="{% url 'login' %}">Login</a>
-          <a href="{% url 'register' %}">Sign up</a>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Sign up</a>
           {% endif %}
         </div>
       </div>
@@ -39,7 +40,7 @@
 
     <!-- menu larger screens -->
     <ul
-      class="hidden gap-x-6 sm:flex [&_a]:block [&_a]:border-b [&_a]:border-transparent [&_a]:transition-colors [&_a:hover]:border-tertiary "
+      class="hidden gap-x-6 sm:flex [&_a]:block [&_a]:border-b [&_a]:border-transparent [&_a]:transition-colors [&_a:hover]:border-tertiary"
     >
       <li><a href="{% url 'menu' %}">Menu</a></li>
       <li><a href="{% url 'booking_create' %}">Book</a></li>
@@ -47,9 +48,9 @@
 
     <div class="mx-auto text-center text-xl">
       <a href="{% url 'home' %}">
-        Himawari<br />
+        Himawari<br>
         <span class="flex justify-center text-sm"
-          >§ushi
+        >§ushi
           <svg
             class="block h-4 w-4"
             xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +70,6 @@
     <!-- Mobile menu button -->
     <button
       id="nav-button"
-      aria-controls="primary-navigation"
       aria-expanded="false"
       class="sm:hidden"
       aria-label="open primary navigation"
@@ -78,76 +78,75 @@
     </button>
 
     {% if user.is_authenticated %}
-    <div class="relative hidden sm:block">
-      <div class="flex items-center gap-x-1">
+      <div class="relative hidden sm:block">
+        <div class="flex items-center gap-x-1">
         <span
           class="w-[10ch] truncate"
           id="account-menu"
-          aria-controls="profile-menu"
           aria-label="view profile menu"
+          role="navigation"
           aria-expanded="false"
-          >Hi {{ user.username }}</span
-        >
-        <svg
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-          class="ml-auto block h-6 w-6"
-        >
-          <path
-            fill="currentColor"
-            d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6l-6-6l1.41-1.41z"
-          ></path>
-        </svg>
-      </div>
-
-      <!-- Account submenu / sign out (hidden on mobile) -->
-      <div
-        id="account-submenu"
-        class="absolute top-0 right-0 z-50 hidden w-48 min-w-max text-black-base"
-      >
-        <div class="mt-8 space-y-4 rounded bg-white bg-white p-2 shadow-2xl">
-          <a
-            class="flex items-center gap-x-2 rounded-md p-2 hover:bg-gray-100"
-            href="{% url 'profile' %}"
+        >Hi {{ user.username }}
+        </span>
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            class="ml-auto block h-6 w-6"
           >
-            <img
-              aria-hidden="true"
-              class="h-6 w-6"
-              src="{% static 'icons/account-circle.svg' %}"
-              alt="profile icon"
-            />
+            <path
+              fill="currentColor"
+              d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6l-6-6l1.41-1.41z"
+            ></path>
+          </svg>
+        </div>
 
-            <span>Profile</span>
-          </a>
-          <button
-            aria-label="sign out"
-            aria-controls="logout dialog modal"
-            class="button-logout flex w-full items-center gap-x-2 rounded-md p-2 hover:bg-gray-100"
-          >
-            <img
-              class="h-6 w-6"
-              src="{% static 'icons/logout.svg' %}"
-              alt="logout icon"
-              aria-hidden="true"
-            />
-            <span>Sign out</span>
-          </button>
+        <!-- Account submenu / sign out (hidden on mobile) -->
+        <div
+          id="account-submenu"
+          class="absolute top-0 right-0 z-50 hidden w-48 min-w-max text-black-base"
+        >
+          <div class="mt-8 space-y-4 rounded bg-white p-2 shadow-2xl">
+            <a
+              class="flex items-center gap-x-2 rounded-md p-2 hover:bg-gray-100"
+              href="{% url 'profile' %}"
+            >
+              <img
+                aria-hidden="true"
+                class="h-6 w-6"
+                src="{% static 'icons/account-circle.svg' %}"
+                alt="profile icon"
+              >
+
+              <span>Profile</span>
+            </a>
+            <button
+              aria-label="sign out"
+              class="button-logout flex w-full items-center gap-x-2 rounded-md p-2 hover:bg-gray-100"
+            >
+              <img
+                class="h-6 w-6"
+                src="{% static 'icons/logout.svg' %}"
+                alt="logout icon"
+                aria-hidden="true"
+              >
+              <span>Sign out</span>
+            </button>
+          </div>
         </div>
       </div>
-
-      {% else %}
+    {% else %}
       <!-- Show login register options for non-users -->
       <div
-        class="hidden sm:flex sm:gap-x-2 [&_a]:border-b [&_a]:border-transparent [&_a]:transition-colors [&_a:hover]:border-tertiary"
+        class="hidden sm:flex sm:gap-x-2 [&_a]:border-b [&_a]:border-transparent
+        [&_a]:transition-colors [&_a:hover]:border-tertiary"
       >
         <a href="{% url 'login' %}">Login</a>
         <span class="aria-hidden:"> / </span>
         <a href="{% url 'register' %}">Sign up</a>
       </div>
-    </div>
     {% endif %}
   </nav>
 

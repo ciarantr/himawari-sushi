@@ -1,73 +1,74 @@
 {% extends "base.html" %} {% load static %}
-{% load django_vite %}{%vite_hmr_client %}
+{% load django_vite %}{% vite_hmr_client %}
 
 {% block title %}Book Online{% endblock %}
-{% block description %}Book a table at our Himawari Sushi restaurant. Enjoy delicious authentic Japanese food with your friends and family. Book a table online today.{% endblock %}
-
-{% block dialog_css %}
-  {% vite_asset 'css/confirmationDialog.css' %}
-{% endblock %}
+{% block description %}Book a table at our Himawari Sushi restaurant. Enjoy delicious authentic Japanese food with your
+  friends and family. Book a table online today.{% endblock %}
 
 <!-- Only loads if user is logged in -->
-{%  block dialog_js %}
+{% block dialog_js %}
   {% vite_asset 'js/confirmationDialog.ts' %}
   {% vite_asset 'js/bookingInputUpdate.ts' %}
-{%endblock %}
+{% endblock %}
 
 {% block content %}
 
-<main class="container mt-12 space-y-12">
-  <!-- Show booking form if user is logged in -->
-  {% if user.is_authenticated %} {% include 'partials/forms/base_form.html' %}
-  {% else %}
+  <main class="container mt-12 space-y-12">
+    <!-- Show booking form if user is logged in -->
+    {% if user.is_authenticated %} {% include 'partials/forms/base_form.html' %}
+    {% else %}
 
-  <section class="grid-rows-[450px] md:grid md:grid-cols-2 md:gap-x-4">
-    <div
-      class="rounded-xl bg-gradient-to-tr from-black/50 to-black/80 p-8 text-center text-white shadow"
-    >
-      <div class="h-full space-y-12 md:max-w-screen-lg">
-        <p class="text-lg">
-          Please
-          <a
-            href="{% url 'login' %}"
-            class="border-b border-transparent transition-all ease-in-out hover:border-b-tertiary hover:text-tertiary"
-            >Login</a
-          >
-          <span>/</span>
-          <a
-            href="{% url 'register' %}"
-            class="border-b border-transparent transition-all ease-in-out hover:border-b-tertiary hover:text-tertiary"
-            >Sign up
-          </a>
-          to make a booking
-        </p>
+      <section class="grid-rows-[450px] md:grid md:grid-cols-2 md:gap-x-4">
+        <div
+          class="rounded-xl bg-gradient-to-tr from-black/50 to-black/80 p-8 text-center text-white shadow"
+        >
+          <div class="h-full space-y-12 md:max-w-screen-lg">
+            <p class="text-lg">
+              Please
+              <a
+                href="{% url 'login' %}"
+                class="border-b border-transparent transition-all ease-in-out hover:border-b-tertiary
+                hover:text-tertiary"
+              >
+                Login
+              </a>
+              <span>/</span>
+              <a
+                href="{% url 'register' %}"
+                class="border-b border-transparent transition-all ease-in-out hover:border-b-tertiary
+                hover:text-tertiary"
+              >
+                Sign up
+              </a>
+              to make a booking
+            </p>
 
-        <div class="space-y-8">
-          <h1 class="mx-auto mt-4 max-w-[35ch] text-center text-white">
-            Creating an account takes less than a minute and provides you access
-            to the following features.
-          </h1>
+            <div class="space-y-8">
+              <h1 class="mx-auto mt-4 max-w-[35ch] text-center text-white">
+                Creating an account takes less than a minute and provides you access
+                to the following features.
+              </h1>
 
-          <ul class="grid list-inside list-disc justify-center text-left">
-            <li>Create & make changes to bookings</li>
-            <li>View recent bookings made</li>
-            <li>Make changes to your account information</li>
-          </ul>
+              <ul class="grid list-inside list-disc justify-center text-left">
+                <li>Create & make changes to bookings</li>
+                <li>View recent bookings made</li>
+                <li>Make changes to your account information</li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <img
-      src="{% static 'booking-login-banner.jpg' %}"
-      loading="eager"
-      alt="Booking"
-      width="640"
-      height="640"
-      class="hidden h-full w-full rounded-xl object-cover md:block"
-    />
-  </section>
+        <img
+          src="{% static 'booking-login-banner.jpg' %}"
+          loading="eager"
+          alt="Booking"
+          width="640"
+          height="640"
+          class="hidden h-full w-full rounded-xl object-cover md:block"
+        >
+      </section>
 
-  {% endif %}
-</main>
+    {% endif %}
+  </main>
 
 {% endblock %}
