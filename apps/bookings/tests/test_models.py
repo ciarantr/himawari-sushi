@@ -32,5 +32,6 @@ class TestModels(TestCase):
             '13:00'
         )
         self.assertEquals(Booking.objects.get().placements, 2)
-        self.assertEquals(Booking.objects.get().message, 'Test booking message')
+        self.assertEquals(Booking.objects.get().message,
+                          'Test booking message')
         self.assertEquals(Booking.objects.get().customer, self.customer)

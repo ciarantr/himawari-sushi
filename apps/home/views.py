@@ -123,7 +123,8 @@ class Home(View):
         else:
             context = {'form': form}
             messages.error(
-                request, 'Error! Looks like there\'s a problem with your email.'
+                request,
+                'Error! Looks like there\'s a problem with your email.'
             )
             return render(request, 'index.html', context)
 
@@ -189,12 +190,13 @@ class Reservations(View):
                 'question': 'How do I cancel a reservation?',
                 'answer': 'You can cancel a reservation by calling us at'
                           '555-555-5555 or by making '
-                          'a change on your profile page in the booking option.'
+                          'a change on your profile page in the booking '
+                          'option.'
 
             },
             {
                 'question': 'What if I have a food allergy?',
-                'answer': 'Please let us know about your food allergy when you '
+                'answer': 'Please let us know about your food allergy when you'
                           'make your reservation. We will do our best to '
                           'accommodate your needs.',
             }

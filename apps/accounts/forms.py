@@ -31,7 +31,8 @@ class SignupForm(UserCreationForm):
         }
 
         widgets = {
-            'username': TextInput(attrs={'pattern': username_pattern['pattern'],
-                                         'title': username_pattern['message'],
-                                         }),
+            'username':
+                TextInput(attrs={'pattern': username_pattern['pattern'],
+                                 'title': username_pattern['message'],
+                                 }),
         }
