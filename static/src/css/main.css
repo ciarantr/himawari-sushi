@@ -13,100 +13,103 @@
 /*----------------------- Base styles --------------------------*/
 /* 1. Base styles */
 @layer base {
-  :root {
-    --color-primary: 36 38% 97%;
-    --color-tertiary: 33 100% 57%;
-    --color-black-base: 344 11% 19%;
-    --color-gray-base: 0 1% 40%;
-  }
-  html,
-  body {
-    @apply h-full;
-  }
-  body {
-    @apply flex
-    flex-col
-    text-gray-base;
-  }
+    :root {
+        --color-primary: 36 38% 97%;
+        --color-tertiary: 33 100% 57%;
+        --color-black-base: 344 11% 19%;
+        --color-gray-base: 0 1% 40%;
+    }
 
-  body > :nth-child(2) {
-    @apply flex-1;
-  }
+    html,
+    body {
+        @apply h-full;
+    }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply text-black-base;
-  }
+    body {
+        @apply flex
+        flex-col
+        text-gray-base;
+    }
+
+    body > :nth-child(2) {
+        @apply flex-1;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply text-black-base;
+    }
 }
 
 /*----------------------- 2. Components --------------------------*/
 
 @layer components {
-  /* Button */
-  .btn {
-    @apply rounded-full
-    bg-tertiary
-    py-2
-    px-4
-    font-semibold
-    text-black-base;
-  }
-  /* dialogs / modals */
-  dialog[open] {
-    @apply grid
-    h-auto
-    max-h-max
-    w-3/4
-    max-w-sm
-    gap-y-4
-    rounded-xl
-    py-8
-    text-center
-    shadow-2xl;
-  }
+    /* Button */
+    .btn {
+        @apply rounded-full
+        bg-tertiary
+        py-2
+        px-4
+        font-semibold
+        text-black-base;
+    }
+
+    /* dialogs / modals */
+    dialog[open] {
+        @apply grid
+        h-auto
+        max-h-max
+        w-3/4
+        max-w-sm
+        gap-y-4
+        rounded-xl
+        py-8
+        text-center
+        shadow-2xl;
+    }
 }
 
 /*----------------------- 3. Elements --------------------------*/
 
 /* Mobile Navigation button */
 #nav-button span {
-  @apply mb-1
-  block
-  h-0.5
-  w-6
-  transform-gpu
-  rounded
-  bg-tertiary
-  transition-all
-  duration-150
-  ease-in-out
-  last:mb-0;
+    @apply mb-1
+    block
+    h-0.5
+    w-6
+    transform-gpu
+    rounded
+    bg-tertiary
+    transition-all
+    duration-150
+    ease-in-out
+    last:mb-0;
 }
 
 /* Mobile Navigation button open */
 #nav-button[aria-expanded='true'] {
-  & span:nth-child(1) {
-    @apply origin-left
-    translate-x-0.5
-    -translate-y-[4px]
-    rotate-45
-    scale-x-125;
-  }
+    & span:nth-child(1) {
+        @apply origin-left
+        translate-x-0.5
+        -translate-y-[4px]
+        rotate-45
+        scale-x-125;
+    }
 
-  & span:nth-child(2) {
-    @apply invisible;
-  }
+    & span:nth-child(2) {
+        @apply invisible;
+    }
 
-  & span:nth-child(3) {
-    @apply origin-right
-    -translate-y-[16px]
-    -rotate-45
-    scale-x-[1.25];
-  }
+    & span:nth-child(3) {
+        @apply origin-right
+        -translate-y-[16px]
+        -rotate-45
+        scale-x-[1.25];
+    }
 }
 
 /* Forms */
@@ -117,99 +120,98 @@
 
 /* signup form */
 .signup-form {
-  @apply space-y-7 sm:mx-auto sm:w-10/12;
+    @apply space-y-7 sm:mx-auto sm:w-10/12;
 
-  input,
-  textarea {
-    @apply w-full
-    rounded-lg
-    border
-    border-gray-500
-    px-3
-    py-5
-    focus:border-tertiary
-    focus:outline-none
-    focus:ring-2
-    focus:ring-tertiary;
+    input,
+    textarea {
+        @apply w-full
+        rounded-lg
+        border
+        border-gray-500
+        px-3
+        py-5
+        focus:border-tertiary
+        focus:outline-none
+        focus:ring-2
+        focus:ring-tertiary;
 
-    &[type='submit'] {
-      @apply max-w-lg
-      border-none
-      bg-tertiary
-      text-black-base;
+        &[type='submit'] {
+            @apply max-w-lg
+            border-none
+            bg-tertiary
+            text-black-base;
+        }
     }
-  }
 
-  label {
-    @apply text-gray-300;
-  }
+    label {
+        @apply text-gray-300;
+    }
 }
 
 /* base form */
 .base-form {
-  @apply space-y-12
-  rounded-lg
-  rounded-lg
-  bg-white
-  p-8
-  shadow-xl;
-
-  label:not([for='id_phone_number']):not([for='id_message'])::after {
-    content: ' *';
-    @apply text-red-500;
-  }
-
-  input:not([type='submit']) {
-    @apply mx-auto
-    w-full
-    border-b
-    border-gray-300
-    bg-inherit
-    py-2
-    focus:border-b-tertiary
-    focus:outline-none;
-  }
-
-  input[type='submit'],
-  a {
-    @apply mx-auto
-    block
-    w-full
-    max-w-lg
+    @apply space-y-12
     rounded-lg
-    py-2
-    text-black-base;
-  }
-
-  input[type='submit'] {
-    @apply border-none
-    bg-tertiary;
-  }
-
-  textarea {
-    @apply mx-auto
-    block
-    w-full
-    rounded-lg
-    border
-    border-gray-500
     bg-white
-    px-3
-    py-5
-    focus:border-tertiary
-    focus:outline-none
-    focus:ring-2
-    focus:ring-tertiary;
-  }
+    p-8
+    shadow-xl;
+
+    label:not([for='id_phone_number']):not([for='id_message'])::after {
+        content: ' *';
+        @apply text-red-500;
+    }
+
+    input:not([type='submit']) {
+        @apply mx-auto
+        w-full
+        border-b
+        border-gray-300
+        bg-inherit
+        py-2
+        focus:border-b-tertiary
+        focus:outline-none;
+    }
+
+    input[type='submit'],
+    a {
+        @apply mx-auto
+        block
+        w-full
+        max-w-lg
+        rounded-lg
+        py-2
+        text-black-base;
+    }
+
+    input[type='submit'] {
+        @apply border-none
+        bg-tertiary;
+    }
+
+    textarea {
+        @apply mx-auto
+        block
+        w-full
+        rounded-lg
+        border
+        border-gray-500
+        bg-white
+        px-3
+        py-5
+        focus:border-tertiary
+        focus:outline-none
+        focus:ring-2
+        focus:ring-tertiary;
+    }
 }
 
 form ul.errorlist li {
-  @apply text-red-500;
+    @apply text-red-500;
 }
 
 /* Django form help text */
 form .helptext {
-  @apply hidden;
+    @apply hidden;
 }
 
 /*----------------------- 4. Pages --------------------------*/
@@ -218,47 +220,47 @@ form .helptext {
 
 /* Newly added banner*/
 /* faded table background effect */
-#home-banner ,#top-dish-banner {
-  @apply overflow-x-clip;
+#home-banner, #top-dish-banner {
+    @apply overflow-x-clip;
 
-  @screen lg {
-    @apply
-    overflow-x-visible ;
-  }
+    @screen lg {
+        @apply
+        overflow-x-visible ;
+    }
 }
 
 #home-banner::before,
 #top-dish-banner::before {
-  @apply absolute
-  z-0
-  h-full
-  w-1/2
-  bg-gradient-to-bl
-  from-tertiary/20
-  to-tertiary/20
-  shadow-2xl
-  blur content-[''];
+    @apply absolute
+    z-0
+    h-full
+    w-1/2
+    bg-gradient-to-bl
+    from-tertiary/20
+    to-tertiary/20
+    shadow-2xl
+    blur content-[''];
 }
 
 #home-banner::before {
-  @apply right-36
-  top-[100px]
-  rotate-[145deg];
+    @apply right-36
+    top-[100px]
+    rotate-[145deg];
 }
 
 #top-dish-banner::before {
-  @apply left-14
-  top-[45px]
-  rotate-[45deg];
+    @apply left-14
+    top-[45px]
+    rotate-[45deg];
 }
 
 /* Menu page */
 .menu-special {
-  perspective: 800px;
+    perspective: 800px;
 
-  & > div {
-    @screen md {
-      transform: rotate3d(0.5, -0.8, 0, 15deg) rotate(-1deg);
+    & > div {
+        @screen md {
+            transform: rotate3d(0.5, -0.8, 0, 15deg) rotate(-1deg);
+        }
     }
-  }
 }
