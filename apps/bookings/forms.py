@@ -62,7 +62,7 @@ class BookingForm(forms.ModelForm):
                            'value': booking_time_default}),
 
             'placements': forms.NumberInput(
-                attrs={'max': 20, 'value': 1}),
+                attrs={'max': 20}),
 
             'message':
                 forms.Textarea(
