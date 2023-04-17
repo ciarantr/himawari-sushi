@@ -1,0 +1,24 @@
+URL,Device,Performance,Best Practices,Accessibility,SEO
+https://django-sushi.herokuapp.com/,Mobile,87,100,100,100
+https://django-sushi.herokuapp.com/about/,Mobile,94,100,100,100
+https://django-sushi.herokuapp.com/booking/create/,Mobile,98,100,100,100
+https://django-sushi.herokuapp.com/menu/,Mobile,98,100,100,100
+https://django-sushi.herokuapp.com/contact/,Mobile,98,100,100,100
+https://django-sushi.herokuapp.com/reservations/,Mobile,95,100,100,100
+https://django-sushi.herokuapp.com/login/,Mobile,98,100,100,100
+https://django-sushi.herokuapp.com/register/,Mobile,99,100,100,100
+https://django-sushi.herokuapp.com/profile/,Mobile,98,100,100,92
+https://django-sushi.herokuapp.com/profile/bookings/,Mobile,98,100,100,92
+https://django-sushi.herokuapp.com/profile/details/,Mobile,98,100,100,92
+,,,,,
+https://django-sushi.herokuapp.com/,Desktop,97,100,100,97
+https://django-sushi.herokuapp.com/about/,Desktop,97,100,100,96
+https://django-sushi.herokuapp.com/booking/create/,Desktop,97,100,100,96
+https://django-sushi.herokuapp.com/menu/,Desktop,98,100,100,96
+https://django-sushi.herokuapp.com/contact/,Desktop,97,100,100,97
+https://django-sushi.herokuapp.com/reservations/,Desktop,98,100,100,96
+https://django-sushi.herokuapp.com/login/,Desktop,98,100,100,100
+https://django-sushi.herokuapp.com/register/,Desktop,98,100,100,100
+https://django-sushi.herokuapp.com/profile/,Desktop,100,100,92,90
+https://django-sushi.herokuapp.com/profile/bookings/,Desktop,100,100,92,90
+https://django-sushi.herokuapp.com/profile/details/,Desktop,100,100,92,90
