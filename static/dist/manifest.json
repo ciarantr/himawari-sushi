@@ -1,19 +1,11 @@
 {
   "main.css": {
-    "file": "main-478bee49.css",
+    "file": "main-a981fe68.css",
     "src": "main.css"
   },
-  "js/login.ts": {
-    "file": "login-480f5558.js",
-    "src": "js/login.ts",
-    "isEntry": true,
-    "css": [
-      "main-478bee49.css"
-    ]
-  },
-  "js/editBookingDialog.ts": {
-    "file": "editBookingDialog-6a7d653d.js",
-    "src": "js/editBookingDialog.ts",
+  "js/confirmationDialog.ts": {
+    "file": "confirmationDialog-20c33713.js",
+    "src": "js/confirmationDialog.ts",
     "isEntry": true
   },
   "js/bookingInputUpdate.ts": {
@@ -21,17 +13,25 @@
     "src": "js/bookingInputUpdate.ts",
     "isEntry": true
   },
-  "js/confirmationDialog.ts": {
-    "file": "confirmationDialog-20c33713.js",
-    "src": "js/confirmationDialog.ts",
-    "isEntry": true
-  },
   "js/main.ts": {
-    "file": "main-f882d048.js",
+    "file": "main-d07265f1.js",
     "src": "js/main.ts",
     "isEntry": true,
     "css": [
-      "main-478bee49.css"
+      "main-a981fe68.css"
     ]
+  },
+  "js/login.ts": {
+    "file": "login-4b10390b.js",
+    "src": "js/login.ts",
+    "isEntry": true,
+    "css": [
+      "main-a981fe68.css"
+    ]
+  },
+  "js/editBookingDialog.ts": {
+    "file": "editBookingDialog-6a7d653d.js",
+    "src": "js/editBookingDialog.ts",
+    "isEntry": true
   }
 }
