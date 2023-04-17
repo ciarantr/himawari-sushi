@@ -40,7 +40,7 @@
 
     <!-- menu larger screens -->
     <ul
-      class="hidden gap-x-6 sm:flex [&_a]:block [&_a]:border-b [&_a]:border-transparent [&_a]:transition-colors [&_a:hover]:border-tertiary"
+      class="hidden gap-x-6 sm:flex [&_a]:block [&_a]:border-b [&_a]:border-transparent [&_a]:transition-colors [&_a:hover]:border-orange-base"
     >
       <li><a href="{% url 'menu' %}">Menu</a></li>
       <li><a href="{% url 'booking_create' %}">Book</a></li>
@@ -141,7 +141,7 @@
       <!-- Show login register options for non-users -->
       <div
         class="hidden sm:flex sm:gap-x-2 [&_a]:border-b [&_a]:border-transparent
-        [&_a]:transition-colors [&_a:hover]:border-tertiary"
+        [&_a]:transition-colors [&_a:hover]:border-orange-base"
       >
         <a href="{% url 'login' %}">Login</a>
         <span class="aria-hidden:"> / </span>

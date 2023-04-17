@@ -10,9 +10,11 @@
       </div>
 
       <div class="grid place-items-center">
-        <div
-          class="max-w-[30ch] space-y-1 break-words text-left [&_span]:font-semibold
-          [&_span]:text-black-base [&_div:last-child>span]:block"
+        <div data-contact-details="contact information"
+          class="max-w-[30ch] space-y-1 break-words text-left [&_dt]:font-semibold
+                 [&_dd]:text-black-base
+                 [&_dl:not(:last-of-type)]:flex
+                 [&_dl:not(:last-of-type)]:gap-x-0.5 "
         >
           {{ contact_details }}
         </div>

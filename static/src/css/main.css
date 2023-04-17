@@ -14,8 +14,7 @@
 /* 1. Base styles */
 @layer base {
     :root {
-        --color-primary: 36 38% 97%;
-        --color-tertiary: 33 100% 57%;
+        --color-orange-base: 33 100% 57%;
         --color-black-base: 344 11% 19%;
         --color-gray-base: 0 1% 40%;
     }
@@ -51,7 +50,7 @@
     /* Button */
     .btn {
         @apply rounded-full
-        bg-tertiary
+        bg-orange-base
         py-2
         px-4
         font-semibold
@@ -83,7 +82,7 @@
     w-6
     transform-gpu
     rounded
-    bg-tertiary
+    bg-orange-base
     transition-all
     duration-150
     ease-in-out
@@ -130,15 +129,15 @@
         border-gray-500
         px-3
         py-5
-        focus:border-tertiary
+        focus:border-orange-base
         focus:outline-none
         focus:ring-2
-        focus:ring-tertiary;
+        focus:ring-orange-base;
 
         &[type='submit'] {
             @apply max-w-lg
             border-none
-            bg-tertiary
+            bg-orange-base
             text-black-base;
         }
     }
@@ -168,7 +167,7 @@
         border-gray-300
         bg-inherit
         py-2
-        focus:border-b-tertiary
+        focus:border-b-orange-base
         focus:outline-none;
     }
 
@@ -185,7 +184,7 @@
 
     input[type='submit'] {
         @apply border-none
-        bg-tertiary;
+        bg-orange-base;
     }
 
     textarea {
@@ -198,10 +197,10 @@
         bg-white
         px-3
         py-5
-        focus:border-tertiary
+        focus:border-orange-base
         focus:outline-none
         focus:ring-2
-        focus:ring-tertiary;
+        focus:ring-orange-base;
     }
 }
 
@@ -236,8 +235,8 @@ form .helptext {
     h-full
     w-1/2
     bg-gradient-to-bl
-    from-tertiary/20
-    to-tertiary/20
+    from-orange-base/20
+    to-orange-base/20
     shadow-2xl
     blur content-[''];
 }
