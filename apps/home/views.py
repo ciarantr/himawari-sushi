@@ -60,7 +60,7 @@ class Contact(View):
 
             # format the contact details for the success page
             contact_details = ''.join(
-                [f'<div><span>{key}: </span>{value}</div>'
+                [f'<dl><dt>{key}:</dt><dd>{value}</dd></dl>'
                  for key, value in contact_details.items()])
 
             # send contact details to contact success page
@@ -110,7 +110,7 @@ class Home(View):
             }
 
             email_details = ''.join(
-                [f'<div><span>{key}: </span>{value}</div>'
+                [f'<dl><dt>{key}:</dt><dd>{value}</dd></dl>'
                  for key, value in email_details.items()])
 
             # send email details to subscribe success page
