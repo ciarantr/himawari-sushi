@@ -45,7 +45,7 @@ class CustomerUpdateForm(forms.ModelForm):
         if hasattr(self.instance, 'customer'):
             # add phone number field to form if user has customer object
             self.fields['phone_number'] = forms.CharField(
-                label='Phone Number',
+                label='Phone number',
                 required=False,
                 validators=[validate_phone_number],
                 max_length=20,
