@@ -60,8 +60,7 @@
     /* dialogs / modals */
     dialog[open] {
         @apply grid
-        h-auto
-        max-h-max
+        h-max
         w-3/4
         max-w-sm
         gap-y-4
