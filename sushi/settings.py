@@ -116,19 +116,19 @@ else:
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
-
+# noqa: E501
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',  # noqa: E501
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',  # noqa: E501
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',  # noqa: E501
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'  # noqa: E501
     },
 ]
 
@@ -151,15 +151,14 @@ DJANGO_VITE_ASSETS_PATH = BASE_DIR / 'static' / 'dist'
 DJANGO_VITE_MANIFEST_PATH = BASE_DIR / 'static' / 'dist' / 'manifest.json'
 
 if not development:
-    DJANGO_VITE_STATIC_URL_PREFIX = \
-        'https://res.cloudinary.com/c-io/raw/upload/v1/static'
+    DJANGO_VITE_STATIC_URL_PREFIX = 'https://res.cloudinary.com/c-io/raw/upload/v1/static'  # noqa: E501
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [DJANGO_VITE_ASSETS_PATH,
                     os.path.join(BASE_DIR, 'static', 'src', 'img')]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Cloudinary
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'  # noqa: E501
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Media files
