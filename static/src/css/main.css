@@ -6,8 +6,9 @@
   Table of contents
   1. Base styles
   2. Components
-  3. Elements
-  4. Pages
+  3. Utilities
+  4. Elements
+  5. Pages
 --------------------------*/
 
 /*----------------------- Base styles --------------------------*/
@@ -17,6 +18,9 @@
         --color-orange-base: 33 100% 57%;
         --color-black-base: 344 11% 19%;
         --color-gray-base: 0 1% 40%;
+        --color-gray-shadow-base: hsl(0deg, 0%, 38%);
+        --color-gray-shadow-dark: hsl(0deg, 0%, 34%);
+        --color-gray-shadow-light: hsl(0deg, 0%, 42%);
     }
 
     html,
@@ -71,7 +75,28 @@
     }
 }
 
-/*----------------------- 3. Elements --------------------------*/
+/*----------------------- 3. Utilities --------------------------*/
+@layer utilities {
+
+    .shadow-base {
+        @apply
+        bg-[var(--color-gray-shadow-base)]
+        rounded-xl;
+
+        &-outer {
+            box-shadow: 5px 5px 4px var(--color-gray-shadow-dark),
+            -5px -5px 4px var(--color-gray-shadow-light);
+        }
+
+        &-inset {
+            box-shadow: inset 5px 5px 4px var(--color-gray-shadow-dark),
+            inset -5px -5px 4px var(--color-gray-shadow-light);
+        }
+    }
+
+}
+
+/*----------------------- 4. Elements --------------------------*/
 
 /* Mobile Navigation button */
 #nav-button span {
@@ -90,6 +115,7 @@
 
 /* Mobile Navigation button open */
 #nav-button[aria-expanded='true'] {
+
     & span:nth-child(1) {
         @apply origin-left
         translate-x-0.5
@@ -108,6 +134,7 @@
         -rotate-45
         scale-x-[1.25];
     }
+
 }
 
 /* Forms */
@@ -133,17 +160,20 @@
         focus:ring-2
         focus:ring-orange-base;
 
-        &[type='submit'] {
+        &
+        [type='submit'] {
             @apply max-w-lg
             border-none
             bg-orange-base
             text-black-base;
         }
+
     }
 
     label {
         @apply text-gray-300;
     }
+
 }
 
 /* base form */
@@ -201,6 +231,7 @@
         focus:ring-2
         focus:ring-orange-base;
     }
+
 }
 
 form ul.errorlist li {
@@ -212,7 +243,7 @@ form .helptext {
     @apply hidden;
 }
 
-/*----------------------- 4. Pages --------------------------*/
+/*----------------------- 5. Pages --------------------------*/
 
 /* Home page */
 
@@ -256,7 +287,9 @@ form .helptext {
 .menu-special {
     perspective: 800px;
 
-    & > div {
+    &
+    > div {
+
         @screen md {
             transform: rotate3d(0.5, -0.8, 0, 15deg) rotate(-1deg);
         }
