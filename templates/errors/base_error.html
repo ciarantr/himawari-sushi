@@ -1,0 +1,122 @@
+{% load django_vite %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% include 'partials/meta_content.html' %}
+  <title>{{ title }}</title>
+  {% vite_hmr_client %}
+  {% vite_asset 'js/css-import.ts' %}
+</head>
+
+<body class="bg-[var(--color-gray-shadow-base)]">
+<div class="mt-12 px-3 lg:grid lg:h-screen lg:place-items-center lg:px-0 lg:pb-0">
+  <main class="space-y-8 lg:w-8/12 lg:max-w-screen-lg lg:space-y-24">
+
+    <section
+      class="shadow-base shadow-base-outer relative space-y-6 text-center px-12 py-16 ">
+      <span
+        class=" absolute top-3 right-3 shadow-base shadow-base-outer py-1 px-3 text-sm font-medium text-orange-base">
+        {{ status_code }}
+      </span>
+      <h1 class="mt-2 text-4xl md:mt-0 text-white ">
+        Looks like your lost friend
+      </h1>
+      <p class="text-white text-xl ">{{ message }}</p>
+    </section>
+
+    <section class="space-y-6 px-12 py-16 shadow-base-inset shadow-base">
+      <div class="flex items-center justify-center ">
+        <h2 class="text-center text-xl text-white">Continue your journey</h2>
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="32"
+             height="32"
+             viewBox="0 0 24 24"
+             aria-hidden="true"
+             class="text-black-base w-8 h-6"
+        >
+          <path fill="currentColor"
+                d="M12 21.675q-.175 0-.35-.05t-.3-.175q-3.7-3.275-5.525-6.05T4 10.2q0-3.75 2.413-5.975T12 2q3.175 0 5.588 2.225T20 10.2l1.4-1.4q.275-.275.7-.275t.7.275q.275.275.275.7t-.275.7l-3.1 3.1q-.15.15-.325.213t-.375.062q-.2 0-.375-.062T18.3 13.3l-3.1-3.1q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275l1.4 1.4q0-2.725-1.738-4.462T12 4Q9.475 4 7.737 5.738T6 10.2q0 1.775 1.475 4.063T12 19.35q.5-.45.925-.875l.85-.85q-.125-.25-.2-.537T13.5 16.5q0-1.05.725-1.775T16 14q1.05 0 1.775.725T18.5 16.5q0 1.05-.725 1.775T16 19q-.2 0-.363-.025T15.3 18.9q-.575.625-1.238 1.263T12.65 21.45q-.125.125-.288.175t-.362.05Z">
+          </path>
+        </svg>
+      </div>
+      {# Navigation home contact page #}
+      <nav>
+        <ul class="space-y-12 [&_li]:px-6 [&_li]:pt-8 [&_li]:pb-10 [&_li]:shadow-base-inset [&_li]:shadow-base">
+          <li>
+            <a href="{% url 'home' %}" class="group flex items-center gap-x-4">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     aria-hidden="true"
+                     role="img"
+                     class="text-white h-6 w-6 group-hover:text-black-base transition-colors duration-300 ease-in-out"
+                     width="1em" height="1em" viewBox="0 0 24 24">
+                  <path fill="currentColor"
+                        d="M4 14.85V11q0-.2.075-.375T4.3 10.3l7-7q.15-.15.325-.225Q11.8 3 12 3t.375.075q.175.075.325.225l1.425 1.4ZM17 20v-8.175L13.075 7.9L15.2 5.775l4.5 4.525q.125.15.213.325Q20 10.8 20 11v8q0 .425-.288.712Q19.425 20 19 20ZM5 20q-.425 0-.713-.288Q4 19.425 4 19v-2.05l3-3V17h8.5v3Z">
+
+                  </path>
+                </svg>
+              </div>
+
+              <div>
+                <h3
+                  class="max-w-min border-b border-b-transparent text-lg font-medium transition-all ease-in-out
+                duration-300 group-hover:border-orange-base text-white">
+                  Home
+                </h3>
+                <p class="text-white transition-colors duration-300 ease-in-out group-hover:!text-base-20">
+                  Everything starts here
+                </p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                   aria-hidden="true"
+                   role="img"
+                   class="text-white ml-auto transition-all duration-300 group-hover:h-7 group-hover:w-7
+                 group-hover:text-black-base ease-in-out"
+                   width="1em" height="1em" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M8.025 22L6.25 20.225L14.475 12L6.25 3.775L8.025 2l10 10l-10 10Z"></path>
+              </svg>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'contact' %}" class="group flex items-center gap-x-4">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                     role="img"
+                     class="text-white h-6 w-6 group-hover:text-black-base transition-colors duration-300 ease-in-out"
+                     width="1em" height="1em" viewBox="0 0 24 24">
+                  <path fill="currentColor"
+                        d="M12 22q-2.05 0-3.875-.788t-3.188-2.15q-1.362-1.362-2.15-3.187T2 12q0-2.075.788-3.888t2.15-3.174Q6.3 3.575 8.124 2.788T12 2q2.075 0 3.888.788t3.174 2.15q1.363 1.362 2.15 3.175T22 12v1.45q0 1.475-1.012 2.513T18.5 17q-.9 0-1.675-.4t-1.275-1.05q-.675.675-1.588 1.063T12 17q-2.075 0-3.538-1.463T7 12q0-2.075 1.463-3.538T12 7q2.075 0 3.538 1.463T17 12v1.45q0 .725.45 1.137T18.5 15q.6 0 1.05-.413T20 13.45V12q0-3.275-2.363-5.638T12 4Q8.725 4 6.362 6.363T4 12q0 3.275 2.363 5.638T12 20h5v2h-5Zm0-7q1.25 0 2.125-.875T15 12q0-1.25-.875-2.125T12 9q-1.25 0-2.125.875T9 12q0 1.25.875 2.125T12 15Z"></path>
+                </svg>
+              </div>
+
+              <div>
+                <h3 class="max-w-min border-b border-b-transparent text-lg font-medium transition-all ease-in-out
+               duration-300 group-hover:border-orange-base text-white">
+                  Contact
+                </h3>
+                <p class="text-white transition-colors duration-300 ease-in-out group-hover:!text-base-20">
+                  Contact us for more information
+                </p>
+              </div>
+
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                   role="img"
+                   class="text-white ml-auto transition-all duration-300 group-hover:h-7 group-hover:w-7
+                 group-hover:text-black-base ease-in-out"
+                   width="1em" height="1em" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M8.025 22L6.25 20.225L14.475 12L6.25 3.775L8.025 2l10 10l-10 10Z"></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </section>
+  </main>
+</div>
+</body>
+</html>
