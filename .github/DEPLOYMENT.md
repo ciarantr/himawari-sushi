@@ -144,3 +144,47 @@ Once the project is cloned or forked, in order to run it locally, you'll need to
 - Load fixtures (if applicable): `python3 manage.py loaddata file-name.json` (repeat for each file)
 - Everything should be ready now, so run the Django app again: `python3 manage.py runserver`
 
+#### Cloning
+
+You can clone the repository by following these steps:
+
+1. Go to the [GitHub repository](https://github.com/ciaran-io/himawari-sushi)
+2. Locate the Code button above the list of files and click it
+3. Select if you prefer to clone using HTTPS, SSH, or GitHub CLI and click the copy button to copy the URL to your
+   clipboard
+4. Open Git Bash or Terminal
+5. Change the current working directory to the one where you want the cloned directory
+6. In your IDE Terminal, type the following command to clone my repository:
+   - `git clone https://github.com/ciaran-io/himawari-sushi.git`
+7. Press Enter to create your local clone.
+
+Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ciaran-io/himawari-sushi)
+
+Please note that in order to directly open the project in Gitpod, you need to have the browser extension installed.
+A tutorial on how to do that can be found [here](https://www.gitpod.io/docs/configure/user-settings/browser-extension).
+
+#### Forking
+
+By forking the GitHub Repository, we make a copy of the original repository on our GitHub account to view and/or make
+changes without affecting the original owner's repository.
+You can fork this repository by using the following steps:
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/ciaran-io/himawari-sushi)
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork"
+   Button.
+3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
+
+### Local VS Deployment
+
+During local development, you will need to run one server for Django, and another for Vite. This is because Vite is used
+to serve the TypeScript and CSS files, and Django is used to serve the HTML & image files. During deployment, Heroku
+will run the Django server, and Vite will no longer be needed.
+
+When you are make further changes to either the CSS or TypeScript files and are ready for a new deployment, will need to
+run `pnpm build` or `npm run build`
+to compile the files into the `dist` folder. Then you will need to
+run `python manage.py collectstatic --upload-unhashed-files` to upload the new files to Cloudinary.
+
+🔝 [Back to Top](#deployment-)
