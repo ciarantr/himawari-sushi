@@ -230,3 +230,38 @@ The database schema was created using [DrawSQL](https://drawsql.app)
 |--------|-----------------|------------|------------------------|
 | **FK** | customer        | PrimaryKey | PK to **User** model   |
 |        | phone_number    | CharField  | max_len=20, blank=true |
+
+## Agile Development Process
+
+### GitHub Projects
+
+[GitHub Projects](https://github.com/ciaran-io/himawari-sushi/projects/2) served as an Agile tool for this project.
+Through it, user stories, issues, and milestone tasks were planned, then tracked on a weekly basis using the basic
+Kanban board.
+
+![screenshot](../docs/github/gh-projects.png)
+
+### GitHub Issues
+
+[GitHub Issues](https://github.com/ciaran-io/django-sushi/issues) served as an another Agile tool.
+There, I used my own **User Story Template** to manage user stories.
+
+It also helped with milestone iterations on a weekly basis.
+
+- [Open Issues](https://github.com/ciaran-io/himawari-sushi/issues)
+
+  ![screenshot](../docs/github/gh-issues-open.png)
+
+- [Closed Issues](https://github.com/ciaran-io/himawari-sushi/issues?q=is%3Aissue+is%3Aclosed)
+
+  ![screenshot](../docs/github/gh-issues-closed.png)
+
+### MoSCoW Prioritization
+
+I've decomposed my Epics into stories prior to prioritizing and implementing them.
+Using this approach, I was able to apply the MoSCow prioritization and labels to my user stories within the Issues tab.
+
+- **Must Have**: guaranteed to be delivered (*max 60% of stories*)
+- **Should Have**: adds significant value, but not vital (*the rest ~20% of stories*)
+- **Could Have**: has small impact if left out (*20% of stories*)
+- **Won't Have**: not a priority for this iteration
