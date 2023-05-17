@@ -122,3 +122,89 @@ AUTH_PASSWORD_VALIDATORS = [
 ```
 
 [🔝 Back to Top](#testing-)
+## Browser testing
+
+I utilised both manual and automated testing to test the application on various browsers and devices.
+I used the following browsers to test the application:
+
+- [Chrome](https://www.google.com/chrome)
+- [Firefox (Developer Edition)](https://www.mozilla.org/firefox/developer)
+- [Safari](https://support.apple.com/downloads/safari)
+
+### Manual testing
+
+Pages tested:
+
+| Page                        | Sizes                     | Notes             |
+|-----------------------------|---------------------------|-------------------|
+| About page                  | Mobile - Tablet - Desktop | Works as expected |
+| Booking page                | Mobile - Tablet - Desktop | Works as expected |
+| Contact page                | Mobile - Tablet - Desktop | Works as expected |
+| Login Page                  | Mobile - Tablet - Desktop | Works as expected |
+| Menu page                   | Mobile - Tablet - Desktop | Works as expected |
+| Profile page                | Mobile - Tablet - Desktop | Works as expected |
+| Profile page - bookings     | Mobile - Tablet - Desktop | Works as expected |
+| Profile page - user details | Mobile - Tablet - Desktop | Works as expected |
+| Register Page               | Mobile - Tablet - Desktop | Works as expected |
+| Reservations Page           | Mobile - Tablet - Desktop | Works as expected |
+
+> **Note**
+>
+> I used [Polypane](https://polypane.app/) to test the application on multiple devices at the same time
+> with the following configurations to ensure the application is responsive on all devices:
+>
+> - Mobile: 375px x 812px
+> - Tablet: 744px x 1024px
+> - Desktop: 1440px x 1080px
+
+After inspection of all pages, I took screenshots of each page & on all device sizes noted above. They are available in
+the [polypane folder](../docs/testing/polypane/) directory. Due
+to the number of pages and screens tested, I have only included a few examples below.
+
+| Page      | Mobile                                                              | Tablet                                                              | Desktop                                                               | Notes             |
+|-----------|---------------------------------------------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------------|-------------------|
+| Home Page | ![screenshot](../docs/testing/polypane/mobile/home-page-mobile.jpg) | ![screenshot](../docs/testing/polypane/tablet/home-page-tablet.jpg) | ![screenshot](../docs/testing/polypane/desktop/home-page-desktop.jpg) | Works as expected |
+
+### Automated testing
+
+I used [Playwright](https://playwright.dev/) to test the application on multiple browsers and devices. The following
+browsers & user actions were tested:
+
+> **Note**
+>
+> All tests where recorded and are available in the [playwright folder](../docs/testing/e2e/playwright/videos)
+> directory. Below are a few examples of the tests, you can find the playwright test files in the
+> [test/playwright](../tests/playwright) directory.
+
+Authentication testing:
+
+| Browser                 | Device  | Page | Action            | Expected Result           | Actual Result       | Notes |
+|-------------------------|---------|------|-------------------|---------------------------|---------------------|-------|
+| Chrome, Safari, Firefox | Desktop | Home | test registration | user can register account | successful register | pass  |
+| Chrome, Safari, Firefox | Mobile  | Home | test registration | user can register account | successful register | pass  |
+| Chrome, Safari, Firefox | Mobile  | Home | test login        | user can login to account | successful login    | pass  |
+| Chrome, Safari, Firefox | Desktop | Home | test login        | user can login to account | successful login    | pass  |
+| Chrome, Safari, Firefox | Desktop | Home | test login fail   | display error message     | fail login          | pass  |
+| Chrome, Safari, Firefox | Desktop | Home | test logout       | user logout               | successfully logout | pass  |
+
+Booking testing:
+
+| Browser                 | Device  | Page                        | Action              | Expected Result           | Actual Result             | Notes |
+|-------------------------|---------|-----------------------------|---------------------|---------------------------|---------------------------|-------|
+| Chrome, Safari, Firefox | Desktop | Booking create page         | test create booking | user can create a booking | successful booking        | pass  |
+| Chrome, Safari, Firefox | Desktop | Profile booking delete page | test delete booking | user can delete a booking | successful booking delete | pass  |
+| Chrome, Safari, Firefox | Desktop | Profile booking edit page   | test edit booking   | user can edit a booking   | successful booking edit   | pass  |
+
+Contact form testing:
+
+| Browser                 | Device  | Page         | Action            | Expected Result                           | Actual Result           | Notes |
+|-------------------------|---------|--------------|-------------------|-------------------------------------------|-------------------------|-------|
+| Chrome, Safari, Firefox | Desktop | Contact page | test contact form | user can send a message with contact form | successful message sent | pass  |
+
+User profile form testing:
+
+| Browser                 | Device  | Page         | Action            | Expected Result                               | Actual Result             | Notes |
+|-------------------------|---------|--------------|-------------------|-----------------------------------------------|---------------------------|-------|
+| Chrome, Safari, Firefox | Desktop | Profile page | test user profile | user can update profile & details are correct | successful profile update | pass  |
+
+[🔝 Back to Top](#testing-)
