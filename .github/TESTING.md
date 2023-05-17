@@ -208,3 +208,43 @@ User profile form testing:
 | Chrome, Safari, Firefox | Desktop | Profile page | test user profile | user can update profile & details are correct | successful profile update | pass  |
 
 [🔝 Back to Top](#testing-)
+
+## Lighthouse Audit
+
+I used [Lighthouse cli](https://github.com/GoogleChrome/lighthouse) to audit the application. I tested the application
+for each page on both mobile and desktop devices.
+
+> **Note**
+>
+> I Added the results to the [lighthouse folder](../docs/testing/lighthouse) directory. It contains an HTML report for
+> each page and device size. Please note I originally named the heroku url **django-suhshi.herokuapp.com**, but I
+> changed
+> it to **himawari-sushi.herokuapp.com**. The lighthouse reports are named using the original url; however, the results
+> are correct. This change was for consistency with the project name.
+
+| Page                    | Device  | Performance | Best Practices | Accessibility | SEO |
+|-------------------------|---------|-------------|----------------|---------------|-----|
+| Home page               | Mobile  | 87          | 100            | 100           | 100 |
+| About page              | Mobile  | 94          | 100            | 100           | 100 |
+| Booking Create page     | Mobile  | 98          | 100            | 100           | 100 |
+| Menu page               | Mobile  | 98          | 100            | 100           | 100 |
+| Contact page            | Mobile  | 98          | 100            | 100           | 100 |
+| Reservations page       | Mobile  | 95          | 100            | 100           | 100 |
+| Login page              | Mobile  | 98          | 100            | 100           | 100 |
+| Register page           | Mobile  | 99          | 100            | 100           | 100 |
+| Profile page            | Mobile  | 98          | 100            | 100           | 92  |
+| Profile page - bookings | Mobile  | 98          | 100            | 100           | 92  |
+| Profile page - details  | Mobile  | 98          | 100            | 100           | 92  |
+| Home page               | Desktop | 97          | 100            | 100           | 97  |
+| About page              | Desktop | 97          | 100            | 100           | 96  |
+| Booking create page     | Desktop | 97          | 100            | 100           | 96  |
+| Menu page               | Desktop | 98          | 100            | 100           | 96  |
+| Contact page            | Desktop | 97          | 100            | 100           | 97  |
+| Reservations page       | Desktop | 98          | 100            | 100           | 96  |
+| Login page              | Desktop | 98          | 100            | 100           | 100 |
+| Register page           | Desktop | 98          | 100            | 100           | 100 |
+| Profile page            | Desktop | 100         | 100            | 92            | 90  |
+| Profile page - bookings | Desktop | 100         | 100            | 92            | 90  |
+| Profile page - details  | Desktop | 100         | 100            | 92            | 90  |
+
+[🔝 Back to Top](#testing-)
