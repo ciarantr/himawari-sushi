@@ -140,7 +140,7 @@ it easy for them to view the menu, make bookings, and contact the restaurant.
 | View booking history    | view my booking history                         | see my previous bookings                | [issue](https://github.com/users/ciaran-io/projects/2?pane=issue&itemId=27354815)                                                | ✅      |
 | Newsletter subscription | sign up to the newsletter                       | I can receive offers                    | [issue](https://github.com/users/ciaran-io/projects/2?pane=issue&itemId=25317838)                                                | ❌      |
 | Booking pagination      | navigate through my bookings                    | it will be easier to find my bookings   | [issue](https://github.com/users/ciaran-io/projects/2?pane=issue&itemId=26379450)                                                | ❌      |
-| Allow guest bookings    | create a booking without registering an account | it would be easier to make a booking    | [issue](https://github.com/users/ciaran-io/projects/2?pane=issue&itemId=26379610)                                                | ❌      |                                                                                                                    
+| Allow guest bookings    | create a booking without registering an account | it would be easier to make a booking    | [issue](https://github.com/users/ciaran-io/projects/2?pane=issue&itemId=26379610)                                                | ❌      |
 
 ### Site Admin
 
@@ -149,3 +149,56 @@ it easy for them to view the menu, make bookings, and contact the restaurant.
 | Manage bookings                                        | manage customer bookings                               | add, edit or remove customer bookings          | [issue](https://github.com/users/ciaran-io/projects/2?pane=issue&itemId=25317858) | ✅      |
 | Manage customers                                       | manage customer details                                | add, edit or remove customers                  | [issue](https://github.com/users/ciaran-io/projects/2?pane=issue&itemId=25317890) | ✅      |
 | Email customer with booking creation / changes details | I can notify my customers in relation to their booking | the customer receives updates on their booking | [issue](https://github.com/users/ciaran-io/projects/2?pane=issue&itemId=26379452) | ❌      |
+
+## 🧰 Tools & Technologies Used
+
+### Code Validation
+
+- [Pycharm builtin inspection tools](https://www.jetbrains.com/pycharm/) used as the IDE for the project.
+- [W3C Markup Validation Service](https://validator.w3.org) used to validate HTML.
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator) used to validate CSS.
+- [Eslint](https://eslint.org) used to validate JavaScript.
+- [TypeScript eslint](https://typescript-eslint.io/getting-started) used to validate TypeScript.
+- [PEP8](http://pep8online.com) used to validate Python.
+
+### Database
+
+- [SQLite](https://www.sqlite.org/index.html) used as the database for the site during development.
+- [PostgreSQL](https://www.postgresql.org) used as the database for the site.
+
+### Development Tools
+
+- [Git](https://git-scm.com) used for version control.
+- [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) used for testing and debugging.
+- [DrawSQL](https://drawsql.app) used for creating the database schema.
+- [Figma](https://www.figma.com) used for creating high-fidelity mockups.
+- [Polypane](https://polypane.app) used for testing responsiveness.
+- [PyCharm](https://www.jetbrains.com/pycharm/) used as the IDE for development.
+
+### Frameworks & Libraries
+
+- [Django](https://www.djangoproject.com) used as the Python framework for the site.
+- [Tailwind CSS](https://tailwindcss.com) used as the CSS framework for the site.
+
+### Hosting
+
+- [Cloudinary](https://cloudinary.com) used for online static file storage.
+- [ElephantSQL](https://www.elephantsql.com) used to host the PostgresSQL database.
+- [Heroku](https://www.heroku.com) used to host the deployed site.
+
+### Languages
+
+- [Python](https://www.python.org) used as the back-end programming language.
+- [JavaScript](https://www.javascript.com) used for user interaction on the site.
+- [TypeScript](https://www.typescriptlang.org) used to add types to JavaScript.
+- [HTML](https://en.wikipedia.org/wiki/HTML) used for the main site content.
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/css) used for the main site design and layout.
+
+### Testing
+
+- [Playwright](https://playwright.dev) used for automated testing.
+
+### Version Control & Code Repository
+
+- [Git](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
+- [GitHub](https://github.com) used for secure online code storage.
