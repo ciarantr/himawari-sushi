@@ -122,6 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ```
 
 [🔝 Back to Top](#testing-)
+
 ## Browser testing
 
 I utilised both manual and automated testing to test the application on various browsers and devices.
