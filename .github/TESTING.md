@@ -260,3 +260,89 @@ The following table shows the coverage for each app.
 | Booking  | ![screenshot](../docs/testing/coverage/report-app-bookings.png) | 86%      |
 | Customer | ![screenshot](../docs/testing/coverage/report-app-customer.png) | 87%      |
 | Home     | ![screenshot](../docs/testing/coverage/report-app-home.png)     | 93%      |
+
+## Defensive Programming
+
+Forms:
+
+> **Important**
+>
+> All forms have validation on the front-end and back-end. The validation rules are set in the model and form classes.
+> The front-end validation uses pattern matching to ensure the user enters the correct data type. The back-end
+> validation will send an error message if the user enters the wrong data type or if nefarious data is entered.
+
+- Contact form
+  - The contact form uses the `required` & `pattern` attribute to ensure the user enters the correct data type.
+  - The user will receive an error message if any of the form fields are incorrect.
+- Login form
+  - The login form uses the `required` & `pattern` attribute to ensure the user enters the correct data type.
+  - The user will receive an error message if the username or password is incorrect.
+- Register form
+  - The register form uses the `required` & `pattern` attribute to ensure the user enters the correct data type.
+  - The user will receive an error message if the username or email is already in use.
+- Booking form
+  - The booking form uses the `required` & `pattern` attribute to ensure the user enters the correct data type.
+  - The booking form already has a booking date and time set. The user can only select a date and time in the future.
+- Profile form
+  - The profile form uses the `required` & `pattern` attribute to ensure the user enters the correct data type.
+  - The user will receive an error message if the username or email is already in use.
+
+Prevent unauthorized access (Django middleware):
+
+- Users profile page
+  - Users cannot access the profile page if they are not logged in. The user will be redirected to the login page.
+
+
+- Users bookings / edit or delete booking
+  - Users cannot edit a booking unless they are the owner of the booking & logged in. The user will be redirected to the
+    home page & receive an error message.
+
+| Page             | User Action                                 | Expected Result                                    | Pass/Fail | Comments              |
+|------------------|---------------------------------------------|----------------------------------------------------|-----------|-----------------------|
+| Home Page        |                                             |                                                    |           |                       |
+|                  | Click on Logo                               | Redirection to Home page                           | Pass      |                       |
+|                  | Click on Book link in navbar                | Redirection to Booking create page                 | Pass      |                       |
+|                  | Click on Menu link in navbar                | Redirection to Menu page                           | Pass      |                       |
+|                  | Click on Login link in navbar               | Redirection to Login page                          | Pass      |                       |
+|                  | Click on Sign up link in navbar             | Redirection to Register page                       | Pass      |                       |
+|                  | Click on Explore more link in About section | Redirection to About page                          | Pass      |                       |
+|                  | Click on Subscribe link after email input   | Redirection to Subscribe success page              | Pass      |                       |
+|                  | Click on About link in footer               | Redirection to About page                          | Pass      |                       |
+|                  | Click on Menu link in footer                | Redirection to Menu page                           | Pass      |                       |
+|                  | Click on Book link in footer                | Redirection to Book page                           | Pass      |                       |
+|                  | Click on Contact us link in footer          | Redirection to Contact us page                     | Pass      |                       |
+|                  | Click on Reservations link in footer        | Redirection to Reservations page                   | Pass      |                       |
+|                  | Click on Facebook link in footer            | Redirection to Facebook page                       | Pass      |                       |
+|                  | Click on Instagram link in footer           | Redirection to Instagram page                      | Pass      |                       |
+|                  | Click on Twitter link in footer             | Redirection to Twitter page                        | Pass      |                       |
+| Contact Page     |                                             |                                                    |           |                       |
+|                  | Click on Contact link in footer             | Redirection to Contact page                        | Pass      |                       |
+|                  | Enter full name                             | Field will accept freeform text                    | Pass      |                       |
+|                  | Enter valid email address                   | Field will only accept email address format        | Pass      |                       |
+|                  | Enter valid phone number                    | Field will only accept telephone format            | Pass      |                       |
+|                  | Enter message in textarea                   | Field will accept freeform text                    | Pass      |                       |
+|                  | Click the send message button               | Redirects user to contact success page             | Pass      |                       |
+| Sign Up          |                                             |                                                    |           |                       |
+|                  | Click on Sign Up link                       | Redirection to Sign Up page                        | Pass      |                       |
+|                  | Enter valid email user name                 | Field will only accept freeform text               | Pass      |                       |
+|                  | Enter valid email address                   | Field will only accept email address format        | Pass      |                       |
+|                  | Enter valid password (twice)                | Field will only accept password format             | Pass      |                       |
+|                  | Click on Sign Up button                     | User is logged in and redirected to home page      | Pass      |                       |
+| Log In           |                                             |                                                    |           |                       |
+|                  | Click on the Login link                     | Redirection to Login page                          | Pass      |                       |
+|                  | Enter valid email address                   | Field will only accept email address format        | Pass      |                       |
+|                  | Enter valid password                        | Field will only accept password format             | Pass      |                       |
+|                  | Click Login button                          | Redirects user to home page                        | Pass      |                       |
+| Log Out          |                                             |                                                    |           |                       |
+|                  | Click Logout button                         | Redirects user to logout page                      | Pass      | Confirms logout first |
+|                  | Click Confirm Logout button                 | Redirects user to home page                        | Pass      |                       |
+| Profile          |                                             |                                                    |           |                       |
+|                  | Click on Profile button                     | User will be redirected to the Profile page        | Pass      |                       |
+|                  | Click on the View booking                   | User will be redirected to the their bookings page | Pass      |                       |
+| Profile bookings |                                             |                                                    |           |                       |
+|                  | Click on the Edit booking                   | User will be redirected to the edit bookings page  | Pass      |                       |
+|                  | Click on the Delete booking                 | User will be prompted to confirm via a dialog      | Pass      |                       |
+| Profile account  |                                             |                                                    |           |                       |
+|                  | Click on the Update link                    | User will be prompted to confirm via a dialog      | Pass      |                       |
+
+[🔝 Back to Top](#testing-)
