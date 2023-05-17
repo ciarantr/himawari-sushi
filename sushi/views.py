@@ -16,7 +16,7 @@ class Handler404View(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = '(404) Whoops! We Can’t Find That Page'
-        context['message'] = 'The page your looking for could not be found.'
+        context['message'] = 'The page you\'re looking for could not be found.'
         context['status_code'] = '404'
         return context
 
