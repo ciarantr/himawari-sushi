@@ -1,7 +1,8 @@
-# Himawari sushi ![screenshot](../docs/design/figma/logo.svg)
+# Himawari sushi ![screenshot](../docs/design/logo.svg)
 
 Looking for delicious and authentic Japanese food? Look no further than Himawari Sushi! Our restaurant is open Monday
-through Saturday from 1pm to 10pm, and with our convenient app, you can easily make reservations for your next visit.
+through Saturday from 13:00pm - 10:00pm, and with our convenient app, you can easily make reservations for your next
+visit.
 Come experience the taste of authentic Japanese cuisine at Himawari Sushi.
 
 Himawari Sushi, is where authentic Japanese cuisine meets modern convenience. You can view our most popular dishes &
@@ -10,7 +11,115 @@ the best of what Himawari Sushi has to offer.
 
 ![screenshot](../docs/design/mockup.png)
 
-## User Stories 📜
+## 🗾 [View live website](https://himawari-sushi.herokuapp.com/)
+
+## Navigate to the **READMEs**.
+
+Readme files are split into multiple files to make them easier to read and maintain.
+
+- [🎨 View Design documentation](./DESIGN.md#ux--ui-)
+- [🚀 View Deployment documentation](./DEPLOYMENT.md#deployment-)
+- [✨ View Features documentation](./FEATURES.md#features-)
+- [🧪 View Testing documentation](./TESTING.md#testing-)
+
+## Target audience
+
+The target audience for the fictional Japanese sushi restaurant would be individuals who are interested in Japanese
+culture and cuisine. This would include people who are looking for a unique and flavorful dining experience, as well as
+those who have an interest in exploring the rich and diverse world of Japanese cuisine. The restaurant would also appeal
+to food enthusiasts and adventurous eaters who are looking for new and exciting flavors. Additionally, the restaurant
+would be a great choice for individuals who are health-conscious, as Japanese cuisine is often known for its fresh
+ingredients and balanced flavors. Overall, the target audience would be anyone who is looking for an authentic and
+high-quality dining experience that offers traditional Japanese dishes.
+
+## UX brief
+
+By implementing these UX best practices, the website provides a seamless and enjoyable experience for customers, making
+it easy for them to view the menu, make bookings, and contact the restaurant.
+
+- Load time: Optimize the website’s load time to ensure a fast and seamless user experience.
+
+
+- Mobile Responsiveness: The website is optimized for mobile devices, making it easy to navigate on a small screen,
+  with large buttons and clear text.
+
+
+- Accessibility: Ensure that the website is accessible to users with disabilities by following accessibility guidelines
+  such as WCAG 2.1.
+
+
+- Consistency: Maintain a consistent design and layout throughout the website to help users easily understand and
+  navigate the content.
+
+
+- Feedback: Provide clear feedback to users when they interact with the website, such as showing loading indicators or
+  success messages.
+
+
+- Error handling: Handle errors gracefully and provide helpful error messages to users when something goes wrong.
+
+
+- Clarity: Ensure that the website’s content is clear and easy to understand, with concise and informative copy.
+
+
+- Call to action: Include clear and prominent calls to action throughout the website to encourage users to take specific
+  actions, such as signing up for a newsletter or making a purchase.
+
+
+- Visual hierarchy: Use visual hierarchy to prioritize important content and guide users’ attention to the most
+  important parts of the website.
+
+<details>
+<summary>Application interface</summary>
+
+- About Us Page: The website includes an About Us page, providing information about the restaurant and its team members.
+  The About Us page is linked to from the navigation menu, and includes members of the restaurant’s team, as well as a
+  brief history.
+
+
+- Clear Navigation: The website features a clear and intuitive navigation menu that is prominently displayed, allowing
+  customers to easily find the information they need. The menu is easy to navigate, with clear categories and
+  descriptions of each dish.
+
+
+- High-Quality Images: High-quality images of the dishes and the restaurant are used throughout the website to give
+  customers a sense of what to expect. For example, images of the sushi rolls and other dishes are displayed on the
+  menu page, and images of the restaurant’s interior and exterior are displayed on the homepage.
+
+
+- Online Booking: An easy-to-use online booking system is available on the website, allowing customers to reserve a
+  table at the restaurant. The booking form is prominently displayed on the homepage, with clear instructions and
+  an easy-to-use interface.
+
+
+- Contact Information: The website clearly displays the restaurant’s contact information, including the address,
+  phone number, and email address. The contact information is displayed in the footer of every page on the website,
+  making it easy for customers to get in touch with the restaurant.
+
+
+- FAQ Page: A Frequently Asked Questions (FAQ) page is available on the website, helping customers find answers to
+  common questions about the restaurant. The FAQ page is linked to from the navigation menu, and includes a search bar
+  to help customers find the information they need quickly.
+
+
+- Menu Page: The menu page is well-designed, making it easy for customers to browse the restaurant’s offerings. The
+  menu is divided into sections, such as appetizers, sushi rolls, and desserts. Each dish includes a clear description
+  and a high-quality image. Additionally, the menu page includes filters to help customers find dishes
+  that meet their dietary preferences, such as vegetarian or gluten-free options.
+
+
+- Newsletter Subscription: The website includes a newsletter subscription form, allowing customers to sign up for
+  the restaurant’s newsletter. The newsletter subscription form is prominently displayed on the homepage, with clear
+  instructions and an easy-to-use interface.
+
+
+- Social Media Integration: The website includes links to the restaurant’s social media accounts, allowing customers
+  to follow the restaurant on Facebook, Twitter, and Instagram. The social media links are prominently displayed on
+  the homepage, making it easy for customers to find them.
+
+</details>
+
+## 📜 User Stories****
 
 ### New Site Users
 
