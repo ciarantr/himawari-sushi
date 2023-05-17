@@ -265,3 +265,25 @@ Using this approach, I was able to apply the MoSCow prioritization and labels to
 - **Should Have**: adds significant value, but not vital (*the rest ~20% of stories*)
 - **Could Have**: has small impact if left out (*20% of stories*)
 - **Won't Have**: not a priority for this iteration
+
+## 💌 Credits
+
+[Techsini mockup](https://techsini.com/multi-mockup/index.php) used for the README.md mockup.
+
+### Content
+
+- [Yosushi](https://yosushicom/menu/) for food descriptions used in the home page.
+
+### Media
+
+- [Unsplash](https://unsplash.com) used for team members in the about page.
+- [Yosushi](https://yosushicom/menu/) for food images used in the home page.
+- [Icons](https://icones.js.org/collection/all) for icons used in the site.
+
+## Acknowledgements
+
+- [Tim Nelson](https://github.com/TravelTimN) I would like to thank my Code Institute mentor, for his support throughout
+  the development of this project.
+- [MrBin99](https://github.com/MrBin99/django-vite) To enable Vite usage with the Django framework.
+
+🔝 [Back to Top](#himawari-sushi-)
