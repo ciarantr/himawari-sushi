@@ -342,3 +342,60 @@ class LoginMiddleware:
 ```
 
 [🔝 Back to Top](#features-)
+
+## 🔮Future features:
+
+- **Allow guest booking**
+  - Currently, only authenticated users can make a booking.
+  - This feature would be implemented by adding a guest booking form to the booking page, which would allow users to
+    make a booking without having to register an account.
+
+    
+- **Add navigation back to profile page when editing a booking**
+  - Currently, when a user is editing a booking, there is no way to quickly navigate back to the profile page if the user
+    does not want to make changes.
+  - This feature would be implemented by adding a back button to the edit booking page, which would navigate the user
+    back to the profile page.
+
+
+- **Complete subscription integration**
+  - Currently, when a user subscribes to the newsletter, their email address is not added to the database, and they do
+    not receive a confirmation email.
+  - Possible solution:
+    - Add a newsletter subscription form to the footer of the website.
+    - When a user subscribes to the newsletter, their email address is added to the database.
+    - When a user subscribes to the newsletter, they receive a confirmation email.
+    - When a user unsubscribes from the newsletter, their email address is removed from the database.
+    - When a user unsubscribes from the newsletter, they receive a confirmation email.
+    - Use the Mailchimp API to manage the newsletter subscription list.
+
+    
+- **Email confirmation for bookings & booking changes**
+  - Currently, when a user makes a booking or changes a booking, there is no email confirmation sent to the user.
+  - This feature would be implemented by adding a send email function to the booking views.py file, which would email
+    the user when a booking is made or changed.
+
+
+- **Email confirmation for account registration**
+  - Currently, when a user registers an account, there is no email confirmation sent to the user.
+  - This feature would be implemented by adding a send email function to the registration views.py file, which would
+    email the user when an account is registered.
+  - Also provide additional security by requiring the user to confirm their email address before they can log in.
+
+
+- **Reset password**
+  - Currently, there is no way for users to reset their password if they forget it.
+  - This feature would be implemented by adding a reset password form to the login page, which would allow users to
+    reset their password if they forget it.
+
+
+- **Sort / filter bookings**
+  - The ability to sort bookings by date would be a great feature to add to the profile page.
+  - This would allow users to easily find bookings by date, which would be useful for users who have a lot of bookings.
+  - This feature would be implemented by adding a filter form to the profile page, which would allow sort bookings by:
+    - Past bookings
+    - Upcoming bookings
+    - All bookings
+    - Bookings by date
+
+🔝 [Back to Top](#features-)
