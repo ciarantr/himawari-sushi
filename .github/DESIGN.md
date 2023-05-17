@@ -48,3 +48,44 @@ everywhere in the CSS file.
 ```
 
 🔝 [Back to Top](#ux--ui-)
+
+## Typography
+
+I refrained from using any custom fonts for this project, opting instead for the default fonts provided by the browser.
+I deemed these fonts to be the most suitable for the project.
+
+🔝 [Back to Top](#ux--ui-)
+
+## Icons
+
+I've used the [icons.js library](https://icones.js.org) to find suitable icons for my project. I've used the following
+icons:
+
+> **Note**
+>
+> The logo icon is no longer available, a suitable link is below and the original is available in
+> the `docs/design/logo.svg`
+> folder. The link below is a similar icon.
+
+create a table like below: (use the table generator)
+
+| Name                | Image                                                                                                    | URI                                                                          |
+|---------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| Logo                | ![logo](https://api.iconify.design/ic:sharp-ramen-dining.svg?color=%23FF9C24)                            | https://api.iconify.design/ic:sharp-ramen-dining.svg                         |
+| Explore more        | ![explore more](https://api.iconify.design/mdi:arrow-right-bold-hexagon-outline.svg?color=%23FF9C24)     | https://api.iconify.design/mdi:arrow-right-bold-hexagon-outline.svg          |
+| Book now            | ![book now](https://api.iconify.design/material-symbols:arrow-right-alt-rounded.svg?color=%23FF9C24)     | https://api.iconify.design/material-symbols:arrow-right-alt-rounded.svg      |
+| Subscribe           | ![Subscribe](https://api.iconify.design/ion:paper-plane.svg?color=%23FF9C24)                             | https://api.iconify.design/ion:paper-plane.svg                               |
+| Facebook            | ![facebook](https://api.iconify.design/ri:facebook-fill.svg?color=%23FF9C24)                             | https://api.iconify.design/ri:facebook-fill.svg                              |
+| Instagram           | ![instagram](https://api.iconify.design/mdi:instagram.svg?color=%23FF9C24)                               | https://api.iconify.design/mdi:instagram.svg                                 |
+| Twitter             | ![twitter](https://api.iconify.design/mdi:twitter.svg?color=%23FF9C24)                                   | https://api.iconify.design/mdi:twitter.svg                                   |
+| Stripe              | ![Stripe](https://api.iconify.design/logos:stripe.svg)                                                   | https://api.iconify.design/logos:stripe.svg                                  |
+| Visa                | ![visa](https://api.iconify.design/logos:visa.svg)                                                       | https://api.iconify.design/logos:visa.svg                                    |
+| Paypal              | ![paypal](https://api.iconify.design/logos:paypal.svg)                                                   | https://api.iconify.design/logos:paypal.svg                                  |
+| Profile             | ![profile](https://api.iconify.design/material-symbols:account-circle.svg?color=%23FF9C24)               | https://api.iconify.design/material-symbols:account-circle.svg               |
+| Arrow down          | ![arrow down](https://api.iconify.design/ic:baseline-keyboard-arrow-down.svg?color=%23FF9C24)            | https://api.iconify.design/ic:baseline-keyboard-arrow-down.svg               |
+| Log out             | ![log out](https://api.iconify.design/ic:twotone-logout.svg?color=%23FF9C24)                             | https://api.iconify.design/ic:twotone-logout.svg                             |
+| Home                | ![home](https://api.iconify.design/clarity:house-solid.svg?color=%23FF9C24)                              | https://api.iconify.design/clarity:house-solid.svg                           |
+| Booking             | ![booking](https://api.iconify.design/material-symbols:collections-bookmark-outline.svg?color=%23FF9C24) | https://api.iconify.design/material-symbols:collections-bookmark-outline.svg |
+| Account information | ![account information](https://api.iconify.design/material-symbols:settings.svg?color=%23FF9C24)         | https://api.iconify.design/material-symbols:settings.svg                     |
+
+🔝[Back To Top](#ux--ui-)
