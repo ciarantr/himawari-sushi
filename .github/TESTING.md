@@ -375,3 +375,13 @@ Prevent unauthorized access (Django middleware):
 |--------------------------------|-------------------------------------|---------------------------|--------|
 | Edit / delete customer booking | remove or make changes to bookings  | make changes where needed | ✅      |
 | Edit / delete customers        | remove or make changes to customers | make changes where needed | ✅      |
+
+## 🐛 Bugs
+
+There are no remaining bugs that I am aware of in the application. Any bugs that were identified during development were fixed.
+
+## Unfixed Bugs (Python package)
+
+- I am using the [django vite](https://pypi.org/project/django-vite/) pip package to integrate vite into my django project. This is a new package and I have found a bug with it. All css has to be imported into the TypeScript file otherwise the css is loaded by a script tag and not a link tag during production, & causes a `500 server error`. The only workaround is to import the css file into a TypeScript or JavaScript file. This is not ideal as it means I have to import all css files rather than using directly in a html file.
+
+[🔝 Back to Top](#testing-)
