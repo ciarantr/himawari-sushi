@@ -248,3 +248,15 @@ for each page on both mobile and desktop devices.
 | Profile page - details  | Desktop | 100         | 100            | 92            | 90  |
 
 [🔝 Back to Top](#testing-)
+## Python coverage
+
+I used [coverage.py](https://coverage.readthedocs.io/en/coverage-5.5/) package to test the python code coverage. I used the CLI to run the tests and generate the report. All results are in the [coverage folder](../tests/htmlcov)
+
+The following table shows the coverage for each app.
+
+| App      | Screen Shot                                                     | Coverage |
+|----------|-----------------------------------------------------------------|----------|
+| Accounts | ![screenshot](../docs/testing/coverage/report-app-home.png)     | 93%      |
+| Booking  | ![screenshot](../docs/testing/coverage/report-app-bookings.png) | 86%      |
+| Customer | ![screenshot](../docs/testing/coverage/report-app-customer.png) | 87%      |
+| Home     | ![screenshot](../docs/testing/coverage/report-app-home.png)     | 93%      |
