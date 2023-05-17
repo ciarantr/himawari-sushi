@@ -79,3 +79,46 @@ Pycharm generated report:
 | File                      | Screenshot                                                             | Notes                                                    |                                                    
 |---------------------------|------------------------------------------------------------------------|----------------------------------------------------------|
 | Pycharm inspection report | ![screenshot](../docs/testing/jetbrains/javascript/pycharm-report.png) | Eslint redundant double negation (no-extra-boolean-cast) |
+
+### Python
+
+I have used the
+recommended [PyCharm quality Assistance](https://www.jetbrains.com/help/pycharm/tutorial-code-quality-assistance-tips-and-tricks.html)
+with built-in pep8 support to validate all of my Python files. This provides both instant analyses of the code along
+with ability to generate a report. All python files were validated using pycharm inspection tools with the exceptions of
+the following files:
+
+- `All files located in migrations directories`
+- `__init__.py`
+
+| File                      | Screenshot                                                      | Notes     |
+|---------------------------|-----------------------------------------------------------------|-----------|
+| pycharm inspection report | ![screenshot](../docs/testing/jetbrains/python/pep8-report.png) | No errors |
+
+> **IMPORTANT**: Django settings.py
+>
+> The Django settings.py has been configured to ignore the following errors:
+> - `E501 line too long (82 > 79 characters)`
+
+`noqa` = **NO Quality Assurance**
+
+Example:
+
+```python
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",  # noqa
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",  # noqa
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",  # noqa
+    },
+]
+```
+
+[🔝 Back to Top](#testing-)
