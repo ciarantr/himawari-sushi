@@ -1,4 +1,5 @@
 from playwright.sync_api import Page, expect
+from random import randint
 
 # URLs
 user_details_url = 'profile/dashboard/my-details/'
@@ -6,7 +7,8 @@ login_url = 'login/'
 home_page = 'http://127.0.0.1:8000/'
 
 # User credentials
-username = 'testuser'
+username = 'testuser1'
+new_username = username + str(randint(0, 100))
 first_name = 'fname'
 last_name = 'lname'
 email = 'user@gmail.com'
@@ -33,7 +35,7 @@ def input_new_details(page):
     """
     Input new details into user details form
     """
-    page.fill('input[name="username"]', username + '1')
+    page.fill('input[name="username"]', new_username)
     page.fill('input[name="first_name"]', first_name)
     page.fill('input[name="last_name"]', last_name)
     page.fill('input[name="email"]', email)
@@ -50,7 +52,8 @@ def validate_dialog_details(page):
     # expect(username_text).to_have_text('Username:' + "\n" + username + '1')
 
     username_text = dialog_information.locator('div').nth(1)
-    expect(username_text).to_have_text('Username:' + "\n" + username + '1')
+    expect(username_text).to_have_text(
+        'Username:' + "\n" + new_username)
 
     first_name_text = dialog_information.locator('div').nth(2)
     expect(first_name_text).to_have_text('First name:' + "\n" + first_name)
@@ -75,7 +78,7 @@ def validate_details_updated(page: Page):
     form = page.locator('form[id="customer-form"]')
     # validate username
     username_input = form.locator('input[name="username"]')
-    expect(username_input).to_have_value(username + '1')
+    expect(username_input).to_have_value(new_username)
 
     # validate first name
     first_name_input = form.locator('input[name="first_name"]')
