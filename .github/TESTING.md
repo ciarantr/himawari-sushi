@@ -248,6 +248,7 @@ for each page on both mobile and desktop devices.
 | Profile page - details  | Desktop | 100         | 100            | 92            | 90  |
 
 [🔝 Back to Top](#testing-)
+
 ## Python coverage
 
 I used [coverage.py](https://coverage.readthedocs.io/en/coverage-5.5/) package to test the python code coverage. I used the CLI to run the tests and generate the report. All results are in the [coverage folder](../tests/htmlcov)
@@ -346,3 +347,31 @@ Prevent unauthorized access (Django middleware):
 |                  | Click on the Update link                    | User will be prompted to confirm via a dialog      | Pass      |                       |
 
 [🔝 Back to Top](#testing-)
+
+## User Story Testing
+
+### New Site Users
+
+| User Story           | As a new site user, I would like to...                                    | So that I can...                         | status |
+|----------------------|---------------------------------------------------------------------------|------------------------------------------|--------|
+| Account registration | receive feedback if there is a problem registering                        | Sign up successfully                     | ✅      |
+| Contact form         | receive feedback if there is a problem with submitting a contact form     | Confirm my message has sent successfully | ✅      |
+| Subscribe            | receive feedback if there is a problem with submitting a subscribing form | Confirm my  subscript                    | ✅      |
+
+### Returning Site Users
+
+| User Story                 | As a returning site user, I would like to...                  | So that I can...                 | status |
+|----------------------------|---------------------------------------------------------------|----------------------------------|--------|
+| Account login              | receive feedback if there is a problem logging in             | Insure I Logged in successfully  | ✅      |
+| Account logout             | receive feedback if there is a problem logging out            | Insure I Logged out successfully | ✅      |
+| Account information update | receive feedback if my account information updated            | Insure my information is correct | ✅      |
+| Booking creation           | receive feedback if there is a problem creating a new booking | Successfully make a booking      | ✅      |
+| Booking editing            | receive feedback if there is a problem editing a booking      | Successfully edit a booking      | ✅      |
+| Booking deletion           | receive feedback if there is a problem deleting a booking     | Successfully delete a booking    | ✅      |
+
+### Site Admin
+
+| User Story                     | As a site admin, I would like to... | So that I can...          | status |
+|--------------------------------|-------------------------------------|---------------------------|--------|
+| Edit / delete customer booking | remove or make changes to bookings  | make changes where needed | ✅      |
+| Edit / delete customers        | remove or make changes to customers | make changes where needed | ✅      |
