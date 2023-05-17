@@ -202,3 +202,31 @@ it easy for them to view the menu, make bookings, and contact the restaurant.
 
 - [Git](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
 - [GitHub](https://github.com) used for secure online code storage.
+
+## Database Design
+
+The database schema was created using [DrawSQL](https://drawsql.app)
+
+![screenshot](../docs/design/db-models-design.png)
+
+### Database Models
+
+- Table: **Booking**
+
+| **PK** | **id** (unique)   | Type                  | Notes                    |
+|--------|-------------------|-----------------------|--------------------------|
+| **FK** | customer          | ForeignKey            | FK to **Customer** model |
+|        | booking_id        | PrimaryKey            | uuid, editable false     |
+|        | booking_confirmed | Boolean               |                          |
+|        | booking_date      | DateField             |                          |
+|        | booking_time      | DateTimeField         |                          |
+|        | created_on        | DateTimeField         |                          |
+|        | message           | TextField             | max_len=500, blank=True  |
+|        | placements        | PositiveSmallIntField | default=1                |
+
+- Table: **Customer**
+
+| **PK** | **id** (unique) | Type       | Notes                  |
+|--------|-----------------|------------|------------------------|
+| **FK** | customer        | PrimaryKey | PK to **User** model   |
+|        | phone_number    | CharField  | max_len=20, blank=true |
