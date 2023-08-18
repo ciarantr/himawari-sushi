@@ -15,6 +15,7 @@ from pathlib import Path
 
 if os.path.isfile('env.py'):
     pass
+
 development = os.environ.get('DEVELOPMENT') == 'True'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -110,7 +111,6 @@ if development:
     }
 else:
     import dj_database_url
-
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
