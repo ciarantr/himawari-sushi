@@ -32,7 +32,7 @@ DEBUG = development
 # Application definition
 ALLOWED_HOSTS = [os.environ.get('PRODUCTION_HOSTNAME'), 'localhost',
                  '127.0.0.1']
-CSRF_TRUSTED_ORIGINS = [os.environ.get('PRODUCTION_HOSTNAME'), 'localhost']
+CSRF_TRUSTED_ORIGINS = [os.environ.get('PRODUCTION_HOSTNAME')]
 
 if not development:
     # Security additional settings
