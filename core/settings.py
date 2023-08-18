@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 
 if os.path.isfile('env.py'):
-    pass
+    import env
 
 development = os.environ.get('DEVELOPMENT') == 'True'
 
