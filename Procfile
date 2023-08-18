@@ -1,1 +1,1 @@
-web: gunicorn sushi.wsgi
+web: gunicorn core.wsgi
