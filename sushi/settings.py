@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
 
 if os.path.isfile('env.py'):
     import env
@@ -30,10 +30,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = development
 
 # Application definition
-if development:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-else:
-    ALLOWED_HOSTS = [os.environ.get('PRODUCTION_HOSTNAME')]
+ALLOWED_HOSTS = [os.environ.get('PRODUCTION_HOSTNAME'), 'localhost',
+                 '127.0.0.1']
+
+if not development:
     # Security additional settings
     SECURE_BROWSER_XSS_FILTER = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
