@@ -13,10 +13,12 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
-if os.path.isfile('env.py'):
-    import env
+# Load environment variables
+from dotenv import load_dotenv
 
-development = os.environ.get('DEVELOPMENT') == 'True'
+load_dotenv()
+
+development = os.environ.get('DEVELOPMENT')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = development
+DEBUG = False if development else True
 
 # Application definition
 ALLOWED_HOSTS = [os.environ.get('PRODUCTION_HOSTNAME'), 'localhost',
@@ -36,15 +38,14 @@ ALLOWED_HOSTS = [os.environ.get('PRODUCTION_HOSTNAME'), 'localhost',
 
 if not development:
     # Security additional settings
-    # SECURE_BROWSER_XSS_FILTER = True
-    # SECURE_CONTENT_TYPE_NOSNIFF = True
-    # SECURE_SSL_REDIRECT = True
-    # SESSION_COOKIE_SECURE = True
-    # CSRF_COOKIE_SECURE = True
-    # SECURE_HSTS_SECONDS = 3600
-    # SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    # SECURE_HSTS_PRELOAD = True
-    # SECURE_REFERRER_POLICY = 'same-origin'
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 3600
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_REFERRER_POLICY = 'same-origin'
     CSRF_TRUSTED_ORIGINS = ['https://' + os.environ.get('PRODUCTION_HOSTNAME')]
 
 LOGIN_URL = '/login/'
