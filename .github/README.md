@@ -11,7 +11,7 @@ the best of what Himawari Sushi has to offer.
 
 ![screenshot](../docs/design/mockup.png)
 
-## 🗾 [View live website](https://himawari-sushi.herokuapp.com/)
+## 🗾 [View live website](https://sushi.up.railway.app)
 
 ## Navigate to the **READMEs**.
 
