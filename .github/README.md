@@ -1,13 +1,12 @@
-# Himawari sushi ![screenshot](../docs/design/logo.svg)
+# Himawari sushi ![screenshot](../docs/design/logo.svg) A Synthesis of Tradition and Futuristic Tech, Wrapped in a Full-Stack Django App.
 
-Looking for delicious and authentic Japanese food? Look no further than Himawari Sushi! Our restaurant is open Monday
-through Saturday from 13:00pm - 10:00pm, and with our convenient app, you can easily make reservations for your next
-visit.
-Come experience the taste of authentic Japanese cuisine at Himawari Sushi.
+Immerse yourself in the true essence of Japanese cuisine, wonder at the meticulous artistry of sushi-making, and embark on a gastronomic journey—all within your reach with just a *click*. Welcome to Himawari Sushi, where the past and the future of culinary Japan melt into a present online dining experience like never before!
 
-Himawari Sushi, is where authentic Japanese cuisine meets modern convenience. You can view our most popular dishes &
-sign up for our newsletter for a discount on your next meal. Join us for a culinary journey through Japan and experience
-the best of what Himawari Sushi has to offer.
+Crafted to perfection using innovative tech-stack blending Django with Vite.js, complemented by a crisp and responsive UI with Tailwind CSS, our app serves you a diverse array of mouth-watering sushi recipes from the land of the rising sun—right on your screen. Now, enjoy entrancing food landscapes, claim our app-only exclusive offers and take your love for sushi to remarkable heights. All these goodies hosted in the cloud using AWS for static deployment and Heroku for app hosting, providing a seamless and enjoyable user experience.
+
+Searching for sublime and authentic Japanese flavors? Lay your chopsticks to rest at Himawari Sushi! Operating from Monday to Saturday, 13:00pm - 10:00pm, we math your convenience with our culinary prowess. With our user-centric app, make reservations on-the-fly and ensure your spot at the table for an unforgettable sushi fête in no time.
+
+Brace yourself for a unique union of time-honored Japanese culinary traditions with a dash of contemporary flair, where sushi is more than just a dish—it's an experience. Get mesmerized by our popular dish lineup and be sure to sign up for our newsletter for a discount on your next digital dine-out. We invite you to embark on a journey through Japan's exquisite culinary landscape, right here at Himawari Sushi. Happy dining! 🥢
 
 ![screenshot](../docs/design/mockup.png)
 
